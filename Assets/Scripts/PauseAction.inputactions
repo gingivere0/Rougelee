@@ -1,0 +1,34 @@
+{
+    "name": "PauseAction",
+    "maps": [
+        {
+            "name": "Pause",
+            "id": "be81340b-d9f3-4920-a748-77d448a7423e",
+            "actions": [
+                {
+                    "name": "PauseGame",
+                    "type": "Button",
+                    "id": "ad83f223-28bf-49ab-9a3e-23abed8616fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e273cb1c-28c4-40d1-996f-8942618be6ac",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
