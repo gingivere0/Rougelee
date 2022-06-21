@@ -63,6 +63,7 @@ namespace Rougelee
 
         public void Exit()
         {
+
             Debug.Log("Quitting");
             Application.Quit();
         }
