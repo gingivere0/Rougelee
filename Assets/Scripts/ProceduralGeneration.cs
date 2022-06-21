@@ -19,7 +19,6 @@ namespace Rougelee
 
         float enemyXSpawn, enemyYSpawn;
 
-        int once = 0;
 
         // Start is called before the first frame update
         void Start()
@@ -30,24 +29,20 @@ namespace Rougelee
             player = GameObject.FindGameObjectWithTag("Player");
             ground1.transform.localScale = new Vector3(1.563623f, 1.563623f, 1f);//scales the image to tessalate
             ground2.transform.localScale = new Vector3(1.563623f, 1.563623f, 1f);
-            Generation();
+            GenerateEnvironment();
         }
 
-        // TODO: GET RID OF THIS IF
         // Update is called once per frame
         void Update()
         {
-            if (once == 0)
-            {
-                generateMooses();
-            }
+            GenerateEnemies();
         }
 
         /*
-         * Generates mooses until there are enemyNum of them. Spawns mooses 
+         * Generates enemies until there are enemyNum of them. Spawns enemies 
          * out of frame on random locations along each edge of the camera.
          */
-        void generateMooses()
+        void GenerateEnemies()
         {
             System.Random rand = new System.Random();
             int quadrant;
@@ -78,7 +73,7 @@ namespace Rougelee
             }
         }
 
-        void Generation()
+        void GenerateEnvironment()
         {
 
             //starting at the negative half the width and negative half the height from the origin, spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
@@ -102,12 +97,15 @@ namespace Rougelee
         void spawnObj(GameObject obj, int x, int y)
         {
             obj = Instantiate(obj, new Vector2(x, y), Quaternion.identity);
-            obj.transform.parent = this.transform;
+            obj.transform.parent = this.transform.GetChild(0);
             
 
             //want to start enemies already looking at the player
             if (obj.tag == "Enemy")
             {
+                obj.transform.parent = this.transform.GetChild(1);
+
+
                 targetPos = player.transform.position;
                 Vector3 vectorToTarget = targetPos - (Vector2)obj.transform.position;
                 float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;

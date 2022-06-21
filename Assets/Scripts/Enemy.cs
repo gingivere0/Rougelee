@@ -15,7 +15,7 @@ namespace Rougelee
 
         GameObject player;
 
-        Vector2 targetPos;
+        protected Vector2 targetPos;
 
         bool canMove;
 
@@ -66,14 +66,27 @@ namespace Rougelee
             targetPos = player.transform.position;
             if (canMove)
             {
-                //gets the vector towards the target, figures out the angle, rotates towards that angle at a speed of 50f;
-                Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
-                float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
-                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
 
-                transform.position = Vector2.MoveTowards(transform.position, targetPos, movespeed);
+                FacePlayer();
+                Move();
+                
+
             }
+        }
+
+        protected virtual void Move()
+        {
+
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, movespeed);
+        }
+
+        //gets the vector towards the target, figures out the angle, rotates towards that angle at a speed of 10000f;
+        protected virtual void FacePlayer()
+        {
+            Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
+            float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
         }
 
 
