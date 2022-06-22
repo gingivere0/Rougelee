@@ -14,6 +14,8 @@ namespace Rougelee
         public Animator myAnim;
 
         public int hp = 10;
+        public int kills = 0;
+
 
         Gun[] guns = new Gun[2];
 
@@ -90,8 +92,6 @@ namespace Rougelee
             controls.Gameplay.ShootL.performed += ctx => shootLightning = true;
             controls.Gameplay.ShootL.canceled += ctx => shootLightning = false;
 
-            //pause the game with the start button
-            //controls.Gameplay.Start.performed += ctx => startPressed = !startPressed;
         }
 
 
@@ -133,22 +133,6 @@ namespace Rougelee
         // Update is called once per frame
         void Update()
         {
-
-            //StartCheck();
-            
-
-            /* xInput = Input.GetAxis("Horizontal");
-             yInput = Input.GetAxis("Vertical");
-
-             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-             mousePos.z = 10f;
-
-             if (Input.GetMouseButtonDown(0))
-             {
-                 targetPos = mousePos;
-             }*/
-
-            //transform.position = mousePos;
         }
 
         private void FixedUpdate()
@@ -162,14 +146,8 @@ namespace Rougelee
             
             Shoot();
 
-            /* xInput = Input.GetAxis("Horizontal");
-             yInput = Input.GetAxis("Vertical");
-
-             transform.Translate(xInput*movespeed, yInput*movespeed, 0);
-
-             //ClickToMove();*/
-            //FlipPlayer();
         }
+
 
         public void FaceCrosshair()
         {
@@ -180,8 +158,6 @@ namespace Rougelee
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             sp.transform.rotation = Quaternion.RotateTowards(sp.transform.rotation, q, 1000f);
-
-
         }
 
         public void MoveCrosshair()
@@ -190,63 +166,6 @@ namespace Rougelee
             aim.x *= 2f;
             aim.y *= 2f;
             crosshair.transform.localPosition = aim;
-        }
-
-        void ClickToMove()
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, movespeed);
-
-        }
-
-        void PlatformerMove()
-        {
-
-        }
-
-        void StartCheck()
-        {
-            if (startPressed)
-            {
-                Pause();
-            }
-            else
-            {
-                Unpause();
-            }
-        }
-
-        public void Pause()
-        {
-            Time.timeScale = 0;
-            startMenu.SetActive(true);
-        }
-
-        public void Unpause()
-        {
-            Time.timeScale = 1;
-            startMenu.SetActive(false);
-        }
-
-        void FlipPlayer()
-        {
-
-            //rb.velocity = new Vector2(movespeed * move.x, rb.velocity.y);
-            if (move.x < 0f)
-            {
-                sp.flipX = true;
-            }
-            else
-            {
-                sp.flipX = false;
-            }
-            if (move.y < 0f)
-            {
-                sp.flipY = true;
-            }
-            else
-            {
-                sp.flipY = false;
-            }
         }
 
         void OnCollisionEnter2D(Collision2D col)

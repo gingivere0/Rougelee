@@ -9,11 +9,9 @@ namespace Rougelee
 
         public float hp = 10;
         public float movespeed;
-
         public Animator myAnim;
 
-
-        GameObject player;
+        GameObject playerObject;
 
         protected Vector2 targetPos;
 
@@ -27,6 +25,7 @@ namespace Rougelee
         float invulnStartTime;
         //string lasthit = "";
         ShotProjectile lasthit;
+        bool killCounted = false;
 
 
         // Start is called before the first frame update
@@ -34,7 +33,7 @@ namespace Rougelee
         {
 
             myID = gameObject.transform.GetInstanceID();
-            player = GameObject.FindGameObjectWithTag("Player");
+            playerObject = GameObject.FindGameObjectWithTag("Player");
             myAnim = GetComponent<Animator>();
             canMove = true;
 
@@ -44,19 +43,7 @@ namespace Rougelee
         void Update()
         {
             //if enemy gets too far away, kill it and spawn another
-            if (Vector3.Distance(player.transform.position, transform.position) > 15)
-            {
-                Destroy(gameObject);
-            }
-            if (hp <= 0)
-            {
-                Dead();
-            }
-            if (invuln && (Time.time-invulnStartTime)>=.5f)
-            {
-                invuln = false;
-                gameObject.layer = 6;
-            }
+            
 
         }
 
@@ -64,14 +51,24 @@ namespace Rougelee
         {
             /*xInput = Input.GetAxis("Horizontal");
             yInput = Input.GetAxis("Vertical");*/
-            targetPos = player.transform.position;
+            if (Vector3.Distance(playerObject.transform.position, transform.position) > 15)
+            {
+                Destroy(gameObject);
+            }
+            if (hp <= 0)
+            {
+                Dead();
+            }
+            if (invuln && (Time.time - invulnStartTime) >= .5f)
+            {
+                invuln = false;
+                gameObject.layer = 6;
+            }
+            targetPos = playerObject.transform.position;
             if (canMove)
             {
-
                 FacePlayer();
                 Move();
-                
-
             }
         }
 
@@ -94,7 +91,6 @@ namespace Rougelee
 
         public float Hit(ShotProjectile projectile)
         {
-
             if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit.GetType().Name))))
             {
                 hp -= projectile.damage;
@@ -109,8 +105,15 @@ namespace Rougelee
 
         public void Dead()
         {
+            if (!killCounted)
+            {
+                UIManager.kills++;
+                killCounted = true;
+            }
+
             gameObject.layer = 9;
             movespeed = 0;
+            canMove = false;
             targetPos = transform.position;
             myAnim.Play("splatter");
             //transform.Rotate(0, 0, 270);
