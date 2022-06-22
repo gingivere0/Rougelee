@@ -383,6 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559684457}
+  - component: {fileID: 559684458}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -405,6 +406,28 @@ Transform:
   m_Father: {fileID: 1179015576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559684458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559684456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2da9f622a93274e9b9e94164d9ef2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonFloor:
+  - {fileID: 892382219703576668, guid: 300fdbd45171071498322e032a25d551, type: 3}
+  - {fileID: 4982521957340492656, guid: a329f6a7ee29fa64f9b13824b04649bd, type: 3}
+  forestFloor:
+  - {fileID: 9171897986998822314, guid: 40610c3af7d2a3341ac5ebca0c57e025, type: 3}
+  - {fileID: 274170317216411370, guid: b239638493b3cc64cb88af37a8a6b9b1, type: 3}
+  - {fileID: 8321509262527410135, guid: a92879d988bca1540ae751a68ccf0c98, type: 3}
+  - {fileID: 3268683800019348104, guid: 80a2f25ff9ee16146a982e8662a274aa, type: 3}
+  - {fileID: 2566590374303901103, guid: 478b87a096779d74ebb2a73830b818c1, type: 3}
+  - {fileID: 3009967474270117194, guid: 8ada09a05831d3949b9e354ed57a0bdb, type: 3}
 --- !u!1 &797393223
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,11 +687,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 100
   height: 100
-  ground1: {fileID: 892382219703576668, guid: 300fdbd45171071498322e032a25d551, type: 3}
-  ground2: {fileID: 4982521957340492656, guid: a329f6a7ee29fa64f9b13824b04649bd, type: 3}
+  biomes: {fileID: 559684458}
   enemyList:
   - {fileID: 7258136835769180084, guid: 4e5ff4db37197564da2e7f2fcd8dc1f4, type: 3}
   - {fileID: 1103746478921027550, guid: 3a0a5e3efdb3b4622bc7d9bcd60f72dc, type: 3}
+  level: 1
 --- !u!1 &1188006007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08899f2cb47d6ef46a895e40be0811ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 58
+  timeValue: 0
   timeText: {fileID: 1961670011}
   killsText: {fileID: 1706754148}
 --- !u!1 &1520219698
@@ -1377,8 +1400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -736, y: 199}
-  m_SizeDelta: {x: 1472, y: 398}
+  m_AnchoredPosition: {x: -736, y: 230.50002}
+  m_SizeDelta: {x: 1472, y: 461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644929213
 MonoBehaviour:
@@ -1451,10 +1474,10 @@ RectTransform:
   m_Father: {fileID: 1501261266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 630, y: 196}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 570.44226, y: 264.27893}
+  m_SizeDelta: {x: 197.1155, y: 51.4422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706754148
 MonoBehaviour:
@@ -1727,8 +1750,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 674.3, y: -128.2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 603.08813, y: -147.99998}
+  m_SizeDelta: {x: 168.856, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961670011
 MonoBehaviour:
@@ -1785,7 +1808,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1813,7 +1836,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.022094727, y: 0, z: 91.26489, w: 7.047043}
+  m_margin: {x: 26.24878, y: 0, z: 12.585205, w: 7.047043}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

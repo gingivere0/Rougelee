@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Modifier.cs" />
     <Compile Include="Assets\CameraControl.cs" />
     <Compile Include="Assets\Scripts\ShotProjectile.cs" />
+    <Compile Include="Assets\Scripts\Biomes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

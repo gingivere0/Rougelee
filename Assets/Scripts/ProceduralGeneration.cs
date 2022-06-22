@@ -9,9 +9,10 @@ namespace Rougelee
     {
 
         public int width, height;
-        public GameObject ground1, ground2;
+        public Biomes biomes;
 
         public GameObject[] enemyList;
+        public int level;
 
 
         GameObject player;
@@ -27,9 +28,14 @@ namespace Rougelee
             enemyXSpawn = cam.orthographicSize * cam.aspect + 1;
             enemyYSpawn = cam.orthographicSize + 1;
             player = GameObject.FindGameObjectWithTag("Player");
-            ground1.transform.localScale = new Vector3(1.563623f, 1.563623f, 1f);//scales the image to tessalate
-            ground2.transform.localScale = new Vector3(1.563623f, 1.563623f, 1f);
-            GenerateEnvironment();
+            if (level == 0)
+            {
+                GenerateDungeon();
+            }
+            else
+            {
+                GenerateForest();
+            }
         }
 
         // Update is called once per frame
@@ -72,7 +78,7 @@ namespace Rougelee
             }
         }
 
-        void GenerateEnvironment()
+        void GenerateDungeon()
         {
 
             //starting at the negative half the width and negative half the height from the origin, spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
@@ -82,15 +88,36 @@ namespace Rougelee
                 {
                     if (x % 10 == 0 || y % 10 == 0)
                     {
-                        spawnObj(ground2, x, y);
+                        spawnObj(biomes.dungeonFloor[1], x, y);
                     }
                     else
                     {
-                        spawnObj(ground1, x, y);
+                        spawnObj(biomes.dungeonFloor[0], x, y);
                     }
                 }
             }
 
+        }
+
+        void GenerateForest()
+        {
+            System.Random rand = new System.Random();
+            //starting at the negative half the width and negative half the height from the origin, spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
+            for (int x = (int)(-1 * (width / 2)); x < (int)(width / 2); x++)
+            {
+                for (int y = (int)(-1 * (height / 2)); y < (int)(height / 2); y++)
+                {
+                    if ((x % 5 == 0 || y % 5 == 0) && rand.Next(0,3)==0)
+                    {
+                        int randomForesttileIndex = rand.Next(1, biomes.forestFloor.Length);
+                        spawnObj(biomes.forestFloor[randomForesttileIndex], x, y);
+                    }
+                    else
+                    {
+                        spawnObj(biomes.forestFloor[0], x, y);
+                    }
+                }
+            }
         }
 
         void spawnObj(GameObject obj, int x, int y)
