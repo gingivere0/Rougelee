@@ -51,7 +51,6 @@ namespace Rougelee
             for (int numEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; numEnemies < maxEnemies; numEnemies++)
             {
                 int enemyInd = rand.Next(0, enemyList.Length);
-                Debug.Log(enemyList.Length);
                 quadrant = (int)(rand.NextDouble() * 4);
                 if (quadrant == 0)
                 {

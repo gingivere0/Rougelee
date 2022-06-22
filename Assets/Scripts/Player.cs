@@ -31,7 +31,6 @@ namespace Rougelee
         PlayerControls controls;
 
         GameObject crosshair;
-        float timeTilShoot;
         bool startPressed = false;
         GameObject startMenu;
 
@@ -51,7 +50,6 @@ namespace Rougelee
             startMenu.SetActive(false);
         
             controls = new PlayerControls();
-            timeTilShoot = 0;
 
             mods = new Modifier();
 
@@ -101,13 +99,11 @@ namespace Rougelee
         {
             if (shootFire)
             {
-                timeTilShoot = 1;
                 ChangeSprite("witchfire");
                 guns[0].Shoot();
             }
             else if (shootLightning)
             {
-                timeTilShoot = 1;
                 ChangeSprite("witchlightning");
                 guns[1].Shoot();
             }
@@ -163,11 +159,8 @@ namespace Rougelee
 
             MoveCrosshair();
             FaceCrosshair();
-            timeTilShoot -= Time.deltaTime;
-            if (timeTilShoot <= 0)
-            {
-                Shoot();
-            }
+            
+            Shoot();
 
             /* xInput = Input.GetAxis("Horizontal");
              yInput = Input.GetAxis("Vertical");

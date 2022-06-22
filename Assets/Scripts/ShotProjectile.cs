@@ -49,11 +49,11 @@ namespace Rougelee
         // Update is called once per frame
         void Update()
         {
-            /*Vector3 myPos = transform.position;
-            myPos.z = 0;
-            transform.position = myPos;
 
-            transform.Translate(Vector3.forward * Time.deltaTime * movespeed);*/
+        }
+
+        void FixedUpdate()
+        {
             //if bullet gets too far away, it disappears
             if (Vector3.Distance(player.transform.position, transform.position) > 25)
             {
@@ -67,7 +67,6 @@ namespace Rougelee
             if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
             {
                 Enemy enemy = (Enemy)col.gameObject.GetComponent(typeof(Enemy));
-                Debug.Log("enemyID: " + enemy.myID);
                 if (enemy.hp > 0)
                 {
                     _ = enemy.Hit((ShotProjectile)gameObject.GetComponent(typeof(ShotProjectile)));

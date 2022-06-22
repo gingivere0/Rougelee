@@ -976,8 +976,8 @@ MonoBehaviour:
     m_ActionName: Gameplay/ShootL[/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e72ffbbb-633e-4da0-966d-709185771c2b
-    m_ActionName: Gameplay/Start[/XboxOneGampadMacOSWireless/start]
+    m_ActionId: 92c0a039-cd29-4cd8-bae7-c56360767e8a
+    m_ActionName: Gameplay/Start[/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1570,6 +1570,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c4ba246a0846c4487b4af9c408f301, type: 3}
+--- !u!1001 &1729946254074730653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2925830869038784058, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_Name
+      value: splatter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524998951987116398, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b86284f491b67ea49823d21ee76a416a, type: 3}
 --- !u!4 &4661725252854602032 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5694436844938536151, guid: 11c4ba246a0846c4487b4af9c408f301, type: 3}

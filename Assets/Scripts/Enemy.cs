@@ -25,7 +25,8 @@ namespace Rougelee
 
         bool invuln = false;
         float invulnStartTime;
-        string lasthit = "";
+        //string lasthit = "";
+        ShotProjectile lasthit;
 
 
         // Start is called before the first frame update
@@ -93,21 +94,15 @@ namespace Rougelee
 
         public float Hit(ShotProjectile projectile)
         {
-            if (!invuln)
+
+            if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit.GetType().Name))))
             {
                 hp -= projectile.damage;
                 invulnStartTime = Time.time;
                 invuln = true;
                 gameObject.layer = 9;
-                if(projectile is Lightning)
-                {
-                    lasthit = "boltstrike";
-                }
-                else
-                {
-                    lasthit = "fireballhit";
-                }
-                
+
+                lasthit = projectile;
             }
             return hp;
         }
@@ -116,11 +111,8 @@ namespace Rougelee
         {
             gameObject.layer = 9;
             movespeed = 0;
-            if (lasthit.Equals("boltstrike"))
-            {
-                transform.localScale = new Vector3(.1f, .1f, .1f);
-            }
-            myAnim.Play(lasthit);
+            targetPos = transform.position;
+            myAnim.Play("splatter");
             //transform.Rotate(0, 0, 270);
             Destroy(gameObject, .5f);
         }

@@ -16,7 +16,7 @@ public class Modifier
     {
         damageMod = 1;
         sizeMod = 1;
-        bulletMultiplier = 1;
+        bulletMultiplier = 5;
     }
 
     // Update is called once per frame
