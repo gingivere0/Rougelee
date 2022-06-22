@@ -14,6 +14,8 @@ namespace Rougelee
         public GameObject[] enemyList;
         public int level;
 
+        public Transform pfDamagePopup;
+
 
         GameObject player;
         Vector2 targetPos;

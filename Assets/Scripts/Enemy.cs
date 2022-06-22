@@ -94,6 +94,8 @@ namespace Rougelee
             if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit.GetType().Name))))
             {
                 hp -= projectile.damage;
+
+                DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, (int)projectile.damage);
                 invulnStartTime = Time.time;
                 invuln = true;
                 gameObject.layer = 9;
