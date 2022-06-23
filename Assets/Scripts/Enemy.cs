@@ -51,7 +51,7 @@ namespace Rougelee
         {
             /*xInput = Input.GetAxis("Horizontal");
             yInput = Input.GetAxis("Vertical");*/
-            if (Vector3.Distance(playerObject.transform.position, transform.position) > 15)
+            if (Vector3.Distance(playerObject.transform.position, transform.position) > 32)
             {
                 Destroy(gameObject);
             }

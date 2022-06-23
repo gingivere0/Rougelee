@@ -32,8 +32,6 @@ namespace Rougelee
 
         void DisplayKills()
         {
-            //int kills = System.Int32.Parse(killsText.text.Substring(6));
-            Debug.Log("kills: " + kills);
             killsText.text = "Kills: " + kills;
         }
 
