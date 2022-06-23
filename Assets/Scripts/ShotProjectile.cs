@@ -62,7 +62,7 @@ namespace Rougelee
 
         }
 
-        void OnCollisionEnter2D(Collision2D col)
+        void OnTriggerEnter2D(Collider2D col)
         {
             if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
             {
