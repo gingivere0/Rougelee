@@ -11,7 +11,8 @@ namespace Rougelee
         public int width, height;
         public Biomes biomes;
 
-        public GameObject[] enemyList;
+        GameObject[] enemyList;
+        int availableEnemies = 0;
         public int level;
 
 
@@ -36,14 +37,17 @@ namespace Rougelee
             lastPos = new Vector2(0, 0);
             if (level == 0)
             {
+                enemyList = biomes.dungeonEnemy;
                 GenerateDungeon(0,0);
             }
             else if (level == 1)
             {
+                enemyList = biomes.forestEnemy;
                 GenerateForest(0,0);
             }
             else
             {
+                enemyList = biomes.desertEnemy;
                 GenerateDesert(0, 0);
             }
         }
@@ -128,7 +132,7 @@ namespace Rougelee
 
                 for(int i = (-1*height/2)+(int)lastPos.y; i < height / 2 + 1 + (int)lastPos.y; i++)
                 {
-                    int xloc = (int)lastPos.x-width/2-1;
+                    int xloc = (int)lastPos.x-(width/2)-1;
                     int yloc = i;
 
                     pieceName = "land." + xloc + "." + yloc;
@@ -154,7 +158,7 @@ namespace Rougelee
 
                 for (int i = (-1 * height / 2) + (int)lastPos.y; i < height / 2 + 1 + (int)lastPos.y; i++)
                 {
-                    int xloc = (int)lastPos.x + width / 2;
+                    int xloc = (int)lastPos.x + (width / 2);
                     int yloc = i;
 
                     pieceName = "land." + xloc + "." + yloc;
@@ -203,7 +207,8 @@ namespace Rougelee
             targetPos = playerObject.transform.position;
             for (int numEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; numEnemies < maxEnemies; numEnemies++)
             {
-                int enemyInd = rand.Next(0, enemyList.Length);
+                availableEnemies = UIManager.minutes + 1;
+                int enemyInd = rand.Next(0, availableEnemies>enemyList.Length?enemyList.Length:availableEnemies);
                 quadrant = (int)(rand.NextDouble() * 4);
                 if (quadrant == 0)
                 {

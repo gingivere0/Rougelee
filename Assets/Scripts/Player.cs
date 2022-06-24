@@ -29,6 +29,8 @@ namespace Rougelee
         public Modifier mods;
         public GameObject levelup;
 
+        
+
 
         Gun[] guns = new Gun[2];
 
@@ -65,7 +67,6 @@ namespace Rougelee
             levelText.text = "Level " + level;
             levelup.SetActive(false);
 
-            Debug.Log(xpbar);
 
             mods = new Modifier();
 

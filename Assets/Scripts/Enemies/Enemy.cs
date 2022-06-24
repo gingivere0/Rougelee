@@ -92,12 +92,6 @@ namespace Rougelee
 
         public bool Hit(ShotProjectile projectile)
         {
-            if (lasthit != null)
-            {
-
-                Debug.Log(lasthit);
-            }
-            Debug.Log("this proj"+projectile.GetType().Name);
             if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit))))
             {
                 hp -= projectile.damage;

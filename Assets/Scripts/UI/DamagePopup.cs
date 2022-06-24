@@ -42,9 +42,9 @@ namespace Rougelee
             }
 
             textMesh.fontSize *= damageAmount/10;
-            if(textMesh.fontSize < 1)
+            if(textMesh.fontSize < 3)
             {
-                textMesh.fontSize = 1;
+                textMesh.fontSize = 3;
             }
             textColor = textMesh.color;
             disappearTimer = .75f;

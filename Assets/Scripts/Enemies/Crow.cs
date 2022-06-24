@@ -4,15 +4,10 @@ using UnityEngine;
 
 namespace Rougelee
 {
-    public class Fatso : Enemy
+    public class Crow : Enemy
     {
-        void Awake()
-        {
-            base.hp = 20;
-            base.xpdrop = 20;
-        }
 
-        //Fatso sprite is backward, so he turns 270 instead of 90
+        //Crow sprite is backward, so he turns 270 instead of 90
         protected override void FacePlayer()
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;

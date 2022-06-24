@@ -51,7 +51,7 @@ namespace Rougelee
         void FixedUpdate()
         {
             //if bullet gets too far away, it disappears
-            if (Vector3.Distance(player.transform.position, transform.position) > 25)
+            if (Vector3.Distance(player.transform.position, transform.position) > 40)
             {
                 Destroy(gameObject);
             }
@@ -62,6 +62,20 @@ namespace Rougelee
         {
             if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
             {
+                Debug.Log(damage);
+
+                //ShotProjectiles do a random amount +/-10% of base damage
+                System.Random rand = new System.Random();
+                if (rand.Next(0, 2)>0)
+                {
+                    damage += damage* ((float)rand.Next(0, 20)/100f);
+                }
+                else
+                {
+                    damage -= damage*(float)rand.Next(0, 20) / 100f;
+                }
+
+
                 Enemy enemy = (Enemy)col.gameObject.GetComponent(typeof(Enemy));
                 if (enemy.hp > 0)
                 {
@@ -95,35 +109,10 @@ namespace Rougelee
         }
 
         public void Shoot(Vector3 gunDirection)
-        {/*
-            transform.position+=(Vector3.up*i);
-
-            Vector3 angles = transform.eulerAngles;
-            angles.z *= 90 * i;
-            transform.eulerAngles = angles;
-            Debug.Log("After: " + transform.rotation);
-            */
-
-
+        {
             player = GameObject.FindGameObjectWithTag("Player");
             myAnim = GetComponent<Animator>();
-
-            //float rad2deg = 180/(float)System.Math.PI;
-
-            //direction.x = (float)System.Math.Cos(10*rad2deg*bulletNum*direction.x);
-            //direction.y += bulletNum*(float)System.Math.Sin(10*rad2deg*bulletNum);
-            //double angle = System.Math.Atan2(gunDirection.y, gunDirection.x)*rad2deg;
-
-            //Vector2 bulletDirection = new Vector2((float)System.Math.Cos((angle+10*bulletNum) / rad2deg), (float)System.Math.Sin((angle+10*bulletNum) / rad2deg));
-
-
-            //Debug.Log("point: " + gunDirection);
-            //Debug.Log("angle: " + angle);
-            //Debug.Log("Mathtest: " + bulletDirection);
             gunDirection.Normalize();
-
-
-
             gameObject.GetComponent<Rigidbody2D>().velocity = gunDirection * new Vector2(movespeed, movespeed);
         }
     }

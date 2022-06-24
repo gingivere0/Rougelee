@@ -51,12 +51,5 @@ namespace Rougelee
             Time.timeScale = 1;
             treasureObject.SetActive(false);
         }
-
-        public void Exit()
-        {
-
-            Debug.Log("Quitting");
-            Application.Quit();
-        }
     }
 }

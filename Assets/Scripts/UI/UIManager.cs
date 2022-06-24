@@ -12,8 +12,8 @@ namespace Rougelee
         public TMPro.TextMeshProUGUI timeText;
         public TMPro.TextMeshProUGUI killsText;
 
-        int minutes = 0;
-        int seconds = 0;
+        public static int minutes = 0;
+        public static int seconds = 0;
         public static int kills = 0;
 
         // Start is called before the first frame update
