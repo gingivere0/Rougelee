@@ -8,5 +8,6 @@ namespace Rougelee
     {
         public GameObject[] dungeonFloor;
         public GameObject[] forestFloor;
+        public GameObject[] desertFloor;
     }
 }

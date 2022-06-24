@@ -38,9 +38,13 @@ namespace Rougelee
             {
                 GenerateDungeon(0,0);
             }
-            else
+            else if (level == 1)
             {
                 GenerateForest(0,0);
+            }
+            else
+            {
+                GenerateDesert(0, 0);
             }
         }
 
@@ -177,9 +181,13 @@ namespace Rougelee
             {
                 GenerateDungeonTile(x, y);
             }
-            else
+            else if (level == 1)
             {
                 GenerateForestTile(x, y);
+            }
+            else
+            {
+                GenerateDesertTile(x, y);
             }
         }
 
@@ -238,6 +246,32 @@ namespace Rougelee
                 for (int y = (int)(-1 * (height / 2)+starty); y < (int)(height / 2)+starty; y++)
                 {
                     GenerateDungeonTile(x, y);
+                }
+            }
+
+        }
+
+        void GenerateDesertTile(int x, int y)
+        {
+            System.Random rand = new System.Random();
+            int randomDeserttileIndex = rand.Next(0, biomes.desertFloor.Length-1);
+            if(rand.Next(0,40) == 0)
+            {
+                randomDeserttileIndex = 2;
+            }
+            spawnObj(biomes.desertFloor[randomDeserttileIndex], x, y);
+            
+        }
+
+        void GenerateDesert(int startx, int starty)
+        {
+
+            //starting at the negative half the width and negative half the height from the origin, spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
+            for (int x = (int)(-1 * (width / 2) + startx); x < (int)(width / 2) + startx; x++)
+            {
+                for (int y = (int)(-1 * (height / 2) + starty); y < (int)(height / 2) + starty; y++)
+                {
+                    GenerateDesertTile(x, y);
                 }
             }
 

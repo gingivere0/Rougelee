@@ -1176,6 +1176,34 @@ MonoBehaviour:
   - {fileID: 3268683800019348104, guid: 80a2f25ff9ee16146a982e8662a274aa, type: 3}
   - {fileID: 2566590374303901103, guid: 478b87a096779d74ebb2a73830b818c1, type: 3}
   - {fileID: 3009967474270117194, guid: 8ada09a05831d3949b9e354ed57a0bdb, type: 3}
+  desertFloor:
+  - {fileID: 2025308229240342335, guid: 91c90d4e9c0ca4f48a5ce2c9cbef01de, type: 3}
+  - {fileID: 4889745463490850282, guid: 8fba265efebeb7a428fab817fb97278d, type: 3}
+  - {fileID: 306979670553089382, guid: e0c23de9278527a4abcd7e9114f0e08f, type: 3}
+  - {fileID: 6668416920448844655, guid: 0d118f6474e4eb949bc7b4357d8b8c10, type: 3}
+  - {fileID: 1606021007252786529, guid: 308eadf18c5b5aa4393ffbb1ad664dbe, type: 3}
+  - {fileID: 1774583515507079278, guid: 17a873ee85e8b5246addc7c97a1d13d1, type: 3}
+  - {fileID: 6388831036146549176, guid: c5194c9d3a674dc44854d95ec6463d71, type: 3}
+  - {fileID: 2101688489967249806, guid: 3ab5ba33f248f3d4e927a92fd1cf0686, type: 3}
+  - {fileID: 7468502707997067141, guid: f47664f90c07711499da4dacf9a6d998, type: 3}
+  - {fileID: 2182400472476175475, guid: d2f39b71582356f479bca8a8ebfbb2c4, type: 3}
+  - {fileID: 6678758641497056059, guid: 6a3aaaf79487ac24fb37bfdbf225c527, type: 3}
+  - {fileID: 8126820783791846960, guid: 45e0cb853a3c4cb4cbb17b89bbe2dfe4, type: 3}
+  - {fileID: 1360205661480713009, guid: 50a0e655005fe544cbf3a5290a53663d, type: 3}
+  - {fileID: 8693559281386526734, guid: b07c9b796ade04b44a680bfb11a748fc, type: 3}
+  - {fileID: 7374348911583858214, guid: 46e04a2f1393d344899135cf10a82fe9, type: 3}
+  - {fileID: 684164470057396547, guid: a6f1b6c1a3fb3c34893dd4baec347fec, type: 3}
+  - {fileID: 6836491949977088592, guid: 90a55fd5adbb3ca4f92d3add830bdcf3, type: 3}
+  - {fileID: 1180871203096207973, guid: 42f467273511b2e41864e685f3994a05, type: 3}
+  - {fileID: 845869779352871288, guid: 055e0db50cd89244fa3f42e68958dc19, type: 3}
+  - {fileID: 5748071140736960656, guid: 8ef04609d7c5f9747b087e7900ff8506, type: 3}
+  - {fileID: 5812251129953134104, guid: ecd6d22040cc16d4f84cb4ed8ea0402b, type: 3}
+  - {fileID: 6223095083678963319, guid: 66c9afdbcb6baaa49bebbf2b8735698e, type: 3}
+  - {fileID: 3422467701183145527, guid: 0395f0c893786bb4ab0e4874aa767fe4, type: 3}
+  - {fileID: 8427086627191662270, guid: 8c000efb5c0d31840874c9f671e81e5f, type: 3}
+  - {fileID: 7625341378254200586, guid: 9c42419af6ce1184aa3fbe636a27b090, type: 3}
+  - {fileID: 5831557414498731289, guid: b3084ff8d3cbc124ba28ccccbfba8914, type: 3}
+  - {fileID: 7986284421043564642, guid: 83919c8ec5bba484b83f215aea53e5d0, type: 3}
 --- !u!1 &590141038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1885,7 @@ MonoBehaviour:
   enemyList:
   - {fileID: 7258136835769180084, guid: 4e5ff4db37197564da2e7f2fcd8dc1f4, type: 3}
   - {fileID: 1103746478921027550, guid: 3a0a5e3efdb3b4622bc7d9bcd60f72dc, type: 3}
-  level: 1
+  level: 2
 --- !u!1 &1188006007
 GameObject:
   m_ObjectHideFlags: 0
