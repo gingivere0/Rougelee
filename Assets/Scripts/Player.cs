@@ -16,16 +16,27 @@ namespace Rougelee
         public int hp = 10;
         public int kills = 0;
 
+        public float xp = 0;
+        public int level = 1;
+        float nextLevelXP = 100;
+        float nextLevelMult = 1.25f;
+
+        public XPBar xpbar;
+        public TMPro.TextMeshProUGUI levelText;
+        public GameObject startMenu;
+
+
+        public Modifier mods;
+        public GameObject levelup;
+
 
         Gun[] guns = new Gun[2];
 
         Vector2 targetPos;
         Vector2 move;
         Vector2 aim;
-        bool shootFire,shootLightning;
+        bool shootFire, shootLightning;
 
-        public Modifier mods;
-        
         Rigidbody2D rb;
 
         SpriteRenderer sp;
@@ -33,8 +44,8 @@ namespace Rougelee
         PlayerControls controls;
 
         GameObject crosshair;
-        bool startPressed = false;
-        GameObject startMenu;
+
+
 
         enum Projectile
         {
@@ -48,10 +59,13 @@ namespace Rougelee
             rb = GetComponent<Rigidbody2D>();
             sp = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
             myAnim = transform.GetChild(0).gameObject.GetComponent<Animator>();
-            startMenu = GameObject.Find("StartMenu");
-            startMenu.SetActive(false);
-        
             controls = new PlayerControls();
+
+            startMenu.SetActive(false);
+            levelText.text = "Level " + level;
+            levelup.SetActive(false);
+
+            Debug.Log(xpbar);
 
             mods = new Modifier();
 
@@ -133,6 +147,7 @@ namespace Rougelee
         // Update is called once per frame
         void Update()
         {
+
         }
 
         private void FixedUpdate()
@@ -145,6 +160,26 @@ namespace Rougelee
             FaceCrosshair();
             
             Shoot();
+
+            CheckLevel();
+        }
+
+
+        public void CheckLevel()
+        {
+            if (xp > nextLevelXP)
+            {
+                level++;
+                mods.damageMod *= 1.10f;
+                nextLevelXP *= nextLevelMult;
+                xp = 0;
+                Time.timeScale = 0;
+                levelup.SetActive(true);
+                levelup.GetComponent<UnityEngine.UI.Button>().Select();
+                levelText.text = "Level "+level;
+
+            }
+            xpbar.SetXP(xp, nextLevelXP);
 
         }
 

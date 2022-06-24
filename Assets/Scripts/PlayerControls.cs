@@ -107,6 +107,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""APress"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f72b60f-a29c-4f1c-b26d-82acff4acf1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -208,6 +217,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4542d682-d3e9-4139-bcf2-3530099d9107"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""APress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -225,6 +245,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_ShootR = m_Gameplay.FindAction("ShootR", throwIfNotFound: true);
         m_Gameplay_ShootL = m_Gameplay.FindAction("ShootL", throwIfNotFound: true);
         m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
+        m_Gameplay_APress = m_Gameplay.FindAction("APress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +314,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ShootR;
     private readonly InputAction m_Gameplay_ShootL;
     private readonly InputAction m_Gameplay_Start;
+    private readonly InputAction m_Gameplay_APress;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -306,6 +328,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @ShootR => m_Wrapper.m_Gameplay_ShootR;
         public InputAction @ShootL => m_Wrapper.m_Gameplay_ShootL;
         public InputAction @Start => m_Wrapper.m_Gameplay_Start;
+        public InputAction @APress => m_Wrapper.m_Gameplay_APress;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -342,6 +365,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Start.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
+                @APress.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAPress;
+                @APress.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAPress;
+                @APress.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAPress;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +399,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @APress.started += instance.OnAPress;
+                @APress.performed += instance.OnAPress;
+                @APress.canceled += instance.OnAPress;
             }
         }
     }
@@ -388,5 +417,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnShootR(InputAction.CallbackContext context);
         void OnShootL(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnAPress(InputAction.CallbackContext context);
     }
 }
