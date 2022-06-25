@@ -4,33 +4,32 @@ using UnityEngine;
 
 namespace Rougelee
 {
-    public class Eyeball : Enemy
+    public class Worm : Enemy
     {
-
-        bool facingLeft = true;
+        bool facingRight = true;
         Vector2 myScale;
         protected override void FacePlayer()
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
             //Debug.Log(angle);
-            if (angle < 90 && angle > -90 && facingLeft)
+            if (angle < 90 && angle > -90 && !facingRight)
+            {
+                myScale = transform.localScale;
+                myScale.x *= -1 ;
+                transform.localScale = myScale;
+                facingRight = true;
+            }
+            else if ((angle > 90 || angle < -90) && facingRight)
             {
                 myScale = transform.localScale;
                 myScale.x *= -1;
                 transform.localScale = myScale;
-                facingLeft = false;
+                facingRight = false;
             }
-            else if ((angle > 90 || angle < -90) && !facingLeft)
+            if (!facingRight)
             {
-                myScale = transform.localScale;
-                myScale.x *= -1;
-                transform.localScale = myScale;
-                facingLeft = true;
-            }
-            if (facingLeft)
-            {
-                angle += 180;
+                angle -= 180;
             }
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);

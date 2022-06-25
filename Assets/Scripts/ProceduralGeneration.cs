@@ -24,6 +24,8 @@ namespace Rougelee
 
         float enemyXSpawn, enemyYSpawn;
 
+        public static bool spawnBoss;
+
 
 
         // Start is called before the first frame update
@@ -57,6 +59,41 @@ namespace Rougelee
         {
             GenerateEnemies();
             MoveWithPlayer();
+            if (spawnBoss)
+            {
+                SpawnBoss();
+                spawnBoss = false;
+                UIManager.spawned = true;
+            }
+        }
+
+        void SpawnBoss()
+        {
+            if (level == 0)
+            {
+                int bossInd = availableEnemies;
+                if(availableEnemies > biomes.dungeonBoss.Length-1)
+                {
+                    bossInd = biomes.dungeonBoss.Length - 1;
+                }
+                spawnObj(biomes.dungeonBoss[bossInd],(int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
+            } else if (level == 1)
+            {
+                int bossInd = availableEnemies;
+                if (availableEnemies > biomes.forestBoss.Length-1)
+                {
+                    bossInd = biomes.forestBoss.Length - 1;
+                }
+                spawnObj(biomes.forestBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
+            } else if (level == 2)
+            {
+                int bossInd = availableEnemies;
+                if (availableEnemies > biomes.desertBoss.Length-1)
+                {
+                    bossInd = biomes.desertBoss.Length - 1;
+                }
+                spawnObj(biomes.desertBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
+            }
         }
 
 

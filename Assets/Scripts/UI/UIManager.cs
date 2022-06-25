@@ -16,6 +16,8 @@ namespace Rougelee
         public static int seconds = 0;
         public static int kills = 0;
 
+        public static bool spawned = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -28,6 +30,16 @@ namespace Rougelee
             timeValue += Time.deltaTime;
             DisplayTime();
             DisplayKills();
+            CheckForBoss();
+        }
+
+        void CheckForBoss()
+        {
+            if (((int)timeValue) % 60 == 0 && !spawned)
+            {
+                ProceduralGeneration.spawnBoss = true;
+                spawned = false;
+            }
         }
 
         void DisplayKills()

@@ -13,5 +13,9 @@ namespace Rougelee
         public GameObject[] dungeonEnemy;
         public GameObject[] forestEnemy;
         public GameObject[] desertEnemy;
+
+        public GameObject[] dungeonBoss;
+        public GameObject[] forestBoss;
+        public GameObject[] desertBoss;
     }
 }

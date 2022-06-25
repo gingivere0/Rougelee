@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Rougelee
 {
-    public class Eyeball : Enemy
+    public class Minotaur : Enemy
     {
 
         bool facingLeft = true;
@@ -28,9 +28,10 @@ namespace Rougelee
                 transform.localScale = myScale;
                 facingLeft = true;
             }
+            angle = 0;
             if (facingLeft)
             {
-                angle += 180;
+                //angle += 179;
             }
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
@@ -38,8 +39,8 @@ namespace Rougelee
 
         public override void Dead()
         {
-            transform.localScale = new Vector3(.95f, .95f);
             base.Dead();
+            Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
         }
     }
 }

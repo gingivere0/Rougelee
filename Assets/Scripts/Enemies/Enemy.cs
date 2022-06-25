@@ -126,7 +126,7 @@ namespace Rougelee
             targetPos = transform.position;
             myAnim.Play("splatter");
             //transform.Rotate(0, 0, 270);
-            Destroy(gameObject, .5f);
+            Destroy(gameObject, .6f);
         }
     }
 }

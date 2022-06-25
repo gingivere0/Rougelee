@@ -1181,8 +1181,8 @@ MonoBehaviour:
   - {fileID: 1542810093594959182, guid: d565df2c1fe4703468e9e45befc495f7, type: 3}
   - {fileID: 6441290826677802801, guid: 846af800929247943aadc2724f481898, type: 3}
   dungeonEnemy:
-  - {fileID: 1124672126813793649, guid: bccb09d5f7c111544aacb8cfa3703423, type: 3}
   - {fileID: 9019117957555195758, guid: d735eea0d2ee3ab45ac4e009475d76c5, type: 3}
+  - {fileID: 1124672126813793649, guid: bccb09d5f7c111544aacb8cfa3703423, type: 3}
   - {fileID: 6070262274742566396, guid: f08ce0ae643d8a244af36ca793112f85, type: 3}
   - {fileID: 1103746478921027550, guid: 3a0a5e3efdb3b4622bc7d9bcd60f72dc, type: 3}
   forestEnemy:
@@ -1191,8 +1191,15 @@ MonoBehaviour:
   - {fileID: 129678561119749473, guid: 7d8ea416f67545a4084473c2b043b010, type: 3}
   - {fileID: 7258136835769180084, guid: 4e5ff4db37197564da2e7f2fcd8dc1f4, type: 3}
   desertEnemy:
+  - {fileID: 621287675809470507, guid: e35e409959e31434cad3d2f535d55f20, type: 3}
   - {fileID: 6070262274742566396, guid: f08ce0ae643d8a244af36ca793112f85, type: 3}
   - {fileID: 129678561119749473, guid: 7d8ea416f67545a4084473c2b043b010, type: 3}
+  dungeonBoss:
+  - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
+  forestBoss:
+  - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
+  desertBoss:
+  - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
 --- !u!1 &590141038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08899f2cb47d6ef46a895e40be0811ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 0
+  timeValue: 115
   timeText: {fileID: 1961670011}
   killsText: {fileID: 1706754148}
 --- !u!1 &1520219698
