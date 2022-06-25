@@ -106,7 +106,7 @@ namespace Rougelee
             return false;
         }
 
-        public void Dead()
+        public virtual void Dead()
         {
             if (!killCounted)
             {

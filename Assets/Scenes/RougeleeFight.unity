@@ -1181,11 +1181,13 @@ MonoBehaviour:
   - {fileID: 1542810093594959182, guid: d565df2c1fe4703468e9e45befc495f7, type: 3}
   - {fileID: 6441290826677802801, guid: 846af800929247943aadc2724f481898, type: 3}
   dungeonEnemy:
+  - {fileID: 1124672126813793649, guid: bccb09d5f7c111544aacb8cfa3703423, type: 3}
+  - {fileID: 9019117957555195758, guid: d735eea0d2ee3ab45ac4e009475d76c5, type: 3}
   - {fileID: 6070262274742566396, guid: f08ce0ae643d8a244af36ca793112f85, type: 3}
   - {fileID: 1103746478921027550, guid: 3a0a5e3efdb3b4622bc7d9bcd60f72dc, type: 3}
   forestEnemy:
-  - {fileID: 9019117957555195758, guid: d735eea0d2ee3ab45ac4e009475d76c5, type: 3}
-  - {fileID: 6070262274742566396, guid: f08ce0ae643d8a244af36ca793112f85, type: 3}
+  - {fileID: 2888812273853257899, guid: 5c3c79016298f54448b4396f1b4ad984, type: 3}
+  - {fileID: 5173663618008967339, guid: b332e8058b151a94cbc667072fd01756, type: 3}
   - {fileID: 129678561119749473, guid: 7d8ea416f67545a4084473c2b043b010, type: 3}
   - {fileID: 7258136835769180084, guid: 4e5ff4db37197564da2e7f2fcd8dc1f4, type: 3}
   desertEnemy:
