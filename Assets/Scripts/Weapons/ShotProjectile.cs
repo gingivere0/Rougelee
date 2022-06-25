@@ -9,7 +9,7 @@ namespace Rougelee
         public Vector3 targetPos;
         public Animator myAnim;
         GameObject crosshair;
-        GameObject player;
+        protected GameObject player;
 
         protected float movespeed = 4;
         public int bulletPen = 1;
@@ -58,7 +58,7 @@ namespace Rougelee
 
         }
 
-        void OnTriggerEnter2D(Collider2D col)
+        protected void OnTriggerEnter2D(Collider2D col)
         {
             if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
             {

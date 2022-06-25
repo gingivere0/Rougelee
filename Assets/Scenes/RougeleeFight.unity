@@ -2182,7 +2182,7 @@ MonoBehaviour:
   movespeed: 5
   projectileArray:
   - {fileID: 7039894229426754994, guid: ce55a0240c0524c4d8f79caf73887987, type: 3}
-  - {fileID: 6143386081154802181, guid: d94bebf85a6398a4a97acf184b0a0265, type: 3}
+  - {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
   myAnim: {fileID: 0}
   hp: 10
   kills: 0

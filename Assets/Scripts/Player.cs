@@ -52,7 +52,8 @@ namespace Rougelee
         enum Projectile
         {
             fireball,
-            lightning
+            lightning,
+            tornado
         }
 
 
@@ -71,7 +72,8 @@ namespace Rougelee
             mods = new Modifier();
 
             guns[0] = new FireGun(projectileArray[0]);
-            guns[1] = new LightningGun(projectileArray[1]);
+            //guns[1] = new LightningGun(projectileArray[1]);
+            guns[1] = new TornadoGun(projectileArray[1]);
 
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
             crosshair.transform.localScale = crosshair.transform.localScale * .6f;
