@@ -40,7 +40,7 @@ namespace Rougelee
             transform.rotation = Quaternion.identity;
         }
 
-        void OnTriggerEnter2D(Collider2D col)
+        new void OnTriggerEnter2D(Collider2D col)
         {
             base.OnTriggerEnter2D(col);
             if (!startCircle)
@@ -48,21 +48,22 @@ namespace Rougelee
                 //defines circling position as 2 units towards the player from the position of the tornado
                 circlePos = player.transform.position - transform.position;
                 circlePos.Normalize();
-                circlePos = transform.position + new Vector3(circlePos.x * 2, circlePos.y * 2);
+                circlePos = transform.position + new Vector3(circlePos.x * CircleRadius, circlePos.y * CircleRadius);
+                angle = Mathf.Atan2(transform.position.y - circlePos.y, transform.position.x - circlePos.x);// * Mathf.Rad2Deg;
+                
             }
             startCircle = true;
         }
 
         float RotationSpeed = 1;
 
-        float CircleRadius = 2;
+        float CircleRadius = 1;
 
         float ElevationOffset = 1;
 
         private Vector3 positionOffset;
         private float angle;
 
-        //tornado always starts at angle = 0. need to start at angle = angle between tornado position and circle position (may need to use atan2)
         private void Circle()
         {
             positionOffset.Set(Mathf.Cos(angle) * CircleRadius, Mathf.Sin(angle) * CircleRadius,1 );
