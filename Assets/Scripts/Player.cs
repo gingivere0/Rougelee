@@ -31,36 +31,26 @@ namespace Rougelee
 
         
 
-
-        Gun[] guns = new Gun[2];
-
         Vector2 targetPos;
         Vector2 move;
         Vector2 aim;
-        bool shootFire, shootLightning;
+        bool shootWeaponOne, shootWeaponTwo;
 
         Rigidbody2D rb;
-
-        SpriteRenderer sp;
 
         PlayerControls controls;
 
         GameObject crosshair;
 
-
-
-        enum Projectile
-        {
-            fireball,
-            lightning,
-            tornado
-        }
+        GameObject characterObject;
+        Character character;
 
 
         private void Awake()
         {
+            characterObject = transform.GetChild(0).gameObject;
+            character = characterObject.GetComponent<Character>();
             rb = GetComponent<Rigidbody2D>();
-            sp = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
             myAnim = transform.GetChild(0).gameObject.GetComponent<Animator>();
             controls = new PlayerControls();
 
@@ -70,10 +60,6 @@ namespace Rougelee
 
 
             mods = new Modifier();
-
-            guns[0] = new FireGun(projectileArray[0]);
-            //guns[1] = new LightningGun(projectileArray[1]);
-            guns[1] = new TornadoGun(projectileArray[1]);
 
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
             crosshair.transform.localScale = crosshair.transform.localScale * .6f;
@@ -102,27 +88,25 @@ namespace Rougelee
             controls.Gameplay.AimStick.performed += ctx => aim = ctx.ReadValue<Vector2>();
 
             //shoots with the right trigger
-            controls.Gameplay.ShootR.performed += ctx => shootFire = true;
-            controls.Gameplay.ShootR.canceled += ctx => shootFire = false;
+            controls.Gameplay.ShootR.performed += ctx => shootWeaponOne = true;
+            controls.Gameplay.ShootR.canceled += ctx => shootWeaponOne = false;
 
             //shoots with the left trigger
-            controls.Gameplay.ShootL.performed += ctx => shootLightning = true;
-            controls.Gameplay.ShootL.canceled += ctx => shootLightning = false;
+            controls.Gameplay.ShootL.performed += ctx => shootWeaponTwo = true;
+            controls.Gameplay.ShootL.canceled += ctx => shootWeaponTwo = false;
 
         }
 
 
         void Shoot()
         {
-            if (shootFire)
+            if (shootWeaponOne)
             {
-                ChangeSprite("witchfire");
-                guns[0].Shoot();
+                character.UseWeapon(0);
             }
-            else if (shootLightning)
+            else if (shootWeaponTwo)
             {
-                ChangeSprite("witchlightning");
-                guns[1].Shoot();
+                character.UseWeapon(1);
             }
         }
 
@@ -141,26 +125,24 @@ namespace Rougelee
             controls.Gameplay.Disable();
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         private void FixedUpdate()
         {
             Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime * movespeed;
             transform.Translate(m);
 
+            character.facingLeft = move.x < 0;
+            if(move.x != 0)
+            {
+                character.startRunning = true;
+            }
+            else
+            {
+                character.startRunning = false;
+            }
+
 
             MoveCrosshair();
-            FaceCrosshair();
+            //FaceCrosshair();
             
             Shoot();
 
@@ -186,7 +168,7 @@ namespace Rougelee
 
         }
 
-
+/*
         public void FaceCrosshair()
         {
             targetPos = crosshair.transform.position;
@@ -196,7 +178,7 @@ namespace Rougelee
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             sp.transform.rotation = Quaternion.RotateTowards(sp.transform.rotation, q, 1000f);
-        }
+        }*/
 
         public void MoveCrosshair()
         {

@@ -38,7 +38,7 @@ namespace Rougelee
 
         public void firstOption()
         {
-            Player player = (Player)GameObject.Find("witch_stand_0001").GetComponent(typeof(Player));
+            Player player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
             player.mods.bulletMultiplier += 2;
             Time.timeScale = 1;
             treasureObject.SetActive(false);
@@ -46,7 +46,7 @@ namespace Rougelee
 
         public void secondOption()
         {
-            Player player = (Player)GameObject.Find("witch_stand_0001").GetComponent(typeof(Player));
+            Player player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
             player.mods.damageMod *= 1.5f;
             Time.timeScale = 1;
             treasureObject.SetActive(false);

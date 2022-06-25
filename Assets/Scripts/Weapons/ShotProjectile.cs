@@ -62,8 +62,6 @@ namespace Rougelee
         {
             if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
             {
-                Debug.Log(damage);
-
                 //ShotProjectiles do a random amount +/-10% of base damage
                 System.Random rand = new System.Random();
                 if (rand.Next(0, 2)>0)

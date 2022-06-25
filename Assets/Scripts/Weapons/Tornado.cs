@@ -8,10 +8,10 @@ namespace Rougelee
     {
         bool startCircle = false;
         Vector3 circlePos;
-        // Start is called before the first frame update
-        void Start()
+        float timeAlive = 7;
+        private void Awake()
         {
-
+            damage = 3;
         }
 
         // Update is called once per frame
@@ -36,6 +36,11 @@ namespace Rougelee
             if (startCircle)
             {
                 Circle();
+            }
+            timeAlive -= Time.deltaTime;
+            if(timeAlive < 0f)
+            {
+                Destroy(gameObject);
             }
             transform.rotation = Quaternion.identity;
         }
