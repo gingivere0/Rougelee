@@ -27,6 +27,7 @@ namespace Rougelee
         //string lasthit = "";
         string lasthit;
         bool killCounted = false;
+        float stunTime = 2;
 
 
         // Start is called before the first frame update
@@ -71,6 +72,11 @@ namespace Rougelee
                 FacePlayer();
                 Move();
             }
+            if (stunTime < 0)
+            {
+                canMove = true;
+            }
+            stunTime -= Time.deltaTime;
         }
 
         protected virtual void Move()
@@ -101,6 +107,8 @@ namespace Rougelee
                 invuln = true;
 
                 lasthit = projectile.GetType().Name;
+                canMove = false;
+                stunTime = 2;
                 return true;
             }
             return false;
