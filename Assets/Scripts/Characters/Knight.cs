@@ -7,25 +7,27 @@ namespace Rougelee
     public class Knight : Character
     {
 
-        public override void UseWeapon(int weapon)
+        public override bool UseWeapon(int weapon)
         {
-            base.UseWeapon(weapon);
-            myAnim.Play("knightattack");
+            if (base.UseWeapon(weapon))
+            {
+                myAnim.Play("knightattack");
+                return true;
+            }
+            return false;
         }
 
         private void FixedUpdate()
         {
             RunWalk();
             LeftRight();
-
-            //check to see if attack animation is playing
-            isAttacking = !(myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
         }
 
         void RunWalk()
         {
             if (startRunning && !isRunning && !isAttacking)
             {
+                isRunning = true;
                 myAnim.Play("knightrun");
             }
             else if (!startRunning && !isAttacking)

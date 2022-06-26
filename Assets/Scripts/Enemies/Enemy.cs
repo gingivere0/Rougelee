@@ -51,11 +51,15 @@ namespace Rougelee
 
         private void FixedUpdate()
         {
-            /*xInput = Input.GetAxis("Horizontal");
-            yInput = Input.GetAxis("Vertical");*/
-            if (Vector3.Distance(playerObject.transform.position, transform.position) > 32)
+            bool tooFar = Vector3.Distance(playerObject.transform.position, transform.position) > 32;
+            if (tooFar && gameObject.tag != "Boss")
             {
                 Destroy(gameObject);
+            }else if (tooFar && gameObject.tag == "Boss")
+            {
+                Vector2 newPos = playerObject.transform.position;
+                newPos.x += 20;
+                transform.position = newPos;
             }
             if (hp <= 0)
             {

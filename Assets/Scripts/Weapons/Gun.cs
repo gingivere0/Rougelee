@@ -26,7 +26,7 @@ namespace Rougelee
         //then moves projectile in the direction of the crosshair.
         //also shoots a fan of ShotProjectiles based on Modifier.bulletMultiplier
         //please don't touch this method
-        public void Shoot()
+        public bool Shoot()
         {
             if (Time.time-cooldown >= 1)
             {
@@ -71,10 +71,11 @@ namespace Rougelee
 
 
                     proj.transform.parent = playerObject.transform.root.parent;
-                    
                 }
                 cooldown = Time.time;
+                return true;
             }
+            return false;
         }
     }
 }

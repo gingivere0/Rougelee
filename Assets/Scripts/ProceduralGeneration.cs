@@ -363,6 +363,10 @@ namespace Rougelee
                 Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
                 obj.transform.rotation = Quaternion.RotateTowards(obj.transform.rotation, q, 10000f);
 
+            }else if(obj.tag == "Boss")
+            {
+
+                obj.transform.parent = this.transform.GetChild(1);
             }
             else
             {

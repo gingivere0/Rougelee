@@ -7,17 +7,18 @@ namespace Rougelee
     public class Witch : Character
     {
 
-        public override void UseWeapon(int weapon)
+        public override bool UseWeapon(int weapon)
         {
-            base.UseWeapon(weapon);
-            if (weapon == 0)
+            bool attacked = base.UseWeapon(weapon);
+            if (weapon == 0 && attacked)
             {
                 myAnim.Play("witchfire");
             }
-            else
+            else if (attacked)
             {
                 myAnim.Play("witchlightning");
             }
+            return attacked;
         }
     }
 }

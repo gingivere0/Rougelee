@@ -39,6 +39,13 @@ namespace Rougelee
                 player = GameObject.FindGameObjectWithTag("Player");
                 myAnim = GetComponent<Animator>();
             }
+
+            if (gunDirection.x < 0)
+            {
+                //GetComponent<SpriteRenderer>().flipY = true;
+                Vector2 flipx = new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y*-1);
+                gameObject.transform.localScale = flipx;
+            }
         }
 
         public void AnimationFinished()

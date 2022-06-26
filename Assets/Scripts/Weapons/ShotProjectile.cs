@@ -51,7 +51,7 @@ namespace Rougelee
         void FixedUpdate()
         {
             //if bullet gets too far away, it disappears
-            if (Vector3.Distance(player.transform.position, transform.position) > 40)
+            if (Vector3.Distance(player.transform.position, transform.position) > 25)
             {
                 Destroy(gameObject);
             }
@@ -60,7 +60,7 @@ namespace Rougelee
 
         protected void OnTriggerEnter2D(Collider2D col)
         {
-            if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
+            if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Boss"))
             {
                 //ShotProjectiles do a random amount +/-10% of base damage
                 System.Random rand = new System.Random();

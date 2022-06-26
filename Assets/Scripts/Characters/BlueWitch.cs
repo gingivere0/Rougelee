@@ -7,25 +7,28 @@ namespace Rougelee
     public class BlueWitch : Character
     {
 
-        public override void UseWeapon(int weapon)
+        public override bool UseWeapon(int weapon)
         {
-            base.UseWeapon(weapon);
-            myAnim.Play("bluewitchattack");
+            if (base.UseWeapon(weapon))
+            {
+                myAnim.Play("bluewitchattack");
+                return true;
+            }
+            return false;
         }
 
         private void FixedUpdate()
         {
             RunWalk();
-            LeftRight();
+            FaceCrosshair();
 
-            //check to see if attack animation is playing
-            isAttacking = !(myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
         }
 
         void RunWalk()
         {
             if (startRunning && !isRunning && !isAttacking)
             {
+                isRunning = true;
                 myAnim.Play("bluewitchrun");
             }
             else if (!startRunning && !isAttacking)
@@ -35,9 +38,9 @@ namespace Rougelee
             }
         }
 
-        void LeftRight()
+        void FaceCrosshair()
         {
-            if (facingLeft)
+            if (crosshair.transform.position.x < transform.position.x)
             {
                 sp.flipX = true;
             }
