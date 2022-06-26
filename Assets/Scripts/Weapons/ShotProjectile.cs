@@ -106,7 +106,7 @@ namespace Rougelee
             damage = newDamage;
         }
 
-        public void Shoot(Vector3 gunDirection)
+        public virtual void Shoot(Vector3 gunDirection)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             myAnim = GetComponent<Animator>();

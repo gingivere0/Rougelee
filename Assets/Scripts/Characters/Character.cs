@@ -12,7 +12,6 @@ namespace Rougelee
         public bool startRunning = false;
         protected bool isRunning = false;
         protected bool isAttacking = false;
-        bool flipped = false;
         Gun[] weapons = new Gun[2];
         protected SpriteRenderer sp;
         protected Animator myAnim;

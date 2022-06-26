@@ -12,7 +12,6 @@ namespace Rougelee
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
-            //Debug.Log(angle);
             if (angle < 90 && angle > -90 && !facingRight)
             {
                 myScale = transform.localScale;

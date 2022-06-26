@@ -12,32 +12,15 @@ namespace Rougelee
 
         GameObject projectile;
 
-        float cooldown = 0;
+        float cooldown;
 
         public Gun(GameObject projectile)
         {
             this.projectile = projectile; 
             playerObject = GameObject.FindGameObjectWithTag("Player");
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
-
+            cooldown = -1;
         }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        private void FixedUpdate()
-        {
-        }
-
 
         //spawns ShotProjectile 1/4 of the way between the player and the crosshair
         //then moves projectile in the direction of the crosshair.
@@ -51,8 +34,6 @@ namespace Rougelee
 
                 float rad2deg = 180 / (float)System.Math.PI;
                 double angle = System.Math.Atan2(crosshairDirection.y, crosshairDirection.x) * rad2deg;
-
-                angle = System.Math.Atan2(crosshairDirection.y, crosshairDirection.x) * rad2deg;
 
                 Vector3 spreadPosition = new Vector3();
                 Player player = ((Player)playerObject.GetComponent(typeof(Player)));
@@ -69,7 +50,7 @@ namespace Rougelee
 
                     Vector2 spawnLocation = (playerObject.transform.position * 4 + spreadPosition) / 4;
 
-                    GameObject proj = MonoBehaviour.Instantiate(projectile, spawnLocation, Quaternion.identity);
+                    GameObject proj = Object.Instantiate(projectile, spawnLocation, Quaternion.identity);
 
                     Vector3 targ = playerObject.transform.position + spreadPosition;
                     targ.z = 0f;

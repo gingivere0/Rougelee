@@ -60,11 +60,8 @@ namespace Rougelee
             startCircle = true;
         }
 
-        float RotationSpeed = 1;
 
         float CircleRadius = 1;
-
-        float ElevationOffset = 1;
 
         private Vector3 positionOffset;
         private float angle;

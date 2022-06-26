@@ -48,10 +48,18 @@ namespace Rougelee
 
         private void Awake()
         {
-            characterObject = transform.GetChild(0).gameObject;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).gameObject.activeSelf)
+                {
+                    characterObject = transform.GetChild(i).gameObject;
+                    myAnim = transform.GetChild(i).gameObject.GetComponent<Animator>();
+                    break;
+                }
+
+            }
             character = characterObject.GetComponent<Character>();
             rb = GetComponent<Rigidbody2D>();
-            myAnim = transform.GetChild(0).gameObject.GetComponent<Animator>();
             controls = new PlayerControls();
 
             startMenu.SetActive(false);
