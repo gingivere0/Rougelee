@@ -76,5 +76,10 @@ namespace Rougelee
                 }
             }
         }
+
+        public override string GetName()
+        {
+            return "Lightning Spell";
+        }
     }
 }

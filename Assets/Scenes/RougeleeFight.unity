@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557037567827206807, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[0]
@@ -581,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 786538835465000891, guid: 842aad2d9f0facd41a1705173b139593, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7368060878776962598, guid: 842aad2d9f0facd41a1705173b139593, type: 3}
       propertyPath: m_RootOrder
@@ -665,6 +665,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileArray:
   - {fileID: 7246025645569875909, guid: 89367d17f62bbb44a8f214e6f192adac, type: 3}
+  - {fileID: 7039894229426754994, guid: ce55a0240c0524c4d8f79caf73887987, type: 3}
+  - {fileID: 6143386081154802181, guid: d94bebf85a6398a4a97acf184b0a0265, type: 3}
+  - {fileID: 3262087470375871016, guid: 00a3ce2eb5830484686e30ddafd664c3, type: 3}
   - {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
   facingLeft: 0
   startRunning: 0
@@ -2065,7 +2068,7 @@ MonoBehaviour:
   width: 60
   height: 40
   biomes: {fileID: 559684458}
-  level: 1
+  level: 2
 --- !u!1 &1188006007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2382,7 @@ MonoBehaviour:
   levelText: {fileID: 136600409}
   startMenu: {fileID: 1520219698}
   levelup: {fileID: 877431854}
+  character: {fileID: 0}
 --- !u!61 &1349515837
 BoxCollider2D:
   m_ObjectHideFlags: 0

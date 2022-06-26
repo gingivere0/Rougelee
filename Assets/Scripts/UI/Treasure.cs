@@ -10,7 +10,10 @@ namespace Rougelee
 
         public GameObject treasureObject;
 
-        UnityEngine.UI.Button button;
+        UnityEngine.UI.Button buttonOne;
+        UnityEngine.UI.Button buttonTwo;
+
+        ChestDrop cd;
 
         PlayerControls controls;
 
@@ -25,12 +28,17 @@ namespace Rougelee
         {
         }
 
-        public void Activate()
+        public void Activate(ChestDrop cd)
         {
             treasureObject.SetActive(true);
-            button = (UnityEngine.UI.Button)GameObject.Find("firstOption").GetComponent(typeof(UnityEngine.UI.Button));
-            button.Select();
+            buttonOne = (UnityEngine.UI.Button)GameObject.Find("firstOption").GetComponent(typeof(UnityEngine.UI.Button));
+            buttonOne.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = cd.GetText(0);
+            buttonOne.Select();
 
+            buttonTwo = (UnityEngine.UI.Button)treasureObject.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>();
+            buttonTwo.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = cd.GetText(1);
+
+            this.cd = cd;
             Time.timeScale = 0;
 
 
@@ -38,16 +46,18 @@ namespace Rougelee
 
         public void firstOption()
         {
-            Player player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
-            player.mods.bulletMultiplier += 2;
+            //Player player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
+
+            cd.ReceiveTreasure(0);
+            
+            //player.mods.bulletMultiplier += 2;
             Time.timeScale = 1;
             treasureObject.SetActive(false);
         }
 
         public void secondOption()
         {
-            Player player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
-            player.mods.damageMod *= 1.5f;
+            cd.ReceiveTreasure(1);
             Time.timeScale = 1;
             treasureObject.SetActive(false);
         }

@@ -12,7 +12,7 @@ namespace Rougelee
         public bool startRunning = false;
         protected bool isRunning = false;
         protected bool isAttacking = false;
-        Gun[] weapons = new Gun[2];
+        public Gun[] weapons = new Gun[2];
         protected SpriteRenderer sp;
         protected Animator myAnim;
 
@@ -21,7 +21,7 @@ namespace Rougelee
         private void Awake()
         {
             weapons[0] = new Gun(projectileArray[0]);
-            weapons[1] = new Gun(projectileArray[1]);
+            //weapons[1] = new Gun(projectileArray[1]);
             sp = GetComponent<SpriteRenderer>();
             myAnim = GetComponent<Animator>();
             crosshair = transform.parent.GetChild(3).gameObject;
@@ -42,7 +42,12 @@ namespace Rougelee
 
         public virtual bool UseWeapon(int weapon)
         {
-            return weapons[weapon].Shoot();
+            bool shot = false;
+            if (weapons[weapon] != null)
+            {
+                shot = weapons[weapon].Shoot();
+            }
+            return shot;
         }
 
         public void IsAttacking(int isAttacking)

@@ -21,5 +21,10 @@ namespace Rougelee
             //Destroy(gameObject,.6f);
             Destroy(gameObject, 0f);
         }
+
+        public override string GetName()
+        {
+            return "Fireball Spell";
+        }
     }
 }

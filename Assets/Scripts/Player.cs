@@ -43,7 +43,7 @@ namespace Rougelee
         GameObject crosshair;
 
         GameObject characterObject;
-        Character character;
+        public Character character;
 
 
         private void Awake()

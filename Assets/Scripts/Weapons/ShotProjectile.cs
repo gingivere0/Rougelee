@@ -113,5 +113,10 @@ namespace Rougelee
             gunDirection.Normalize();
             gameObject.GetComponent<Rigidbody2D>().velocity = gunDirection * new Vector2(movespeed, movespeed);
         }
+
+        public virtual string GetName()
+        {
+            return "ShotProjectile";
+        }
     }
 }

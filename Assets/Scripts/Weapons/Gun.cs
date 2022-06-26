@@ -10,7 +10,7 @@ namespace Rougelee
         GameObject playerObject;
         GameObject crosshair;
 
-        GameObject projectile;
+        public GameObject projectile;
 
         float cooldown;
 

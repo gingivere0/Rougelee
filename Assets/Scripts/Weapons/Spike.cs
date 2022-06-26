@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Rougelee
 {
-    public class Sword : ShotProjectile
+    public class Spike : ShotProjectile
     {
 
         public static bool canMove = false;
@@ -26,8 +26,8 @@ namespace Rougelee
             }
         }
 
-        //since the sword doesn't move, override the shoot method which gives the sword velocity
-        //upgrades make the sword projectile move, so call the base method if upgrade attained
+        //since the spike doesn't move, override the shoot method which gives the spike velocity
+        //upgrades make the spike projectile move, so call the base method if upgrade attained
         public override void Shoot(Vector3 gunDirection)
         {
             if (canMove)
@@ -55,10 +55,9 @@ namespace Rougelee
                 Destroy(gameObject);
             }
         }
-
         public override string GetName()
         {
-            return "Sword Attack";
+            return "Spike Attack";
         }
 
     }

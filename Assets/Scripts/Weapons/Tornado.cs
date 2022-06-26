@@ -72,5 +72,10 @@ namespace Rougelee
             transform.position = circlePos + positionOffset;
             angle += Time.deltaTime * movespeed*.8f;
         }
+
+        public override string GetName()
+        {
+            return "Tornado Spell";
+        }
     }
 }

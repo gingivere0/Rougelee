@@ -24,7 +24,8 @@ namespace Rougelee
             if (opened && !AnimatorIsPlaying())
             {
                 Treasure treasure = (Treasure)GameObject.Find("Canvas").GetComponent(typeof(Treasure));
-                treasure.Activate();
+                ChestDrop cd = new ChestDrop();
+                treasure.Activate(cd);
                 Destroy(gameObject);
             }
         }
