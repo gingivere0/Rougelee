@@ -8,6 +8,7 @@ namespace Rougelee
     {
 
         public GameObject[] projectileArray;
+        public GameObject[] upgradeArray;
         public bool facingLeft = false;
         public bool startRunning = false;
         protected bool isRunning = false;

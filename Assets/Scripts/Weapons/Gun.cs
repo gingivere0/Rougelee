@@ -22,6 +22,8 @@ namespace Rougelee
             cooldown = -1;
         }
 
+ 
+
         //spawns ShotProjectile 1/4 of the way between the player and the crosshair
         //then moves projectile in the direction of the crosshair.
         //also shoots a fan of ShotProjectiles based on Modifier.bulletMultiplier

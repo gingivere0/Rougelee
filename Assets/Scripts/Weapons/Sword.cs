@@ -8,7 +8,8 @@ namespace Rougelee
     {
 
         public static bool canMove = false;
-
+        public int numSwings = 5;
+        public bool upgraded = false;
 
         private void Awake()
         {
@@ -50,10 +51,15 @@ namespace Rougelee
 
         public void AnimationFinished()
         {
+            numSwings--;
             if (!canMove)
             {
-                Destroy(gameObject);
+                if (numSwings<=0)
+                {
+                    Destroy(gameObject);
+                }
             }
+            
         }
 
         public override string GetName()

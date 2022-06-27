@@ -6,7 +6,7 @@ namespace Rougelee
 {
     public class Minotaur : Enemy
     {
-
+        bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
         protected override void FacePlayer()
@@ -39,7 +39,11 @@ namespace Rougelee
         public override void Dead()
         {
             base.Dead();
-            Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
+            if (!bossKilled)
+            {
+                Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
+                bossKilled = true;
+            }
         }
     }
 }

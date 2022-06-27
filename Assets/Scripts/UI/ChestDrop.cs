@@ -35,11 +35,11 @@ namespace Rougelee
 
         private void GenerateIndices()
         {
-            rewardIndices[0] = Random.Range(startInd, 3);
-            rewardIndices[1] = Random.Range(startInd, 3);
+            rewardIndices[0] = Random.Range(startInd, 4);
+            rewardIndices[1] = Random.Range(startInd, 4);
             while(rewardIndices[0] == rewardIndices[1])
             {
-                rewardIndices[1] = Random.Range(startInd, 3);
+                rewardIndices[1] = Random.Range(startInd, 4);
             }
         }
 
@@ -68,6 +68,10 @@ namespace Rougelee
             } else if (rewardIndices[rewardInd] == 2)
             {
                 player.mods.damageMod *= 1.5f;
+            }else if (rewardIndices[rewardInd] == 3)
+            {
+
+                player.character.weapons[0] = new Gun(player.character.upgradeArray[0]);
             }
         }
         public virtual string GetText(int rewardInd)
@@ -81,6 +85,9 @@ namespace Rougelee
             }else if (rewardIndices[rewardInd] == 2)
             {
                 return "Increase weapon damage by 50%";
+            }else if (rewardIndices[rewardInd] == 3)
+            {
+                return "Upgrade Sword into FireSword";
             }
             return "this is a test";
         }

@@ -118,5 +118,10 @@ namespace Rougelee
         {
             return "ShotProjectile";
         }
+
+        public virtual void Upgrade()
+        {
+
+        }
     }
 }
