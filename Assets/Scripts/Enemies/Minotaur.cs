@@ -42,6 +42,7 @@ namespace Rougelee
             if (!bossKilled)
             {
                 Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
+                Transform portal = Instantiate(GameAssets.i.portal, transform.position, Quaternion.identity);
                 bossKilled = true;
             }
         }

@@ -4,3 +4,9 @@
 
 /.vs
 /obj
+/Library
+/Logs
+/Packages
+/ProjectSettings
+/Temp
+/UserSettings

@@ -18,4 +18,6 @@ public class GameAssets : MonoBehaviour
 
     public Transform chest;
 
+    public Transform portal;
+
 }

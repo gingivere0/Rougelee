@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6963752670477768830}
   - component: {fileID: 6963752670477768831}
   - component: {fileID: 1807872011947286037}
-  - component: {fileID: 7168702212848017334}
   - component: {fileID: 863769220762326566}
+  - component: {fileID: 7960521530442434871}
   m_Layer: 7
   m_Name: Chest
   m_TagString: Untagged
@@ -134,19 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &7168702212848017334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963752670477768816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984908eb8fc29cb43abdfa23412e99b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAnim: {fileID: 0}
 --- !u!50 &863769220762326566
 Rigidbody2D:
   serializedVersion: 4
@@ -168,3 +155,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7960521530442434871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963752670477768816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984908eb8fc29cb43abdfa23412e99b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnim: {fileID: 0}
