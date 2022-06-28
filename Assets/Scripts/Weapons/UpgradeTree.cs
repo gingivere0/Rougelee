@@ -12,7 +12,7 @@ namespace Rougelee
 
         public static bool aoeFire = false;
 
-        public static bool bigTornado = true;
-        public static bool multiTornado = true;
+        public static bool bigTornado = false;
+        public static bool multiTornado = false;
     }
 }

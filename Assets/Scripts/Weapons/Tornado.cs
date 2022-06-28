@@ -8,9 +8,16 @@ namespace Rougelee
     {
         bool startCircle = false;
         Vector3 circlePos;
-        float timeAlive = 7;
+        float timeAlive = 5;
+        float timeDead = 2;
         bool isMainTornado = true;
         bool spawnBabies = true;
+        float shrinkRate = .015f;
+
+        GameObject northObj;
+        GameObject southObj;
+        GameObject eastObj;
+        GameObject westObj;
 
 
         private void Awake()
@@ -62,19 +69,47 @@ namespace Rougelee
                 startCircle = true;
                 circlePos = transform.position;
             }*/
-            if (startCircle && (!isMainTornado||!UpgradeTree.multiTornado))
+            if (startCircle )//&& (!isMainTornado||!UpgradeTree.multiTornado))
             {
                 Circle(circlePos);
-            }
-            if (UpgradeTree.bigTornado && isMainTornado && startCircle)
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(4,4), .05f);
             }
 
             timeAlive -= Time.deltaTime;
             if(timeAlive < 0f)
             {
-                Destroy(gameObject);
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.001f, 0.001f), shrinkRate);
+                if (northObj != null)
+                {
+                    northObj.transform.localScale = Vector3.Lerp(northObj.transform.localScale, new Vector3(0.001f, 0.001f), shrinkRate);
+                }
+                if (southObj != null)
+                {
+                    southObj.transform.localScale = Vector3.Lerp(southObj.transform.localScale, new Vector3(0.001f, 0.001f), shrinkRate);
+                }
+                if (eastObj != null)
+                {
+                    eastObj.transform.localScale = Vector3.Lerp(eastObj.transform.localScale, new Vector3(0.001f, 0.001f), shrinkRate);
+                }
+                if (westObj != null)
+                {
+                    westObj.transform.localScale = Vector3.Lerp(westObj.transform.localScale, new Vector3(0.001f, 0.001f), shrinkRate);
+                }
+                timeDead -= Time.deltaTime;
+
+                if (timeDead <= 0)
+                {
+                    if (gameObject != null && northObj != null & southObj != null && eastObj != null && westObj != null)
+                    {
+                        Destroy(gameObject);
+                        Destroy(northObj);
+                        Destroy(southObj);
+                        Destroy(eastObj);
+                        Destroy(westObj);
+                    }
+                }
+            }else if (UpgradeTree.bigTornado && isMainTornado && startCircle)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(4, 4), .05f);
             }
             transform.rotation = Quaternion.identity;
         }
@@ -92,7 +127,7 @@ namespace Rougelee
                 bool flip = true;
                 if (!startCircle && UpgradeTree.multiTornado && isMainTornado && flip)
                 {
-                    GameObject northObj = Instantiate(gameObject, circlePos + new Vector3(0f, 2f), Quaternion.identity);
+                    northObj = Instantiate(gameObject, circlePos + new Vector3(0f, 2f), Quaternion.identity);
                     Tornado northBaby = northObj.GetComponent<Tornado>();
                     northBaby.Reset();
                     northBaby.isMainTornado = false;
@@ -101,7 +136,7 @@ namespace Rougelee
                     northBaby.angle = Mathf.PI*3/2;
                     northBaby.CircleRadius = 2;
 
-                    GameObject southObj = Instantiate(gameObject, circlePos + new Vector3(0f, -2f), Quaternion.identity);
+                    southObj = Instantiate(gameObject, circlePos + new Vector3(0f, -2f), Quaternion.identity);
                     Tornado southBaby = southObj.GetComponent<Tornado>();
                     southBaby.Reset();
                     southBaby.isMainTornado = false;
@@ -110,7 +145,7 @@ namespace Rougelee
                     southBaby.angle = Mathf.PI / 2;
                     southBaby.CircleRadius = 2;
 
-                    GameObject eastObj = Instantiate(gameObject, circlePos + new Vector3(2f, 0f), Quaternion.identity);
+                    eastObj = Instantiate(gameObject, circlePos + new Vector3(2f, 0f), Quaternion.identity);
                     Tornado eastBaby = eastObj.GetComponent<Tornado>();
                     eastBaby.Reset();
                     eastBaby.isMainTornado = false;
@@ -119,7 +154,7 @@ namespace Rougelee
                     eastBaby.angle = Mathf.PI;
                     eastBaby.CircleRadius = 2;
 
-                    GameObject westObj = Instantiate(gameObject, circlePos + new Vector3(-2f, 0f), Quaternion.identity);
+                    westObj = Instantiate(gameObject, circlePos + new Vector3(-2f, 0f), Quaternion.identity);
                     Tornado westBaby = westObj.GetComponent<Tornado>();
                     westBaby.Reset();
                     westBaby.isMainTornado = false;
@@ -131,7 +166,7 @@ namespace Rougelee
                     gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 }else if (!startCircle && UpgradeTree.multiTornado && isMainTornado)
                 {
-                    GameObject northObj = Instantiate(gameObject, transform.position + new Vector3(0f, 2f), Quaternion.identity);
+                    northObj = Instantiate(gameObject, transform.position + new Vector3(0f, 2f), Quaternion.identity);
                     Tornado northBaby = northObj.GetComponent<Tornado>();
                     northBaby.Reset();
                     northBaby.isMainTornado = false;
@@ -140,7 +175,7 @@ namespace Rougelee
                     northBaby.angle = Mathf.PI * 3 / 2;
                     northBaby.CircleRadius = 2;
 
-                    GameObject southObj = Instantiate(gameObject, transform.position + new Vector3(0f, -2f), Quaternion.identity);
+                    southObj = Instantiate(gameObject, transform.position + new Vector3(0f, -2f), Quaternion.identity);
                     Tornado southBaby = southObj.GetComponent<Tornado>();
                     southBaby.Reset();
                     southBaby.isMainTornado = false;
@@ -149,7 +184,7 @@ namespace Rougelee
                     southBaby.angle = Mathf.PI / 2;
                     southBaby.CircleRadius = 2;
 
-                    GameObject eastObj = Instantiate(gameObject, transform.position + new Vector3(2f, 0f), Quaternion.identity);
+                    eastObj = Instantiate(gameObject, transform.position + new Vector3(2f, 0f), Quaternion.identity);
                     Tornado eastBaby = eastObj.GetComponent<Tornado>();
                     eastBaby.Reset();
                     eastBaby.isMainTornado = false;
@@ -158,7 +193,7 @@ namespace Rougelee
                     eastBaby.angle = Mathf.PI;
                     eastBaby.CircleRadius = 2;
 
-                    GameObject westObj = Instantiate(gameObject, transform.position + new Vector3(-2f, 0f), Quaternion.identity);
+                    westObj = Instantiate(gameObject, transform.position + new Vector3(-2f, 0f), Quaternion.identity);
                     Tornado westBaby = westObj.GetComponent<Tornado>();
                     westBaby.Reset();
                     westBaby.isMainTornado = false;
@@ -174,7 +209,7 @@ namespace Rougelee
         }
 
 
-        float CircleRadius = 1;
+        float CircleRadius = .5f;
 
         private Vector3 positionOffset;
         private float angle;
