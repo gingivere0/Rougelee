@@ -12,6 +12,10 @@ namespace Rougelee
         {
             movespeed = 5;
             damage = 20;
+            if (UpgradeTree.fireSword)
+            {
+                damage *= 2;
+            }
             upgrades = new Upgrade[5];
             PopulateUpgrades();
         }
@@ -45,7 +49,7 @@ namespace Rougelee
 
         void FireBlade()
         {
-            damage = 40;
+            damage *= 2;
             UpgradeTree.fireSword = true;
         }
 

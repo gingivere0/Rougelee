@@ -11,5 +11,8 @@ namespace Rougelee
         public static bool movingFireSword = false;
 
         public static bool aoeFire = false;
+
+        public static bool bigTornado = true;
+        public static bool multiTornado = true;
     }
 }

@@ -15,11 +15,18 @@ namespace Rougelee
 
         protected override void Hit(Enemy enemy)
         {
-            gameObject.layer = 9;
             movespeed = 0;
-            //myAnim.Play("fireballhit");
-            //Destroy(gameObject,.6f);
-            Destroy(gameObject, 0f);
+            if (UpgradeTree.aoeFire)
+            {
+                myAnim.Play("fireballhit");
+                transform.localScale = new Vector3(3,3);
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                Destroy(gameObject, .6f);
+            }
+            else
+            {
+                Destroy(gameObject, 0f);
+            }
         }
 
         public override string GetName()
@@ -42,6 +49,7 @@ namespace Rougelee
 
         public void AOEFire()
         {
+            Debug.Log("aoe unlocked");
             UpgradeTree.aoeFire = true;
         }
     }

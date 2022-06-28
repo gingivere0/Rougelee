@@ -689,10 +689,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileArray:
   - {fileID: 7246025645569875909, guid: 89367d17f62bbb44a8f214e6f192adac, type: 3}
+  - {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
   - {fileID: 7039894229426754994, guid: ce55a0240c0524c4d8f79caf73887987, type: 3}
   - {fileID: 6143386081154802181, guid: d94bebf85a6398a4a97acf184b0a0265, type: 3}
   - {fileID: 3262087470375871016, guid: 00a3ce2eb5830484686e30ddafd664c3, type: 3}
-  - {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
   upgradeArray:
   - {fileID: 1040548254169725776, guid: 9525676fb0f36994f8ef65de9822a388, type: 3}
   facingLeft: 0

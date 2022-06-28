@@ -91,7 +91,7 @@ namespace Rougelee
                 Enemy enemy = (Enemy)col.gameObject.GetComponent(typeof(Enemy));
                 if (enemy.hp > 0)
                 {
-                    bool isHit = enemy.Hit((ShotProjectile)gameObject.GetComponent(typeof(ShotProjectile)));
+                    bool isHit = enemy.Hit(this);//(ShotProjectile)gameObject.GetComponent(typeof(ShotProjectile)));
 
                     bulletPen--;
                     if (isHit)
