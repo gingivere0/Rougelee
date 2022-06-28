@@ -26,5 +26,23 @@ namespace Rougelee
         {
             return "Fireball Spell";
         }
+
+        public override Upgrade[] GetUpgrades()
+        {
+            upgrades = new Upgrade[5];
+            PopulateUpgrades();
+            return upgrades;
+        }
+        void PopulateUpgrades()
+        {
+            if (!UpgradeTree.aoeFire){
+                upgrades[0] = new Upgrade("Fireball explodes on hit", AOEFire);
+            }
+        }
+
+        public void AOEFire()
+        {
+            UpgradeTree.aoeFire = true;
+        }
     }
 }

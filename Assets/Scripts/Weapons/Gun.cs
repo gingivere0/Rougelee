@@ -22,7 +22,10 @@ namespace Rougelee
             cooldown = -1;
         }
 
- 
+        public GameObject GetProjectile()
+        {
+            return projectile;
+        }
 
         //spawns ShotProjectile 1/4 of the way between the player and the crosshair
         //then moves projectile in the direction of the crosshair.
@@ -40,6 +43,7 @@ namespace Rougelee
                 Vector3 spreadPosition = new Vector3();
                 Player player = ((Player)playerObject.GetComponent(typeof(Player)));
                 int degreeIncr = 0;
+                
                 for (int bulletNum = 0; bulletNum < player.mods.bulletMultiplier; bulletNum++)
                 {
                     double bulletFlip = (System.Math.Pow((-1), (bulletNum + 1)));
@@ -64,11 +68,13 @@ namespace Rougelee
                     float lookAngle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
                     proj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, lookAngle));
 
-                    ShotProjectile shotProjectile = (ShotProjectile)proj.GetComponent(typeof(ShotProjectile));
+                    //ShotProjectile shotProjectile = (ShotProjectile)proj.GetComponent(typeof(ShotProjectile));
+                    ShotProjectile shotProjectile = proj.GetComponent<ShotProjectile>();
                     shotProjectile.setDamage(shotProjectile.getDamage() * player.mods.damageMod);
 
                     spreadPosition.Normalize();
                     //shotProjectile.Shoot(bulletNum,direction);
+
                     shotProjectile.Shoot(spreadPosition);
 
 

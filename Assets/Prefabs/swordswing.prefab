@@ -124,6 +124,7 @@ MonoBehaviour:
   myAnim: {fileID: 0}
   bulletPen: 1
   damage: 0
+  numSwings: 1
 --- !u!50 &8124534753892167756
 Rigidbody2D:
   serializedVersion: 4

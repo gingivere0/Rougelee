@@ -19,6 +19,20 @@ namespace Rougelee
 
         public float damage = 0;
 
+        protected Upgrade[] upgrades;
+
+
+        public virtual Upgrade[] GetUpgrades()
+        {
+            return upgrades;
+        }
+
+
+        public virtual void Reset()
+        {
+            damage = 0;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -64,13 +78,13 @@ namespace Rougelee
             {
                 //ShotProjectiles do a random amount +/-10% of base damage
                 System.Random rand = new System.Random();
-                if (rand.Next(0, 2)>0)
+                if (rand.Next(0, 2) > 0)
                 {
-                    damage += damage* ((float)rand.Next(0, 20)/100f);
+                    damage += damage * ((float)rand.Next(0, 20) / 100f);
                 }
                 else
                 {
-                    damage -= damage*(float)rand.Next(0, 20) / 100f;
+                    damage -= damage * (float)rand.Next(0, 20) / 100f;
                 }
 
 
@@ -94,7 +108,7 @@ namespace Rougelee
 
         protected virtual void DestroyProjectile(GameObject obj)
         {
-           //Destroy(obj, 0f);
+            //Destroy(obj, 0f);
         }
 
         public float getDamage()
@@ -112,6 +126,11 @@ namespace Rougelee
             myAnim = GetComponent<Animator>();
             gunDirection.Normalize();
             gameObject.GetComponent<Rigidbody2D>().velocity = gunDirection * new Vector2(movespeed, movespeed);
+
+            if (GetAnimName() != null)
+            {
+                myAnim.Play(GetAnimName());
+            }
         }
 
         public virtual string GetName()
@@ -122,6 +141,11 @@ namespace Rougelee
         public virtual void Upgrade()
         {
 
+        }
+
+        public virtual string GetAnimName()
+        {
+            return null;
         }
     }
 }

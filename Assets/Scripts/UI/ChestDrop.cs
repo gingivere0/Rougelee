@@ -6,40 +6,71 @@ namespace Rougelee
 {
     public class ChestDrop
     {
-        int[] rewardIndices = new int[2];
+        int[] rewardIndices;
         int startInd = 0;
         Player player;
         GameObject newWeapon = null;
+
+        List<Upgrade> upgrades = new List<Upgrade>();
+
+        ShotProjectile[] sps;
 
         public ChestDrop()
         {
 
 
             player = (Player)GameObject.Find("player").GetComponent(typeof(Player));
-            //need list of GameObject projectiles. pick one from list at random. 
-            //if GO projectile is the same as the player.char.weapon[0].projectile, repeat
-            //if GO projectile is different, keep new GO projectile,
-            //and set player.char.weapon[1] = new Gun(GO projectile)
+            sps = new ShotProjectile[player.character.weapons.Length];
+            for(int i = 0; i < sps.Length; i++)
+            {
+                if (player.character.weapons[i] != null)
+                {
+                    sps[i] = (ShotProjectile) player.character.weapons[i].GetProjectile().GetComponent(typeof(ShotProjectile));
+                }
+            }
+            PopulateUpgradeList();
+            rewardIndices = new int[2];
+            GenerateIndices();
+        }
 
-            
-            if (player.character.weapons[1] == null)
+        private void PopulateUpgradeList()
+        {
+            //upgrades.Add(new Upgrade("Increase Projectile Count by 2!", ()=> player.mods.bulletMultiplier += 2));
+            upgrades.Add(new Upgrade("Increase Weapon Damage by 50%!", () => player.mods.damageMod *= 1.5f));
+            foreach(Upgrade upgrade in sps[0].GetUpgrades())
+            {
+                if (upgrade != null)
+                {
+                    upgrades.Add(upgrade);
+                }
+            }
+            if (sps[1] == null)
             {
                 GenerateWeapon();
-            }
-            else
+                upgrades.Add(new Upgrade("Get " + newWeapon.gameObject.GetComponent<ShotProjectile>().GetName() + "!", () => player.character.weapons[1] = new Gun(newWeapon)));
+            }else
             {
-                startInd=1;
+                foreach (Upgrade upgrade in sps[1].GetUpgrades())
+                {
+                    if (upgrade != null)
+                    {
+                        upgrades.Add(upgrade);
+                    }
+                }
             }
-            GenerateIndices();
+
         }
 
         private void GenerateIndices()
         {
-            rewardIndices[0] = Random.Range(startInd, 4);
-            rewardIndices[1] = Random.Range(startInd, 4);
-            while(rewardIndices[0] == rewardIndices[1])
+            Debug.Log(upgrades.Count);
+            rewardIndices[0] = Random.Range(0, upgrades.Count);
+            rewardIndices[1] = Random.Range(0, upgrades.Count);
+            int loops = 50;
+            while(rewardIndices[0] == rewardIndices[1] && loops > 0)
             {
-                rewardIndices[1] = Random.Range(startInd, 4);
+                loops--;
+                rewardIndices[1] = Random.Range(0, upgrades.Count);
             }
         }
 
@@ -59,37 +90,14 @@ namespace Rougelee
         }
         public virtual void ReceiveTreasure(int rewardInd)
         {
-            if (rewardIndices[rewardInd] == 0)
-            {
-                player.character.weapons[1] = new Gun(newWeapon);
-            } else if (rewardIndices[rewardInd] == 1)
-            {
-                player.mods.bulletMultiplier += 2;
-            } else if (rewardIndices[rewardInd] == 2)
-            {
-                player.mods.damageMod *= 1.5f;
-            }else if (rewardIndices[rewardInd] == 3)
-            {
+            upgrades[rewardIndices[rewardInd]].PerformUpgrade();
 
-                player.character.weapons[0] = new Gun(player.character.upgradeArray[0]);
-            }
         }
+
+
         public virtual string GetText(int rewardInd)
         {
-            if(rewardIndices[rewardInd] == 0)
-            {
-                return "Get "+newWeapon.gameObject.GetComponent<ShotProjectile>().GetName()+"!";
-            }else if (rewardIndices[rewardInd] == 1)
-            {
-                return "Increase projectile count by 2!";
-            }else if (rewardIndices[rewardInd] == 2)
-            {
-                return "Increase weapon damage by 50%";
-            }else if (rewardIndices[rewardInd] == 3)
-            {
-                return "Upgrade Sword into FireSword";
-            }
-            return "this is a test";
+            return upgrades[rewardIndices[rewardInd]].GetText();
         }
     }
 }

@@ -21,8 +21,9 @@ namespace Rougelee
 
         private void Awake()
         {
+            projectileArray[0].GetComponent<ShotProjectile>().Reset();
             weapons[0] = new Gun(projectileArray[0]);
-            //weapons[1] = new Gun(projectileArray[1]);
+            weapons[1] = new Gun(projectileArray[1]);
             sp = GetComponent<SpriteRenderer>();
             myAnim = GetComponent<Animator>();
             crosshair = transform.parent.GetChild(3).gameObject;
