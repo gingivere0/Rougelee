@@ -12,6 +12,9 @@ namespace Rougelee
         public Biomes biomes;
 
         GameObject[] enemyList;
+        GameObject[] currentEnemies;
+        GameObject[] currentTiles;
+
         int availableEnemies = 0;
         public int level;
 
@@ -25,6 +28,8 @@ namespace Rougelee
         float enemyXSpawn, enemyYSpawn;
 
         public static bool spawnBoss;
+
+        public static bool increaseLevel;
 
 
 
@@ -65,7 +70,38 @@ namespace Rougelee
                 spawnBoss = false;
                 UIManager.spawned = true;
             }
+            if (increaseLevel)
+            {
+                increaseLevel = false;
+                level++;
+                currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+                currentTiles = GameObject.FindGameObjectsWithTag("Floor");
+                foreach (GameObject enemy in currentEnemies)
+                {
+                    Destroy(enemy);
+                }
+                foreach (GameObject floor in currentTiles)
+                {
+                    Destroy(floor);
+                }
+                if (level == 0)
+                {
+                    enemyList = biomes.dungeonEnemy;
+                    GenerateDungeon((int)targetPos.x, (int)targetPos.y);
+                }
+                else if (level == 1)
+                {
+                    enemyList = biomes.forestEnemy;
+                    GenerateForest((int)targetPos.x, (int)targetPos.y);
+                }
+                else
+                {
+                    enemyList = biomes.desertEnemy;
+                    GenerateDesert((int)targetPos.x, (int)targetPos.y);
+                }
+            }
         }
+
 
         void SpawnBoss()
         {
@@ -370,6 +406,7 @@ namespace Rougelee
             }
             else
             {
+                obj.tag = "Floor";
                 obj.name = "land."+x+"."+y;
             }
         }

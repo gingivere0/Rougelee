@@ -9,6 +9,7 @@ namespace Rougelee
         bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
+        protected Vector2 portalPos;
         protected override void FacePlayer()
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
@@ -42,6 +43,8 @@ namespace Rougelee
             if (!bossKilled)
             {
                 Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
+                portalPos = (targetPos + (new Vector2(0, 3)));
+                Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
                 bossKilled = true;
             }
         }
