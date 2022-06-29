@@ -8,7 +8,7 @@ namespace Rougelee
     {
         public Animator myAnim;
 
-
+        public bool fin = false;
         bool opened = false;
 
 
@@ -22,8 +22,8 @@ namespace Rougelee
         // Update is called once per frame
         void Update()
         {
-            if (opened)
-            { 
+            if (opened && fin)
+            {
                 ProceduralGeneration.increaseLevel = true;
                 Destroy(gameObject);
             }
@@ -32,11 +32,15 @@ namespace Rougelee
         void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.tag == "Player")
-            { 
+            {
                 myAnim.SetTrigger("close");
                 opened = true;
             }
         }
-    }
 
+        public void finish()
+        {
+            fin = true;
+        }
+    }
 }

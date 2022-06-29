@@ -2149,6 +2149,7 @@ GameObject:
   - component: {fileID: 1179015577}
   - component: {fileID: 1179015579}
   - component: {fileID: 1179015578}
+  - component: {fileID: 1179015580}
   m_Layer: 0
   m_Name: ProceduralGeneration
   m_TagString: Untagged
@@ -2189,7 +2190,7 @@ MonoBehaviour:
   width: 60
   height: 40
   biomes: {fileID: 559684458}
-  level: 0
+  level: 1
 --- !u!212 &1179015578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2262,6 +2263,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1179015580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179015574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f8a242cd3beea4bad4bdf24d76c4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188006007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,7 +2999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08899f2cb47d6ef46a895e40be0811ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 119
+  timeValue: 0
   timeText: {fileID: 1961670011}
   killsText: {fileID: 1706754148}
 --- !u!1 &1520219698

@@ -84,8 +84,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
-    functionName: onOpened()
+  - time: 0.5
+    functionName: finish
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: e632f78133209c948991cd138f745d76, type: 3}
     floatParameter: 0

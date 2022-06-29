@@ -12,6 +12,9 @@ namespace Rougelee
         public Biomes biomes;
 
         GameObject[] enemyList;
+        GameObject[] currentEnemies;
+        GameObject[] currentTiles;
+
         int availableEnemies = 0;
         public int level;
 
@@ -71,6 +74,16 @@ namespace Rougelee
             {
                 increaseLevel = false;
                 level++;
+                currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+                currentTiles = GameObject.FindGameObjectsWithTag("Floor");
+                foreach (GameObject enemy in currentEnemies)
+                {
+                    Destroy(enemy);
+                }
+                foreach (GameObject floor in currentTiles)
+                {
+                    Destroy(floor);
+                }
                 if (level == 0)
                 {
                     enemyList = biomes.dungeonEnemy;
