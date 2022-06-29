@@ -87,17 +87,17 @@ namespace Rougelee
                 if (level == 0)
                 {
                     enemyList = biomes.dungeonEnemy;
-                    GenerateDungeon(0,0);
+                    GenerateDungeon((int)targetPos.x, (int)targetPos.y);
                 }
                 else if (level == 1)
                 {
                     enemyList = biomes.forestEnemy;
-                    GenerateForest(0,0);
+                    GenerateForest((int)targetPos.x, (int)targetPos.y);
                 }
                 else
                 {
                     enemyList = biomes.desertEnemy;
-                    GenerateDesert(0, 0);
+                    GenerateDesert((int)targetPos.x, (int)targetPos.y);
                 }
             }
         }
