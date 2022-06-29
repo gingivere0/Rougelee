@@ -406,6 +406,7 @@ namespace Rougelee
             }
             else
             {
+                obj.tag = "Floor";
                 obj.name = "land."+x+"."+y;
             }
         }
