@@ -47,7 +47,11 @@ namespace Rougelee
             if (sps[1] == null)
             {
                 GenerateWeapon();
-                upgrades.Add(new Upgrade("Get " + newWeapon.gameObject.GetComponent<ShotProjectile>().GetName() + "!", () => player.character.weapons[1] = new Gun(newWeapon)));
+                upgrades.Add(new Upgrade("Get " + newWeapon.gameObject.GetComponent<ShotProjectile>().GetName() + "!", () => { 
+                    player.character.weapons[1] = new Gun(newWeapon);
+                    player.character.Setup();
+                    player.character.Setup();
+                    }));
             }else
             {
                 foreach (Upgrade upgrade in sps[1].GetUpgrades())
@@ -63,7 +67,6 @@ namespace Rougelee
 
         private void GenerateIndices()
         {
-            Debug.Log(upgrades.Count);
             rewardIndices[0] = Random.Range(0, upgrades.Count);
             rewardIndices[1] = Random.Range(0, upgrades.Count);
             int loops = 50;

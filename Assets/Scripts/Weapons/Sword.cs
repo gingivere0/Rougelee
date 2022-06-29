@@ -8,10 +8,11 @@ namespace Rougelee
     {
         public int numSwings = 1;
 
-        private void Awake()
+        void Awake()
         {
             movespeed = 5;
             damage = 20;
+            cooldown = 1;
             if (UpgradeTree.fireSword)
             {
                 damage *= 2;
@@ -28,16 +29,18 @@ namespace Rougelee
         }
         void PopulateUpgrades()
         {
-            if (!UpgradeTree.persistentSword)
+            upgrades[0] = new Upgrade("Lower Sword Cooldown by 10%", LowerCD);
+
+            if (!UpgradeTree.persistentSword && UpgradeTree.swordLevel >= 5)
             {
-                upgrades[0] = new Upgrade("Add persistence to your Sword Attack", PersistentSword);
+                upgrades[1] = new Upgrade("Add persistence to your Sword Attack", PersistentSword);
             }
-            else if (!UpgradeTree.fireSword && UpgradeTree.aoeFire)
+            else if (!UpgradeTree.fireSword && UpgradeTree.aoeFire && UpgradeTree.swordLevel >= 15)
             {
-                upgrades[0] = new Upgrade("Set your sword on fire!", FireBlade);
-            }else if (UpgradeTree.fireSword && !UpgradeTree.movingFireSword)
+                upgrades[1] = new Upgrade("Set your sword on fire!", FireBlade);
+            }else if (UpgradeTree.fireSword && !UpgradeTree.movingFireSword && UpgradeTree.swordLevel >= 25)
             {
-                upgrades[0] = new Upgrade("Shoot a firey sword!", ShootBlade);
+                upgrades[1] = new Upgrade("Shoot a firey sword!", ShootBlade);
             }
         }
 
@@ -58,6 +61,11 @@ namespace Rougelee
             UpgradeTree.movingFireSword = true;
         }
 
+        void LowerCD()
+        {
+            cooldown *= .9f;
+        }
+
         void FixedUpdate()
         {
             //if bullet gets too far away, it disappears
@@ -65,6 +73,27 @@ namespace Rougelee
             {
                 Destroy(gameObject);
             }
+        }
+
+        protected override void Hit(Enemy enemy)
+        {
+            base.Hit(enemy);
+            if (weaponXPBar == null)
+            {
+                weaponXPBar = player.GetComponent<Player>().weaponXPBars[UpgradeTree.swordXPBarIndex];
+            }
+            UpgradeTree.swordXP += damage;
+            if (UpgradeTree.swordXP > UpgradeTree.swordNextLevelXP)
+            {
+                UpgradeTree.swordLevel++;
+                UpgradeTree.swordNextLevelXP *= UpgradeTree.nextLevelMult;
+                UpgradeTree.swordXP = 0;
+                //levelText.text = "Level " + level;
+                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText(""+UpgradeTree.swordLevel);
+            }
+            Debug.Log(weaponXPBar.name);
+            Debug.Log("index: " + UpgradeTree.swordXPBarIndex);
+            weaponXPBar.SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
         }
 
         //since the sword doesn't move, override the shoot method which gives the sword velocity

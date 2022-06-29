@@ -32,6 +32,10 @@ namespace Rougelee
 
         void OnTriggerEnter2D(Collider2D col)
         {
+            if (myAnim == null)
+            {
+                myAnim = GetComponent<Animator>();
+            }
             if (col != null && col.gameObject != null && col.gameObject.tag == "Player")
             {
 
@@ -42,8 +46,12 @@ namespace Rougelee
 
         bool AnimatorIsPlaying()
         {
-            return myAnim.GetCurrentAnimatorStateInfo(0).length >
-                   myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            if (myAnim != null)
+            {
+                return myAnim.GetCurrentAnimatorStateInfo(0).length >
+                       myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            }
+            return false;
         }
 
     }

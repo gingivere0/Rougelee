@@ -15,6 +15,23 @@ namespace Rougelee
             damage = 6;
         }
 
+        public override Upgrade[] GetUpgrades()
+        {
+            upgrades = new Upgrade[5];
+            PopulateUpgrades();
+            return upgrades;
+        }
+        void PopulateUpgrades()
+        {
+            upgrades[0] = new Upgrade("Lower Lightning Cooldown by 10%", LowerCD);
+        }
+
+
+        void LowerCD()
+        {
+            cooldown *= .9f;
+        }
+
         public void chain()
         {
             GameObject enemy = getNearestEnemy();

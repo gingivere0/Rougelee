@@ -9,8 +9,6 @@ namespace Rougelee
     {
 
         public float movespeed;
-        public GameObject[] projectileArray;
-        //public GameObject lightning;
         public Animator myAnim;
 
         public int hp = 10;
@@ -29,7 +27,15 @@ namespace Rougelee
         public Modifier mods;
         public GameObject levelup;
 
-        
+
+        public GameObject[] XPBarUIs;
+        public XPBar[] weaponXPBars;
+
+        /*public GameObject swordXPBarUI;
+        public XPBar swordXPBar;
+
+        public GameObject fireballXPBarUI;
+        public XPBar fireballXPBar;*/
 
         Vector2 targetPos;
         Vector2 move;
@@ -65,6 +71,12 @@ namespace Rougelee
             startMenu.SetActive(false);
             levelText.text = "Level " + level;
             levelup.SetActive(false);
+
+            for(int i =0; i < XPBarUIs.Length; i++)
+            {
+                XPBarUIs[i].SetActive(false);
+            }
+            character.Setup();
 
 
             mods = new Modifier();
@@ -110,13 +122,17 @@ namespace Rougelee
         {
             if (shootWeaponOne)
             {
-                character.UseWeapon(0);
+                if (character.UseWeapon(0)){
+                }
+
             }
             else if (shootWeaponTwo)
             {
                 character.UseWeapon(1);
             }
         }
+
+        
 
         public void ChangeSprite(string spriteName)
         {

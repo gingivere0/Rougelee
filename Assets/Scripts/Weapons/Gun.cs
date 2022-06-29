@@ -13,12 +13,14 @@ namespace Rougelee
         public GameObject projectile;
 
         float cooldown;
+        float lastShot;
 
         public Gun(GameObject projectile)
         {
             this.projectile = projectile; 
             playerObject = GameObject.FindGameObjectWithTag("Player");
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+            lastShot = -1;
             cooldown = -1;
         }
 
@@ -33,7 +35,8 @@ namespace Rougelee
         //please don't touch this method
         public bool Shoot()
         {
-            if (Time.time-cooldown >= 1)
+            cooldown = projectile.GetComponent<ShotProjectile>().cooldown;
+            if (Time.time-lastShot > cooldown)
             {
                 Vector3 crosshairDirection = crosshair.transform.position - playerObject.transform.position;
 
@@ -77,13 +80,17 @@ namespace Rougelee
 
                     shotProjectile.Shoot(spreadPosition);
 
-
                     proj.transform.parent = playerObject.transform.root.parent;
                 }
-                cooldown = Time.time;
+                lastShot = Time.time;
                 return true;
             }
             return false;
+        }
+
+        public float GetDamage()
+        {
+            return projectile.GetComponent<ShotProjectile>().damage;
         }
     }
 }
