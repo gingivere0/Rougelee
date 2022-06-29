@@ -171,3 +171,5 @@ MonoBehaviour:
   myAnim: {fileID: 0}
   bulletPen: 1
   damage: 0
+  cooldown: 1
+  CircleRadius: 0.5

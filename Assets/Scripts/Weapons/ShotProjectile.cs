@@ -18,9 +18,16 @@ namespace Rougelee
         protected int lastEnemyID;
 
         public float damage = 0;
-
+        public float cooldown = 1;
         protected Upgrade[] upgrades;
 
+        public XPBar weaponXPBar;
+
+
+        private void Awake()
+        {
+            weaponXPBar = GameObject.Find("Weapon1Bar").GetComponent<XPBar>();
+        }
 
         public virtual Upgrade[] GetUpgrades()
         {
@@ -31,6 +38,7 @@ namespace Rougelee
         public virtual void Reset()
         {
             damage = 0;
+            cooldown = 1;
         }
 
         // Start is called before the first frame update
@@ -91,7 +99,7 @@ namespace Rougelee
                 Enemy enemy = (Enemy)col.gameObject.GetComponent(typeof(Enemy));
                 if (enemy.hp > 0)
                 {
-                    bool isHit = enemy.Hit(this);//(ShotProjectile)gameObject.GetComponent(typeof(ShotProjectile)));
+                    bool isHit = enemy.Hit(this);
 
                     bulletPen--;
                     if (isHit)

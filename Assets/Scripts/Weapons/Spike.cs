@@ -17,6 +17,25 @@ namespace Rougelee
         }
 
 
+        public override Upgrade[] GetUpgrades()
+        {
+            upgrades = new Upgrade[5];
+            PopulateUpgrades();
+            return upgrades;
+        }
+        void PopulateUpgrades()
+        {
+            upgrades[0] = new Upgrade("Lower Spike Cooldown by 10%", LowerCD);
+        }
+
+
+        void LowerCD()
+        {
+            cooldown *= .9f;
+        }
+        
+
+
         void FixedUpdate()
         {
             //if bullet gets too far away, it disappears
