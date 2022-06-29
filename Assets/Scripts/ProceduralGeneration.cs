@@ -26,6 +26,8 @@ namespace Rougelee
 
         public static bool spawnBoss;
 
+        public static bool increaseLevel;
+
 
 
         // Start is called before the first frame update
@@ -65,7 +67,28 @@ namespace Rougelee
                 spawnBoss = false;
                 UIManager.spawned = true;
             }
+            if (increaseLevel)
+            {
+                increaseLevel = false;
+                level++;
+                if (level == 0)
+                {
+                    enemyList = biomes.dungeonEnemy;
+                    GenerateDungeon(0,0);
+                }
+                else if (level == 1)
+                {
+                    enemyList = biomes.forestEnemy;
+                    GenerateForest(0,0);
+                }
+                else
+                {
+                    enemyList = biomes.desertEnemy;
+                    GenerateDesert(0, 0);
+                }
+            }
         }
+
 
         void SpawnBoss()
         {

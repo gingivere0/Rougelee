@@ -8,6 +8,7 @@ namespace Rougelee
     {
         public Animator myAnim;
 
+
         bool opened = false;
 
 
@@ -15,35 +16,27 @@ namespace Rougelee
         void Start()
         {
             myAnim = GetComponent<Animator>();
-            myAnim.speed = 0;
+            myAnim.speed = 1;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (opened && !AnimatorIsPlaying())
-            {
-                //ProceduralGeneration proceduralGeneration = (proceduralGeneration)GameObject.Find("ProceduralGeneration").GetComponent(typeof(ProceduralGeneration));
-                //proceduralGeneration.GenerateDungeon(0, 0);
+            if (opened)
+            { 
+                ProceduralGeneration.increaseLevel = true;
                 Destroy(gameObject);
             }
         }
 
         void OnTriggerEnter2D(Collider2D col)
         {
-            if (col != null && col.gameObject != null && col.gameObject.tag == "Player")
-            {
-
-                myAnim.speed = 1;
+            if (col.gameObject.tag == "Player")
+            { 
+                myAnim.SetTrigger("close");
                 opened = true;
             }
         }
-
-        bool AnimatorIsPlaying()
-        {
-            return myAnim.GetCurrentAnimatorStateInfo(0).length >
-                   myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        }
-
     }
+
 }
