@@ -28,6 +28,28 @@ namespace Rougelee
             PopulateUpgrades();
         }
 
+        protected override void Hit(Enemy enemy)
+        {
+            base.Hit(enemy);
+            SetXP();
+        }
+
+        private void SetXP()
+        {
+            weaponXPBar = player.GetComponent<Player>().weaponXPBars[UpgradeTree.tornadoXPBarIndex];
+
+            UpgradeTree.tornadoXP += damage;
+            if (UpgradeTree.tornadoXP > UpgradeTree.tornadoNextLevelXP)
+            {
+                UpgradeTree.tornadoLevel++;
+                UpgradeTree.tornadoNextLevelXP *= UpgradeTree.nextLevelMult;
+                UpgradeTree.tornadoXP = 0;
+                //levelText.text = "Level " + level;
+                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.tornadoLevel);
+            }
+            weaponXPBar.SetXP(UpgradeTree.tornadoXP, UpgradeTree.tornadoNextLevelXP);
+        }
+
         public override Upgrade[] GetUpgrades()
         {
             upgrades = new Upgrade[5];
@@ -77,7 +99,7 @@ namespace Rougelee
                 startCircle = true;
                 circlePos = transform.position;
             }*/
-            if (startCircle )//&& (!isMainTornado||!UpgradeTree.multiTornado))
+            if (startCircle)//&& (!isMainTornado||!UpgradeTree.multiTornado))
             {
                 Circle(circlePos);
             }
@@ -156,14 +178,15 @@ namespace Rougelee
             base.OnTriggerEnter2D(col);
             if (!startCircle)
             {
-                //defines circling position as 2 units towards the player from the position of the tornado
+                //defines circling position as CircleRadius units towards the player from the position of the tornado
                 circlePos = player.transform.position - transform.position;
                 circlePos.Normalize();
                 circlePos = transform.position + new Vector3(circlePos.x * CircleRadius, circlePos.y * CircleRadius);
                 angle = Mathf.Atan2(transform.position.y - circlePos.y, transform.position.x - circlePos.x);// * Mathf.Rad2Deg;
-                bool flip = true;
-                if (!startCircle && UpgradeTree.multiTornado && isMainTornado && flip)
+
+                if (!startCircle && UpgradeTree.multiTornado && isMainTornado)
                 {
+                    CircleRadius = .5f;
                     babies = new Tornado[4];
 
                     northObj = Instantiate(gameObject, circlePos + new Vector3(0f, 2f), Quaternion.identity);
@@ -218,7 +241,7 @@ namespace Rougelee
         }
 
 
-        public float CircleRadius = .5f;
+        float CircleRadius = .5f;
 
         private Vector3 positionOffset;
         private float angle;
@@ -235,7 +258,7 @@ namespace Rougelee
             return "Tornado Spell";
         }
 
-        private void Reset()
+        public override void Reset()
         {
             base.Reset();
             angle = 0;

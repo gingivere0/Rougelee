@@ -78,6 +78,11 @@ namespace Rougelee
         protected override void Hit(Enemy enemy)
         {
             base.Hit(enemy);
+            SetXP();
+        }
+
+        private void SetXP()
+        {
             if (weaponXPBar == null)
             {
                 weaponXPBar = player.GetComponent<Player>().weaponXPBars[UpgradeTree.swordXPBarIndex];
@@ -89,10 +94,8 @@ namespace Rougelee
                 UpgradeTree.swordNextLevelXP *= UpgradeTree.nextLevelMult;
                 UpgradeTree.swordXP = 0;
                 //levelText.text = "Level " + level;
-                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText(""+UpgradeTree.swordLevel);
+                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.swordLevel);
             }
-            Debug.Log(weaponXPBar.name);
-            Debug.Log("index: " + UpgradeTree.swordXPBarIndex);
             weaponXPBar.SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
         }
 

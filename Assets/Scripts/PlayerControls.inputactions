@@ -94,6 +94,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ShootRB",
+                    "type": "Button",
+                    "id": "98e08e22-72fd-4171-9526-063f22ac2d78",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootLB",
+                    "type": "Button",
+                    "id": "304752c8-ca67-4480-a2fe-5f64e82a4a51",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -204,6 +222,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "APress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "725feb31-6bb1-430d-b69d-dabc1c4df448",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b86635a-8b05-4b10-8104-a89401b2b12b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootLB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

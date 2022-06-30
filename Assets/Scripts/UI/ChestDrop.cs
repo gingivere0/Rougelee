@@ -44,21 +44,31 @@ namespace Rougelee
                     upgrades.Add(upgrade);
                 }
             }
-            if (sps[1] == null)
+            int firstEmpty = -1;
+            for (int i = 0; i < sps.Length; i++)
             {
-                GenerateWeapon();
-                upgrades.Add(new Upgrade("Get " + newWeapon.gameObject.GetComponent<ShotProjectile>().GetName() + "!", () => { 
-                    player.character.weapons[1] = new Gun(newWeapon);
-                    player.character.Setup();
-                    player.character.Setup();
-                    }));
-            }else
-            {
-                foreach (Upgrade upgrade in sps[1].GetUpgrades())
+                if (sps[i] == null)
                 {
-                    if (upgrade != null)
+                    if(firstEmpty == -1)
                     {
-                        upgrades.Add(upgrade);
+                        firstEmpty = i;
+                    }
+                    GenerateWeapon();
+                    upgrades.Add(new Upgrade("Get " + newWeapon.gameObject.GetComponent<ShotProjectile>().GetName() + "!", () =>
+                    {
+                        player.character.weapons[firstEmpty] = new Gun(newWeapon);
+                        player.character.Setup();
+                        player.character.Setup();
+                    }));
+                }
+                else
+                {
+                    foreach (Upgrade upgrade in sps[i].GetUpgrades())
+                    {
+                        if (upgrade != null)
+                        {
+                            upgrades.Add(upgrade);
+                        }
                     }
                 }
             }
@@ -79,16 +89,38 @@ namespace Rougelee
 
         private void GenerateWeapon()
         {
-            while (newWeapon == null)
+            newWeapon = null;
+            int loops = 10;
+            while (newWeapon == null && loops > 0)
             {
                 //get random GO projectile from list
                 int newWeaponInd = Random.Range(0, player.character.projectileArray.Length);
-                //if random GO projectile is different from GO player.char.weapons[0].projectile  
-                if (player.character.projectileArray[newWeaponInd] != player.character.weapons[0].projectile)
-                {
+                //check every weapon the player has equipped
+                foreach(Gun weapon in player.character.weapons){
+
                     //keep new GO projectile
                     newWeapon = player.character.projectileArray[newWeaponInd];
+
+                    Debug.Log("newweapon type: "+ newWeapon.GetComponent<ShotProjectile>().GetType().ToString());
+                    if (weapon != null)
+                    {
+                        Debug.Log("charweap type: " + weapon.projectile.GetComponent<ShotProjectile>().GetType().ToString());
+                    }
+                    else
+                    {
+                        Debug.Log("charweapon is null");
+                    }
+                    Debug.Log("newweaponind: " + newWeaponInd);
+
+                    //if the player has the new weapon equipped, restart the while loop and try again
+                    if (weapon != null && newWeapon.GetComponent<ShotProjectile>().GetType() == weapon.projectile.GetComponent<ShotProjectile>().GetType())
+                    {
+                        newWeapon = null;
+                        break;
+                    }
+                    
                 }
+                loops--;
             }
         }
         public virtual void ReceiveTreasure(int rewardInd)

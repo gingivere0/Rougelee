@@ -12,8 +12,8 @@ namespace Rougelee
 
         public static bool aoeFire = false;
 
-        public static bool bigTornado = false;
-        public static bool multiTornado = false;
+        public static bool bigTornado = true;
+        public static bool multiTornado = true;
 
 
         public static float swordXP = 0;
@@ -35,6 +35,11 @@ namespace Rougelee
         public static int lightningLevel = 1;
         public static float lightningNextLevelXP = 100;
         public static int lightningXPBarIndex;
+
+        public static float spikeXP = 0;
+        public static int spikeLevel = 1;
+        public static float spikeNextLevelXP = 100;
+        public static int spikeXPBarIndex;
 
 
         public static float nextLevelMult = 1.25f;

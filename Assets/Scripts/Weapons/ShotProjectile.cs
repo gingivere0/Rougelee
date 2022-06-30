@@ -26,7 +26,7 @@ namespace Rougelee
 
         private void Awake()
         {
-            weaponXPBar = GameObject.Find("Weapon1Bar").GetComponent<XPBar>();
+            //weaponXPBar = GameObject.Find("Weapon1Bar").GetComponent<XPBar>();
         }
 
         public virtual Upgrade[] GetUpgrades()

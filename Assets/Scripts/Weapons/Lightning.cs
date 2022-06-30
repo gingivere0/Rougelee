@@ -69,6 +69,9 @@ namespace Rougelee
 
         protected override void Hit(Enemy enemy)
         {
+
+
+            SetXP();
             if (lastEnemyID != enemy.myID)
             {
                 if (maxChain > 0)
@@ -92,6 +95,24 @@ namespace Rougelee
                     Destroy(gameObject,0f);
                 }
             }
+
+
+        }
+
+        private void SetXP()
+        {
+            weaponXPBar = player.GetComponent<Player>().weaponXPBars[UpgradeTree.lightningXPBarIndex];
+
+            UpgradeTree.lightningXP += damage;
+            if (UpgradeTree.lightningXP > UpgradeTree.lightningNextLevelXP)
+            {
+                UpgradeTree.lightningLevel++;
+                UpgradeTree.lightningNextLevelXP *= UpgradeTree.nextLevelMult;
+                UpgradeTree.lightningXP = 0;
+                //levelText.text = "Level " + level;
+                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.lightningLevel);
+            }
+            weaponXPBar.SetXP(UpgradeTree.lightningXP, UpgradeTree.lightningNextLevelXP);
         }
 
         public override string GetName()

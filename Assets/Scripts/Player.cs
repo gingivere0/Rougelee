@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace Rougelee
         public GameObject[] XPBarUIs;
         public XPBar[] weaponXPBars;
 
+
         /*public GameObject swordXPBarUI;
         public XPBar swordXPBar;
 
@@ -40,7 +42,7 @@ namespace Rougelee
         Vector2 targetPos;
         Vector2 move;
         Vector2 aim;
-        bool shootWeaponOne, shootWeaponTwo;
+        bool shootWeaponOne, shootWeaponTwo, shootWeaponThree, shootWeaponFour;
 
         Rigidbody2D rb;
 
@@ -115,6 +117,14 @@ namespace Rougelee
             controls.Gameplay.ShootL.performed += ctx => shootWeaponTwo = true;
             controls.Gameplay.ShootL.canceled += ctx => shootWeaponTwo = false;
 
+            //shoots with RB
+            controls.Gameplay.ShootRB.performed += ctx => shootWeaponThree = true;
+            controls.Gameplay.ShootRB.canceled += ctx => shootWeaponThree = false;
+
+            //shoots with LB
+            controls.Gameplay.ShootLB.performed += ctx => shootWeaponFour = true;
+            controls.Gameplay.ShootLB.canceled += ctx => shootWeaponFour = false;
+
         }
 
 
@@ -126,9 +136,17 @@ namespace Rougelee
                 }
 
             }
-            else if (shootWeaponTwo)
+            if (shootWeaponTwo)
             {
                 character.UseWeapon(1);
+            }
+            if (shootWeaponThree)
+            {
+                character.UseWeapon(2);
+            }
+            if (shootWeaponFour)
+            {
+                character.UseWeapon(3);
             }
         }
 

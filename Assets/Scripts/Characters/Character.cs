@@ -13,7 +13,7 @@ namespace Rougelee
         public bool startRunning = false;
         protected bool isRunning = false;
         protected bool isAttacking = false;
-        public Gun[] weapons = new Gun[2];
+        public Gun[] weapons = new Gun[4];
         protected SpriteRenderer sp;
         protected Animator myAnim;
         GameObject playerObject;
@@ -25,7 +25,9 @@ namespace Rougelee
 
         private void Awake()
         {
-            projectileArray[0].GetComponent<ShotProjectile>().Reset();
+            foreach(GameObject proj in projectileArray) {
+                proj.GetComponent<ShotProjectile>().Reset();
+            }
             weapons[0] = new Gun(projectileArray[0]);
             //weapons[1] = new Gun(projectileArray[1]);
             sp = GetComponent<SpriteRenderer>();
@@ -34,7 +36,6 @@ namespace Rougelee
             playerObject = transform.parent.gameObject;
             player = playerObject.GetComponent<Player>();
 
-            
         }
 
         public void Setup()
@@ -46,7 +47,7 @@ namespace Rougelee
                     player.XPBarUIs[i].SetActive(true);
 
                     Debug.Log(player.XPBarUIs[i].name + " : " + i + " : " + projectileArray[i].GetComponent<ShotProjectile>().GetType().Name);
-                    if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Sword")
+                    /*if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Sword")
                     {
                         UpgradeTree.swordXPBarIndex = i;
                         player.weaponXPBars[i].SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
@@ -59,6 +60,57 @@ namespace Rougelee
                         UpgradeTree.fireballXPBarIndex = i;
                         player.weaponXPBars[i].SetXP(UpgradeTree.fireballXP, UpgradeTree.fireballNextLevelXP);
                         player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.fireballLevel);
+                    }
+                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Tornado")
+                    {
+                        UpgradeTree.tornadoXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.tornadoXP, UpgradeTree.tornadoNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.tornadoLevel);
+                    }
+                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Spike")
+                    {
+                        UpgradeTree.spikeXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.spikeXP, UpgradeTree.spikeNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.spikeLevel);
+                    }
+                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Lightning")
+                    {
+                        UpgradeTree.lightningXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.lightningXP, UpgradeTree.lightningNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.lightningLevel);
+                    }*/
+
+                    if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Sword")
+                    {
+                        UpgradeTree.swordXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
+
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.swordLevel);
+
+                    }
+                    else if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Fireball")
+                    {
+                        UpgradeTree.fireballXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.fireballXP, UpgradeTree.fireballNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.fireballLevel);
+                    }
+                    else if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Tornado")
+                    {
+                        UpgradeTree.tornadoXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.tornadoXP, UpgradeTree.tornadoNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.tornadoLevel);
+                    }
+                    else if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Spike")
+                    {
+                        UpgradeTree.spikeXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.spikeXP, UpgradeTree.spikeNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.spikeLevel);
+                    }
+                    else if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Lightning")
+                    {
+                        UpgradeTree.lightningXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.lightningXP, UpgradeTree.lightningNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.lightningLevel);
                     }
                 }
             }

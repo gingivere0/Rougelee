@@ -17,6 +17,30 @@ namespace Rougelee
         }
 
 
+        protected override void Hit(Enemy enemy)
+        {
+            base.Hit(enemy);
+            SetXP();
+        }
+
+        private void SetXP()
+        {
+            if (weaponXPBar == null)
+            {
+                weaponXPBar = player.GetComponent<Player>().weaponXPBars[UpgradeTree.spikeXPBarIndex];
+            }
+            UpgradeTree.spikeXP += damage;
+            if (UpgradeTree.spikeXP > UpgradeTree.spikeNextLevelXP)
+            {
+                UpgradeTree.spikeLevel++;
+                UpgradeTree.spikeNextLevelXP *= UpgradeTree.nextLevelMult;
+                UpgradeTree.spikeXP = 0;
+                //levelText.text = "Level " + level;
+                weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.spikeLevel);
+            }
+            weaponXPBar.SetXP(UpgradeTree.spikeXP, UpgradeTree.spikeNextLevelXP);
+        }
+
         public override Upgrade[] GetUpgrades()
         {
             upgrades = new Upgrade[5];
@@ -46,7 +70,7 @@ namespace Rougelee
         }
 
         //since the spike doesn't move, override the shoot method which gives the spike velocity
-        //upgrades make the spike projectile move, so call the base method if upgrade attained
+        //maybe upgrades make the spike projectile move, so call the base method if upgrade attained
         public override void Shoot(Vector3 gunDirection)
         {
             if (canMove)
