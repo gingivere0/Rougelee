@@ -46,40 +46,8 @@ namespace Rougelee
                 {
                     player.XPBarUIs[i].SetActive(true);
 
-                    Debug.Log(player.XPBarUIs[i].name + " : " + i + " : " + projectileArray[i].GetComponent<ShotProjectile>().GetType().Name);
-                    /*if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Sword")
-                    {
-                        UpgradeTree.swordXPBarIndex = i;
-                        player.weaponXPBars[i].SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
-
-                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.swordLevel);
-
-                    }
-                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Fireball")
-                    {
-                        UpgradeTree.fireballXPBarIndex = i;
-                        player.weaponXPBars[i].SetXP(UpgradeTree.fireballXP, UpgradeTree.fireballNextLevelXP);
-                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.fireballLevel);
-                    }
-                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Tornado")
-                    {
-                        UpgradeTree.tornadoXPBarIndex = i;
-                        player.weaponXPBars[i].SetXP(UpgradeTree.tornadoXP, UpgradeTree.tornadoNextLevelXP);
-                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.tornadoLevel);
-                    }
-                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Spike")
-                    {
-                        UpgradeTree.spikeXPBarIndex = i;
-                        player.weaponXPBars[i].SetXP(UpgradeTree.spikeXP, UpgradeTree.spikeNextLevelXP);
-                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.spikeLevel);
-                    }
-                    else if (projectileArray[i].GetComponent<ShotProjectile>().GetType().Name == "Lightning")
-                    {
-                        UpgradeTree.lightningXPBarIndex = i;
-                        player.weaponXPBars[i].SetXP(UpgradeTree.lightningXP, UpgradeTree.lightningNextLevelXP);
-                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.lightningLevel);
-                    }*/
-
+                    
+                    
                     if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Sword")
                     {
                         UpgradeTree.swordXPBarIndex = i;
@@ -111,6 +79,13 @@ namespace Rougelee
                         UpgradeTree.lightningXPBarIndex = i;
                         player.weaponXPBars[i].SetXP(UpgradeTree.lightningXP, UpgradeTree.lightningNextLevelXP);
                         player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.lightningLevel);
+                    }
+                    else if (weapons[i].projectile.GetComponent<ShotProjectile>().GetType().Name == "Ice")
+                    {
+                        UpgradeTree.iceXPBarIndex = i;
+                        player.weaponXPBars[i].SetXP(UpgradeTree.iceXP, UpgradeTree.iceNextLevelXP);
+                        player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.iceLevel);
+                        Debug.Log(player.XPBarUIs[i].name + " : " + i + " : " + projectileArray[i].GetComponent<ShotProjectile>().GetType().Name);
                     }
                 }
             }

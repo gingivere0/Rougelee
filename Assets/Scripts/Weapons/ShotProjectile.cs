@@ -8,7 +8,7 @@ namespace Rougelee
     {
         public Vector3 targetPos;
         public Animator myAnim;
-        GameObject crosshair;
+        protected GameObject crosshair;
         protected GameObject player;
 
         protected float movespeed = 4;

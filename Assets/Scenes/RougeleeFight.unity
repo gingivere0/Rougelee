@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: upgradeArray.Array.data[0]
@@ -205,23 +205,27 @@ PrefabInstance:
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[0]
       value: 
-      objectReference: {fileID: 3262087470375871016, guid: 00a3ce2eb5830484686e30ddafd664c3, type: 3}
+      objectReference: {fileID: 8985422262105556716, guid: 89367d17f62bbb44a8f214e6f192adac, type: 3}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[1]
       value: 
-      objectReference: {fileID: 7039894229426754994, guid: ce55a0240c0524c4d8f79caf73887987, type: 3}
+      objectReference: {fileID: 6854336068757772930, guid: 52403e959f4a8c64bbdf8682fd33ebd4, type: 3}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[2]
       value: 
-      objectReference: {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
+      objectReference: {fileID: 7039894229426754994, guid: ce55a0240c0524c4d8f79caf73887987, type: 3}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[3]
       value: 
-      objectReference: {fileID: 8985422262105556716, guid: 89367d17f62bbb44a8f214e6f192adac, type: 3}
+      objectReference: {fileID: 8869047948341155119, guid: 9f41c36a973fbd444956bc931ffcea56, type: 3}
     - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
       propertyPath: projectileArray.Array.data[4]
       value: 
       objectReference: {fileID: 6143386081154802181, guid: d94bebf85a6398a4a97acf184b0a0265, type: 3}
+    - target: {fileID: 7663617531385549822, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
+      propertyPath: projectileArray.Array.data[5]
+      value: 
+      objectReference: {fileID: 3262087470375871016, guid: 00a3ce2eb5830484686e30ddafd664c3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1bb346142f54cc438ee1aef8a11fb8c, type: 3}
 --- !u!4 &4960980 stripped
