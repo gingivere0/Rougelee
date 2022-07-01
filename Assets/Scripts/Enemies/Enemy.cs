@@ -9,29 +9,29 @@ namespace Rougelee
 
         public float hp = 10;
         public float movespeed;
-        float initMovespeed;
+        protected float initMovespeed;
         public Animator myAnim;
 
-        GameObject playerObject;
-        Rigidbody2D rb;
+        protected GameObject playerObject;
+        protected Rigidbody2D rb;
 
         protected Vector2 targetPos;
 
-        bool canMove;
+        protected bool canMove;
 
         public int myID;
 
         protected int lastProjectileID;
         protected int xpdrop = 10;
 
-        bool invuln = false;
-        float invulnStartTime;
+        protected bool invuln = false;
+        protected float invulnStartTime;
         //string lasthit = "";
-        string lasthit;
-        bool killCounted = false;
-        float stunTime = 2;
+        protected string lasthit;
+        protected bool killCounted = false;
+        protected float stunTime = 2;
 
-        bool isFrozen = false;
+        protected bool isFrozen = false;
 
 
         // Start is called before the first frame update

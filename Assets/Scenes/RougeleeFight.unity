@@ -1836,6 +1836,7 @@ MonoBehaviour:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
   forestBoss:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
+  - {fileID: 2646306407095181820, guid: b6dab31ca25cf90438936ff7117c587e, type: 3}
   desertBoss:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
 --- !u!1 &590141038
