@@ -6,12 +6,12 @@ namespace Rougelee
 {
     public class Sword : ShotProjectile
     {
-         int numSwings = 6;
+         int numSwings = 1;
 
         void Awake()
         {
             movespeed = 5;
-            damage = 20;
+            damage = 4;
             cooldown = 1;
             if (UpgradeTree.iceSword)
             {
@@ -110,7 +110,7 @@ namespace Rougelee
                 UpgradeTree.swordNextLevelXP *= UpgradeTree.nextLevelMult;
                 UpgradeTree.swordXP = 0;
                 //levelText.text = "Level " + level;
-                damage *= 1.01f;
+                damage *= 1.02f;
                 weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.swordLevel);
             }
             weaponXPBar.SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);

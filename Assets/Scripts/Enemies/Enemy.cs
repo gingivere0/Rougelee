@@ -9,9 +9,11 @@ namespace Rougelee
 
         public float hp = 10;
         public float movespeed;
+        float initMovespeed;
         public Animator myAnim;
 
         GameObject playerObject;
+        Rigidbody2D rb;
 
         protected Vector2 targetPos;
 
@@ -39,7 +41,9 @@ namespace Rougelee
             myID = gameObject.transform.GetInstanceID();
             playerObject = GameObject.FindGameObjectWithTag("Player");
             myAnim = GetComponent<Animator>();
+            rb = GetComponent<Rigidbody2D>();
             canMove = true;
+            initMovespeed = movespeed;
 
         }
 
@@ -83,13 +87,20 @@ namespace Rougelee
                 canMove = true;
                 stunTime = 2;
             }
+            if(movespeed < initMovespeed)
+            {
+                movespeed += Time.deltaTime*5;
+            }else if (movespeed > initMovespeed)
+            {
+                movespeed = initMovespeed;
+            }
             stunTime -= Time.deltaTime;
         }
 
         protected virtual void Move()
         {
 
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, movespeed);
+            rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
         }
 
         //gets the vector towards the target, figures out the angle, rotates towards that angle at a speed of 10000f;
@@ -126,10 +137,12 @@ namespace Rougelee
                 invuln = true;
 
                 lasthit = projectile.GetType().Name;
-                canMove = false;
+                //canMove = false;
                 stunTime = 2;
+                movespeed *= -1;
                 return true;
             }
+            
             return false;
         }
 
@@ -148,6 +161,7 @@ namespace Rougelee
             }
 
             gameObject.layer = 9;
+            rb.velocity = Vector3.zero;
             movespeed = 0;
             canMove = false;
             targetPos = transform.position;

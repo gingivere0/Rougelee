@@ -12,11 +12,10 @@ namespace Rougelee
         public static float swordNextLevelXP = 100;
         public static int swordXPBarIndex;
 
-        public static bool persistentSword = true;
-        public static bool fireSword = true;
+        public static bool persistentSword = false;
         public static bool movingSword = false;
         public static bool spinSword = false;
-        public static bool iceSword = true;
+        public static bool iceSword = false;
 
         public static int swordProj = 36;
 
