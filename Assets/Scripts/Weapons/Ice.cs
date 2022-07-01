@@ -6,7 +6,7 @@ namespace Rougelee
 {
     public class Ice : ShotProjectile
     {
-        bool animationFinished = false;
+        int numSwings = 0;
         Vector3 crosshairPosition;
 
         public static XPBar icebar;
@@ -23,11 +23,6 @@ namespace Rougelee
         {
             //if bullet gets too far away, it disappears
             if (Vector3.Distance(player.transform.position, transform.position) > 40)
-            {
-                Destroy(gameObject);
-            }
-
-            if (animationFinished)
             {
                 Destroy(gameObject);
             }
@@ -70,6 +65,19 @@ namespace Rougelee
         void PopulateUpgrades()
         {
             upgrades[0] = new Upgrade("Lower Ice Rain Cooldown by 10%", LowerCD);
+
+            if(UpgradeTree.iceLevel >= 5 && !UpgradeTree.manyIce)
+            {
+                upgrades[1] = new Upgrade("Increase Ice Rain Amount", ManyIce);
+            }
+        }
+
+        void ManyIce()
+        {
+            cooldown = 1f;
+            damage *= 2f;
+            transform.localScale = new Vector3(2, 2);
+            UpgradeTree.manyIce = true;
         }
 
 
@@ -81,24 +89,49 @@ namespace Rougelee
         //ice falls at the position of the crosshair
         public override void Shoot(Vector3 gunDirection)
         {
+            base.Shoot(gunDirection);
+
+            //gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             transform.position = crosshairPosition;
             transform.rotation = Quaternion.identity;
+            
         }
 
-        public void AnimationFinished()
+        public override string GetAnimName()
         {
-            animationFinished = true;
+            Debug.Log("getanimname");
+            if (UpgradeTree.manyIce)
+            {
+                return "manyIce";
+            }
+            return "ice";
         }
 
         public override void Reset()
         {
             base.Reset();
-            animationFinished = false;
         }
 
         public override string GetName()
         {
             return "Ice Rain";
+        }
+
+        public void AnimationFinished()
+        {
+            if (UpgradeTree.manyIce)
+            {
+                numSwings--;
+                if (numSwings <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
 }

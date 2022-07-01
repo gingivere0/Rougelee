@@ -6,14 +6,14 @@ namespace Rougelee
 {
     public class Sword : ShotProjectile
     {
-        public int numSwings = 1;
+         int numSwings = 6;
 
         void Awake()
         {
             movespeed = 5;
             damage = 20;
             cooldown = 1;
-            if (UpgradeTree.fireSword)
+            if (UpgradeTree.iceSword)
             {
                 damage *= 2;
             }
@@ -31,17 +31,33 @@ namespace Rougelee
         {
             upgrades[0] = new Upgrade("Lower Sword Cooldown by 10%", LowerCD);
 
+            //if you don't have a persistent sword and your sword is level 5
             if (!UpgradeTree.persistentSword && UpgradeTree.swordLevel >= 5)
             {
                 upgrades[1] = new Upgrade("Add persistence to your Sword Attack", PersistentSword);
             }
-            else if (!UpgradeTree.fireSword && UpgradeTree.aoeFire && UpgradeTree.swordLevel >= 15)
+            //if you have the ice upgrade, don't have ice sword, and your sword is level 15
+            if (!UpgradeTree.iceSword && UpgradeTree.swordLevel >= 10)
             {
-                upgrades[1] = new Upgrade("Set your sword on fire!", FireBlade);
-            }else if (UpgradeTree.fireSword && !UpgradeTree.movingFireSword && UpgradeTree.swordLevel >= 25)
-            {
-                upgrades[1] = new Upgrade("Shoot a firey sword!", ShootBlade);
+                upgrades[1] = new Upgrade("Freeze your sword, causing crits!", IceBlade);
             }
+
+            //if you have the fire upgrade, don't have the moving sword, and your sword is level 25
+            if (UpgradeTree.aoeFire && !UpgradeTree.movingSword && UpgradeTree.swordLevel >= 25)
+            {
+                upgrades[2] = new Upgrade("Shoot your sword forward!", ShootBlade);
+            }
+
+            if(!UpgradeTree.spinSword && UpgradeTree.multiTornado && UpgradeTree.swordLevel >= 15)
+            {
+                upgrades[3] = new Upgrade("Slash in a circle around you", SpinSword);
+            }
+
+        }
+
+        void SpinSword()
+        {
+            UpgradeTree.spinSword = true;
         }
 
         void PersistentSword()
@@ -50,15 +66,15 @@ namespace Rougelee
             UpgradeTree.persistentSword = true;
         }
 
-        void FireBlade()
+        void IceBlade()
         {
             damage *= 2;
-            UpgradeTree.fireSword = true;
+            UpgradeTree.iceSword = true;
         }
 
         void ShootBlade()
         {
-            UpgradeTree.movingFireSword = true;
+            UpgradeTree.movingSword = true;
         }
 
         void LowerCD()
@@ -94,6 +110,7 @@ namespace Rougelee
                 UpgradeTree.swordNextLevelXP *= UpgradeTree.nextLevelMult;
                 UpgradeTree.swordXP = 0;
                 //levelText.text = "Level " + level;
+                damage *= 1.01f;
                 weaponXPBar.transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.swordLevel);
             }
             weaponXPBar.SetXP(UpgradeTree.swordXP, UpgradeTree.swordNextLevelXP);
@@ -103,7 +120,7 @@ namespace Rougelee
         //upgrades make the sword projectile move, so call the base method if upgrade attained
         public override void Shoot(Vector3 gunDirection)
         {
-            if (UpgradeTree.movingFireSword)
+            if (UpgradeTree.movingSword)
             {
                 base.Shoot(gunDirection);
             }
@@ -128,7 +145,7 @@ namespace Rougelee
 
         public void AnimationFinished()
         {
-            if (!UpgradeTree.movingFireSword)
+            if (!UpgradeTree.movingSword)
             {
                 numSwings--;
                 if (numSwings<=0)
@@ -146,9 +163,9 @@ namespace Rougelee
 
         public override string GetAnimName()
         {
-            if (UpgradeTree.fireSword)
+            if (UpgradeTree.iceSword)
             {
-                return "firesword";
+                return "icesword";
             }
             return "swordswing";
         }

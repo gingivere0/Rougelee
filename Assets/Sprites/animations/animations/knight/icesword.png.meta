@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81b6a2a0f2e02194880285aba59308fe
+guid: ed1a114847690aa48a23af2c368b8267
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,10 +66,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_0
+      name: Attacks_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 49
+        y: 256
+        width: 27
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c73fc67146dd81418b8f197691ea98f
-      internalID: -1070420086
+      spriteID: 36e95ba862d05b24a918ca8d0c8566c3
+      internalID: -2118477941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_1
+      name: Attacks_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 172
+        y: 256
+        width: 33
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9397f940f85538745a0c147fa7a44bf4
-      internalID: 923054689
+      spriteID: 865408857a058d94bae55a2399f2871f
+      internalID: 1727572465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_2
+      name: Attacks_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
+        x: 298
+        y: 256
+        width: 37
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530b449d59e6d534c9afbb91a831a3d3
-      internalID: -2017270366
+      spriteID: cb749fdfccd57f3438f0f7c663345c00
+      internalID: -1166930863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_3
+      name: Attacks_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
+        x: 438
+        y: 256
+        width: 43
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 368613364cf4d414fb57a6894420f1e5
-      internalID: 894186044
+      spriteID: d12d2946906a53a42a21423ad003f0ed
+      internalID: -247820185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_4
+      name: Attacks_4
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
+        x: 560
+        y: 256
+        width: 45
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa450b98065df13469e6d8ed1be5d94f
-      internalID: -877885108
+      spriteID: fb268dcf03bc81c45845479388302339
+      internalID: -1081844174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_5
+      name: Attacks_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
+        x: 687
+        y: 256
+        width: 32
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,818 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 036a2a4ab3be7ad4693ffad171c3f62f
-      internalID: 1581610130
+      spriteID: 81c18ceaf714d67489488d4e196be4ac
+      internalID: -1612493898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_6
+      name: Attacks_6
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 256
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8697d12cceeb5749bfb31e3f640524b
+      internalID: 814355308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_7
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 256
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451b105828f3e7d4685be14cbc564e36
+      internalID: -41548509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_8
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 192
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0324e617d0830d478a6f89e20559aaa
+      internalID: 1391351281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_9
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 192
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f7d6b1640b99c47b604024f0350964
+      internalID: 389494364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_10
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 192
+        width: 55
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a995b98f6765bb44b7e1765ad8827e3
+      internalID: -469106612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_11
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 183
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e2645b4f6bfea4ba6134cbbcd02b4e
+      internalID: 1491309598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_12
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 192
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4a2c875583ed746b660b4ea688a655
+      internalID: 782857236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_13
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 192
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00fd95bc41724a49a6e7c03a127f71a
+      internalID: -361510542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_14
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 192
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfafc319cbd04f42a24a950da77fef6
+      internalID: -1144410822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_15
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 192
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf88b6a6deec034382f2d9bb2db3be4
+      internalID: 845196787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 129
+        width: 30
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdf8bb11de62a94a8361963965b6705
+      internalID: 758095171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_17
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 129
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29077aae5be52fc4da1d41b9ed075738
+      internalID: -885610568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_18
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 128
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30f55e2901ffa641af17cc02c7ea233
+      internalID: 1446876962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_20
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 128
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bec70049418c89429a18e4222a1e39d
+      internalID: 164852711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_21
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 121
+        width: 39
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee3b819a89fa3b47bef35d90f8ec861
+      internalID: 245275523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_22
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 128
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc60152a049aac4f8f66683400b8a03
+      internalID: 2073204856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_23
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 128
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69890a559a69e334a8deb3c3567a026a
+      internalID: -326322648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_24
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 128
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac2700ed0a8e47489e6024c585653a9
+      internalID: 1554013247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_25
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 128
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a6dc1b1f693b64fac81f882ebd7651
+      internalID: 75822027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_26
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 128
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff262bbb96a7944598f85d2e7a29067
+      internalID: -797627880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_27
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 131
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137f2e84adf51d74488bc76447815d14
+      internalID: 1022171143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_29
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 128
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c12c6e72a4eed46bb48482d68fa554
+      internalID: 775877929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_30
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9689282fee86fed4c85afb82f4f62122
+      internalID: 1372575640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_31
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 64
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04431d2515f73aa4583dc964b96e2855
+      internalID: -225190557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_32
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15ba58e1d31d3843874a4fbe65640f6
+      internalID: 1587929707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_33
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 64
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19c97f3c31f00d4aaf26d2639de3907
+      internalID: 2067136415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_34
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f6da829c450b34ca8ebe66fa74431a
+      internalID: -1040986328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_35
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 64
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5dbfded279e564ba2a778ad3b5de15
+      internalID: -2103468665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_36
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 64
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4525b0106603ba40a23cc2a92d20985
+      internalID: -182420997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_37
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 0
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48ac66baab3a5949a3962fd460136f8
+      internalID: -1777223576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_38
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 35
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14721bfed9c66e44f860b1d50a8f37c9
+      internalID: -795312333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_39
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 3
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a87b975b106eb64a84f6da419b1ff45
+      internalID: -75295927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_40
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 0
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd14fbb3a56e5254daa11d1f70b3bd29
+      internalID: 1606503344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_41
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 64
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2c22be7a6f2824c927b3859862ef35
+      internalID: 1673925887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_42
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 0
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0ae6734c7057d4f81a3cf57f9278ce
+      internalID: -884280919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_43
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 0
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea3896678a079c4ca2246d1c3903209
+      internalID: -577015989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_44
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 64
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613d33aa412ed1746b4cf8890cac339d
+      internalID: -1305192348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_45
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 0
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca24b1a4aa2395244b4d81eaf09ca839
+      internalID: -594967891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_46
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 128
-        height: 128
+        width: 18
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +1054,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 010d967fb8378ac4f9dc37d4016bc72e
-      internalID: -1229126256
+      spriteID: 4c60a868900b19e41a0e3a230f44ab42
+      internalID: -1703208600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_7
+      name: Attacks_47
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 10
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5444806532e14be40849f75925e5abf2
+      internalID: -2045922144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_48
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 64
+        width: 55
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed7bb8d7e966b64580eec2f486a5147
+      internalID: 440978699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_49
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 0
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d079a2bd0d085124d8ddd3800e004769
+      internalID: 1672301672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attacks_50
       rect:
         serializedVersion: 2
         x: 896
-        y: 0
-        width: 128
-        height: 128
+        y: 2
+        width: 74
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +1138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 633ca24a1b935cc47a5878b891592b99
-      internalID: -1041173107
+      spriteID: 9409b5aea25fa294db80b2ee922b7a14
+      internalID: -1448178689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ice_spear_rain-Sheet_8
+      name: Attacks_51
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 947
         y: 0
-        width: 128
-        height: 128
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,617 +1159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58005fb4e650bc34bbca2c3ac672ad23
-      internalID: -132145132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfc01482c7133264eb4393342f9fc0e1
-      internalID: 2085341431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d57c8580e6b1234086180509505b527
-      internalID: 252620317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec4b9358aa47f7f4ebf081ee9571672a
-      internalID: 216347187
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bf7613ca0de948478def61be2f723a0
-      internalID: -1614069145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64c00f37aa86fc74b90633f5ead92ed5
-      internalID: 833722413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94392ca33a09fd14b8ca79f784bb001b
-      internalID: -991303719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2f4eb7f43d76d6448bb284796169a81
-      internalID: 1350796234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 599dfdda4b231144ca317d0828dd0f0b
-      internalID: 446728427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 2176
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdf0908473cae4145b0bed89dd1492ce
-      internalID: 834396656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 2304
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdb0247e1854b4441ba44590bde0a732
-      internalID: -2044898672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 2432
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f83bc53671b36af4583ab0e5b84cb888
-      internalID: 1004431430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bb6befda6e1b774cb5ac6b26a60cfab
-      internalID: 1979749627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 2688
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 035a0aa4752aad64b8d48b631464cbd2
-      internalID: -49150351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 328ddfa64a79f7f42a9b03366bcbb5a0
-      internalID: 2061334359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 2944
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: beb30d051b2131c4eb8ec01dc708464b
-      internalID: 1610486244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_24
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6296a5e8195f11c42a7bb66968f142f9
-      internalID: -362359525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_25
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30dcbd4a1245cf6459a524c49e1aedcf
-      internalID: 1091830518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_26
-      rect:
-        serializedVersion: 2
-        x: 3328
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6892728918c530b4d9d89888d7e5e015
-      internalID: 1699110907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_27
-      rect:
-        serializedVersion: 2
-        x: 3456
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c01f21b1388d6a24cb75e537def21c85
-      internalID: 423167118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1e183b4c9c43d44ea17915d3daa1c4c
-      internalID: -1006786273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 3712
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0691ef9cfddc91341a441e480e2f9142
-      internalID: -1804060150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_30
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad6af33eb34329a41b4890b79844ce37
-      internalID: -1981483427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 3968
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec82115f6f7ab6e46a5fec8ec9c674d1
-      internalID: -1055187598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc55e90ae8bbcb84aa83c052d501e9e5
-      internalID: 1076235238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_33
-      rect:
-        serializedVersion: 2
-        x: 4224
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47563be8d18dff845bcec146ac94e76a
-      internalID: -1910710118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_34
-      rect:
-        serializedVersion: 2
-        x: 4352
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 078765fb3ee6fc742ac9e6535872d7de
-      internalID: 1490817044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 4480
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42aceca8210a56c4d9f08e576566863f
-      internalID: -206321503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 4608
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41a5e61f4d5bcdf47b3d407a884d91c5
-      internalID: -1408382477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ice_spear_rain-Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 4736
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac90f438ed227434793ac2a44adf3e25
-      internalID: -149690085
+      spriteID: d8fef9921300a04469b7d5ee2fd292cc
+      internalID: 1072060324
       vertices: []
       indices: 
       edges: []
@@ -924,44 +1176,58 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ice_spear_rain-Sheet_4: -877885108
-      ice_spear_rain-Sheet_7: -1041173107
-      ice_spear_rain-Sheet_9: 2085341431
-      ice_spear_rain-Sheet_16: 446728427
-      ice_spear_rain-Sheet_26: 1699110907
-      ice_spear_rain-Sheet_13: 833722413
-      ice_spear_rain-Sheet_15: 1350796234
-      ice_spear_rain-Sheet_0: -1070420086
-      ice_spear_rain-Sheet_20: 1979749627
-      ice_spear_rain-Sheet_27: 423167118
-      ice_spear_rain-Sheet_36: -1408382477
-      ice_spear_rain-Sheet_6: -1229126256
-      ice_spear_rain-Sheet_28: -1006786273
-      ice_spear_rain-Sheet_1: 923054689
-      ice_spear_rain-Sheet_32: 1076235238
-      ice_spear_rain-Sheet_35: -206321503
-      ice_spear_rain-Sheet_8: -132145132
-      ice_spear_rain-Sheet_5: 1581610130
-      ice_spear_rain-Sheet_11: 216347187
-      ice_spear_rain-Sheet_12: -1614069145
-      ice_spear_rain-Sheet_25: 1091830518
-      ice_spear_rain-Sheet_33: -1910710118
-      ice_spear_rain-Sheet_37: -149690085
-      ice_spear_rain-Sheet_21: -49150351
-      ice_spear_rain-Sheet_2: -2017270366
-      ice_spear_rain-Sheet_18: -2044898672
-      ice_spear_rain-Sheet_34: 1490817044
-      ice_spear_rain-Sheet_30: -1981483427
-      ice_spear_rain-Sheet_17: 834396656
-      ice_spear_rain-Sheet_22: 2061334359
-      ice_spear_rain-Sheet_19: 1004431430
-      ice_spear_rain-Sheet_3: 894186044
-      ice_spear_rain-Sheet_31: -1055187598
-      ice_spear_rain-Sheet_14: -991303719
-      ice_spear_rain-Sheet_29: -1804060150
-      ice_spear_rain-Sheet_23: 1610486244
-      ice_spear_rain-Sheet_24: -362359525
-      ice_spear_rain-Sheet_10: 252620317
+      Attacks_49: 1672301672
+      Attacks_37: -1777223576
+      Attacks_3: -247820185
+      Attacks_15: 845196787
+      Attacks_33: 2067136415
+      Attacks_25: 75822027
+      Attacks_7: -41548509
+      Attacks_16: 758095171
+      Attacks_30: 1372575640
+      Attacks_40: 1606503344
+      Attacks_42: -884280919
+      Attacks_10: -469106612
+      Attacks_14: -1144410822
+      Attacks_4: -1081844174
+      Attacks_28: -229016418
+      Attacks_20: 164852711
+      Attacks_45: -594967891
+      Attacks_46: -1703208600
+      Attacks_12: 782857236
+      Attacks_0: -2118477941
+      Attacks_29: 775877929
+      Attacks_6: 814355308
+      Attacks_38: -795312333
+      Attacks_2: -1166930863
+      Attacks_35: -2103468665
+      Attacks_27: 1022171143
+      Attacks_9: 389494364
+      Attacks_31: -225190557
+      Attacks_43: -577015989
+      Attacks_34: -1040986328
+      Attacks_47: -2045922144
+      Attacks_5: -1612493898
+      Attacks_13: -361510542
+      Attacks_23: -326322648
+      Attacks_26: -797627880
+      Attacks_48: 440978699
+      Attacks_41: 1673925887
+      Attacks_50: -1448178689
+      Attacks_32: 1587929707
+      Attacks_17: -885610568
+      Attacks_24: 1554013247
+      Attacks_11: 1491309598
+      Attacks_19: -1938150514
+      Attacks_22: 2073204856
+      Attacks_39: -75295927
+      Attacks_36: -182420997
+      Attacks_44: -1305192348
+      Attacks_18: 1446876962
+      Attacks_51: 1072060324
+      Attacks_21: 245275523
+      Attacks_1: 1727572465
+      Attacks_8: 1391351281
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

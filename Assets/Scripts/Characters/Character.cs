@@ -85,7 +85,6 @@ namespace Rougelee
                         UpgradeTree.iceXPBarIndex = i;
                         player.weaponXPBars[i].SetXP(UpgradeTree.iceXP, UpgradeTree.iceNextLevelXP);
                         player.weaponXPBars[i].transform.parent.GetChild(3).GetComponent<TMPro.TextMeshProUGUI>().SetText("" + UpgradeTree.iceLevel);
-                        Debug.Log(player.XPBarUIs[i].name + " : " + i + " : " + projectileArray[i].GetComponent<ShotProjectile>().GetType().Name);
                     }
                 }
             }

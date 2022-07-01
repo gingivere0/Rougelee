@@ -11,6 +11,7 @@ namespace Rougelee
         GameObject crosshair;
 
         public GameObject projectile;
+        ShotProjectile sp;
 
         float cooldown;
         float lastShot;
@@ -22,6 +23,7 @@ namespace Rougelee
             crosshair = GameObject.FindGameObjectWithTag("Crosshair");
             lastShot = -1;
             cooldown = -1;
+            sp = projectile.GetComponent<ShotProjectile>();
         }
 
         public GameObject GetProjectile()
@@ -35,8 +37,8 @@ namespace Rougelee
         //please don't touch this method
         public bool Shoot()
         {
-            cooldown = projectile.GetComponent<ShotProjectile>().cooldown;
-            if (Time.time-lastShot > cooldown)
+            cooldown = sp.cooldown;
+            if (Time.time - lastShot > cooldown)
             {
                 Vector3 crosshairDirection = crosshair.transform.position - playerObject.transform.position;
 
@@ -46,8 +48,13 @@ namespace Rougelee
                 Vector3 spreadPosition = new Vector3();
                 Player player = ((Player)playerObject.GetComponent(typeof(Player)));
                 int degreeIncr = 0;
-                
-                for (int bulletNum = 0; bulletNum < player.mods.bulletMultiplier; bulletNum++)
+                int numProj = player.mods.bulletMultiplier;
+                if (sp.GetType().Name == "Sword" && UpgradeTree.spinSword)
+                {
+                    numProj = UpgradeTree.swordProj;
+                }
+
+                for (int bulletNum = 0; bulletNum < numProj; bulletNum++)
                 {
                     double bulletFlip = (System.Math.Pow((-1), (bulletNum + 1)));
                     if (bulletNum % 2 == 1)

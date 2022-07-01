@@ -29,6 +29,8 @@ namespace Rougelee
         bool killCounted = false;
         float stunTime = 2;
 
+        bool isFrozen = false;
+
 
         // Start is called before the first frame update
         void Start()
@@ -79,6 +81,7 @@ namespace Rougelee
             if (stunTime < 0)
             {
                 canMove = true;
+                stunTime = 2;
             }
             stunTime -= Time.deltaTime;
         }
@@ -104,6 +107,18 @@ namespace Rougelee
         {
             if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit))))
             {
+                if((projectile.GetType().Name == "Sword" && UpgradeTree.iceSword ) || projectile.GetType().Name == "Ice")
+                {
+                    if (isFrozen)
+                    {
+                        hp -= projectile.damage;
+                        canMove = false;
+                    }
+                    else
+                    {
+                        isFrozen = true;
+                    }
+                }
                 hp -= projectile.damage;
 
                 DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, (int)projectile.damage);
