@@ -17,6 +17,10 @@ namespace Rougelee
             {
                 damage *= 2;
             }
+            if (UpgradeTree.persistentSword)
+            {
+                numSwings = 6;
+            }
             upgrades = new Upgrade[5];
             PopulateUpgrades();
         }
@@ -173,7 +177,7 @@ namespace Rougelee
         public override void Reset()
         {
             base.Reset();
-            numSwings = 1;
+            Awake();
         }
     }
 }

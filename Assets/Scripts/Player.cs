@@ -173,19 +173,13 @@ namespace Rougelee
             transform.Translate(m);
 
             character.facingLeft = move.x < 0;
-            if(move.x != 0)
-            {
-                character.startRunning = true;
-            }
-            else
-            {
-                character.startRunning = false;
-            }
+
+            character.startRunning = move != Vector2.zero;
 
 
             MoveCrosshair();
             //FaceCrosshair();
-            
+
             Shoot();
 
             CheckLevel();

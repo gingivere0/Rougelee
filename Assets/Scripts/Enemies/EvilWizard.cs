@@ -165,9 +165,10 @@ namespace Rougelee
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
         }
 
-        public override void Dead()
+        public override void Dead(float deathTimer = .8f, string deathAnim = "wizarddeath")
         {
-            base.Dead();
+            base.Dead(deathTimer, deathAnim);
+            myAnim.Play("wizarddeath");
             if (!bossKilled)
             {
                 Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);

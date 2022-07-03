@@ -34,7 +34,7 @@ namespace Rougelee
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
         }
 
-        public override void Dead()
+        public override void Dead(float deathTimer = .6f, string deathAnim = "splatter")
         {
             transform.localScale = new Vector3(.95f, .95f);
             base.Dead();

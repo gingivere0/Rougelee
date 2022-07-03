@@ -146,7 +146,7 @@ namespace Rougelee
             return false;
         }
 
-        public virtual void Dead()
+        public virtual void Dead(float deathTimer = .6f, string deathAnim = "splatter")
         {
             if (!killCounted)
             {
@@ -165,9 +165,23 @@ namespace Rougelee
             movespeed = 0;
             canMove = false;
             targetPos = transform.position;
-            myAnim.Play("splatter");
+            if (deathAnim == null)
+            {
+                myAnim.Play("splatter");
+            }
+            else
+            {
+                myAnim.Play(deathAnim);
+            }
             //transform.Rotate(0, 0, 270);
-            Destroy(gameObject, .6f);
+            if (deathTimer == 0)
+            {
+                Destroy(gameObject, .6f);
+            }
+            else
+            {
+                Destroy(gameObject, deathTimer);
+            }
         }
     }
 }

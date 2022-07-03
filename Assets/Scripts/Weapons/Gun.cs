@@ -38,6 +38,7 @@ namespace Rougelee
         //projectile fired, subtract 10 degrees for every odd bullet fired
         //rotate the projectiles in the direction it's headed
         //please don't touch this method
+        //returns true if the weapon is off cooldown and is used
         public bool Shoot()
         {
             cooldown = sp.cooldown;

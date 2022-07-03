@@ -65,9 +65,15 @@ namespace Rougelee
         }
         void PopulateUpgrades()
         {
+            upgrades[0] = new Upgrade("Lower Fireball Cooldown by 10%", LowerCD);
             if (!UpgradeTree.aoeFire && UpgradeTree.fireballLevel >= 10){
-                upgrades[0] = new Upgrade("Fireball explodes on hit", AOEFire);
+                upgrades[1] = new Upgrade("Fireball explodes on hit", AOEFire);
             }
+        }
+
+        public void LowerCD()
+        {
+            cooldown *= .9f;
         }
 
         public void AOEFire()

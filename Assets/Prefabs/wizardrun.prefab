@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4e1b9b80ab6d34b9f95ea7527b7c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 10
   movespeed: 2
   myAnim: {fileID: 0}
   myID: 0
