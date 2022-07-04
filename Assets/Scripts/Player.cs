@@ -32,6 +32,8 @@ namespace Rougelee
         public GameObject[] XPBarUIs;
         public XPBar[] weaponXPBars;
 
+        public GameObject healthUIObject;
+
 
         /*public GameObject swordXPBarUI;
         public XPBar swordXPBar;
@@ -53,6 +55,7 @@ namespace Rougelee
         GameObject characterObject;
         public Character character;
 
+        HealthUI healthUI;
 
         private void Awake()
         {
@@ -73,6 +76,7 @@ namespace Rougelee
             startMenu.SetActive(false);
             levelText.text = "Level " + level;
             levelup.SetActive(false);
+            healthUI = healthUIObject.GetComponent<HealthUI>();
 
             for(int i =0; i < XPBarUIs.Length; i++)
             {
@@ -183,6 +187,11 @@ namespace Rougelee
             Shoot();
 
             CheckLevel();
+
+            if (hp <= 0)
+            {
+                Dead();
+            }
         }
 
 
@@ -227,8 +236,18 @@ namespace Rougelee
         void OnCollisionEnter2D(Collision2D col)
         {
             hp -= 1;
-            //sp.flipY = !sp.flipY;
-            if (col != null && col.gameObject != null && col.gameObject.tag == "Enemy")
+            healthUI.SetHP(hp);
+            if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyProjectile"))
+            {
+                Destroy(col.gameObject, 0f);
+            }
+        }
+
+        void OnTriggerEnter2D(Collider2D col)
+        {
+            hp -= 1;
+            healthUI.SetHP(hp);
+            if (col != null && col.gameObject != null && col.gameObject.tag == "EnemyProjectile")
             {
                 Destroy(col.gameObject, 0f);
             }
@@ -236,7 +255,10 @@ namespace Rougelee
 
         public void Dead()
         {
+            hp = 5;
+            healthUI.SetHP(hp);
             Time.timeScale = 0;
+            startMenu.SetActive(true);
         }
 
     }
