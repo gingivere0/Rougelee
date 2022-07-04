@@ -32,21 +32,21 @@ namespace Rougelee
             textMesh.SetText(damageAmount.ToString());
             // TODO: placeholder. should probably make it autoscale instead of using ifs
             // to change color and size of bigger numbers
-            if(damageAmount > 160)
+            if (damageAmount > 160)
             {
                 textMesh.color = Color.magenta;
-                textMesh.fontSize = (damageAmount-160)*.5f;
-            }else if(damageAmount > 80)
+                textMesh.fontSize = (damageAmount - 160) * .5f;
+            } else if (damageAmount > 80)
             {
                 textMesh.color = Color.red;
 
                 textMesh.fontSize = (damageAmount - 80) * .5f;
             }
-            else if (damageAmount >40)
+            else if (damageAmount > 40)
             {
                 textMesh.color = Color.yellow;
 
-                textMesh.fontSize = (damageAmount-40)* .5f;
+                textMesh.fontSize = (damageAmount - 40) * .5f;
             }
             else
             {
@@ -54,13 +54,19 @@ namespace Rougelee
             }
 
 
-            if(textMesh.fontSize < 3)
+            if (textMesh.fontSize < 3)
             {
                 textMesh.fontSize = 3;
             }
-            if(textMesh.fontSize > 20)
+            if (textMesh.fontSize > 20)
             {
                 textMesh.fontSize = 20;
+            }
+
+            if (damageAmount == -1)
+            {
+                textMesh.color = Color.red;
+                textMesh.fontSize = 10;
             }
 
             textColor = textMesh.color;

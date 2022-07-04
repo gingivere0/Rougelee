@@ -15,11 +15,13 @@ namespace Rougelee
                 {
                     Debug.Log(transform.GetChild(i-1).name);
                     transform.GetChild(i-1).GetChild(0).gameObject.SetActive(false);
+                    transform.GetChild(i - 1).GetChild(1).gameObject.SetActive(true);
                 }
             }
             for(int i = 0 ; i < hp; i++)
             {
                     transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                    transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
             }
         }
     }

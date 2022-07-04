@@ -56,6 +56,8 @@ namespace Rougelee
         public Character character;
 
         HealthUI healthUI;
+        float timeHit;
+        float invulnTime = 1.5f;
 
         private void Awake()
         {
@@ -235,21 +237,31 @@ namespace Rougelee
 
         void OnCollisionEnter2D(Collision2D col)
         {
-            hp -= 1;
-            healthUI.SetHP(hp);
-            if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyProjectile"))
+            if (Time.time - timeHit > invulnTime)
             {
-                Destroy(col.gameObject, 0f);
+                hp -= 1;
+                DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
+                healthUI.SetHP(hp);
+                if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyProjectile"))
+                {
+                    Destroy(col.gameObject, 0f);
+                }
+                timeHit = Time.time;
             }
         }
 
         void OnTriggerEnter2D(Collider2D col)
         {
-            hp -= 1;
-            healthUI.SetHP(hp);
-            if (col != null && col.gameObject != null && col.gameObject.tag == "EnemyProjectile")
+            if (Time.time - timeHit > invulnTime)
             {
-                Destroy(col.gameObject, 0f);
+                hp -= 1;
+                DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
+                healthUI.SetHP(hp);
+                if (col != null && col.gameObject != null && col.gameObject.tag == "EnemyProjectile")
+                {
+                    Destroy(col.gameObject, 0f);
+                }
+                timeHit = Time.time;
             }
         }
 
