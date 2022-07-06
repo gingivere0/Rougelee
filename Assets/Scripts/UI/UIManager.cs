@@ -47,7 +47,7 @@ namespace Rougelee
             killsText.text = "Kills: " + kills;
         }
 
-        void DisplayTime()
+        public void DisplayTime()
         {
             seconds = (int)timeValue % 60;
             minutes = (int)timeValue / 60;

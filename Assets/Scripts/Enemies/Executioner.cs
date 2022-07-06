@@ -4,18 +4,22 @@ using UnityEngine;
 
 namespace Rougelee
 {
-    public class EvilWizard : Enemy
+    public class Executioner : Enemy
     {
-        public GameObject greenAttack;
 
         bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
         protected Vector2 portalPos;
         float attackTime;
-        public bool startedAttack = false;
-        public bool isShooting = false;
-        int shotsLeft = 3;
+        public bool isAttacking = false;
+        public GameObject summon;
+        GameObject[] summons;
+        float summonTime;
+        int summonCount;
+        bool isShooting = false;
+        SpriteRenderer sr;
+
 
 
         // Start is called before the first frame update
@@ -26,10 +30,12 @@ namespace Rougelee
             playerObject = GameObject.FindGameObjectWithTag("Player");
             myAnim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            sr = GetComponent<SpriteRenderer>();
             canMove = true;
             initMovespeed = movespeed;
             transform.localScale = transform.localScale * 1.5f;
             hp *= 10;
+            summons = new GameObject[4];
 
         }
 
@@ -44,9 +50,9 @@ namespace Rougelee
             }
 
             targetPos = playerObject.transform.position;
-            if (Vector3.Distance(playerObject.transform.position, transform.position) < 15 && Time.time - attackTime > 3 && !startedAttack) 
+            if (Vector3.Distance(playerObject.transform.position, transform.position) < 5 && (Time.time - attackTime > 5 || isShooting) && !isAttacking)
             {
-                StartAttack();
+                Attack();
             }
 
             if (hp <= 0)
@@ -64,6 +70,16 @@ namespace Rougelee
                 Move();
             }
 
+            if (!isAttacking && Time.time - summonTime > 3f && summonCount<4 && !isShooting)
+            {
+                Summon();
+            }
+
+            if(!isAttacking && summonCount == 4)
+            {
+                isShooting = true;
+            }
+
             MovespeedCalc();
 
         }
@@ -75,7 +91,7 @@ namespace Rougelee
                 canMove = true;
                 stunTime = 2;
             }
-            if (movespeed < initMovespeed && !startedAttack)
+            if (movespeed < initMovespeed && !isAttacking)
             {
                 movespeed += Time.deltaTime * 5;
             }
@@ -88,58 +104,70 @@ namespace Rougelee
 
         protected override void Move()
         {
-            if (!startedAttack && Vector3.Distance(playerObject.transform.position, transform.position) > 10)
+            //approach quickly, then approach slowly once in attacking distance
+            if (!isAttacking && Vector3.Distance(playerObject.transform.position, transform.position) > 5)
             {
                 movespeed = initMovespeed;
                 rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
-            }
-            else if (!startedAttack && Vector3.Distance(playerObject.transform.position, transform.position) < 9.7)
+            }else if (!isAttacking)
             {
-                rb.velocity = Vector3.zero;
-                movespeed = -initMovespeed/2;
-                rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
-                myAnim.Play("wizardidle");
+                movespeed = initMovespeed;
+                rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed/4, movespeed/4);
             }
         }
 
-        protected void StartAttack()
-        {
-            startedAttack = true;
-            rb.velocity = Vector3.zero;
-            movespeed = 0;
-            Attack();
-        }
+
 
         protected void Attack()
         {
-            isShooting = true;
-            myAnim.Play("wizardattack");
-            
-            
-        }
+            myAnim.Play("executionerattack");
+            isAttacking = true;
 
-        protected void CreateProjectile()
-        {
-            GameObject greenAttackproj = Instantiate(greenAttack, transform.position, Quaternion.identity);
-            greenAttackproj.GetComponent<GreenAttack>().Shoot((targetPos - (Vector2)greenAttackproj.transform.position));
         }
 
         protected void FinishedAttacking()
         {
-            isShooting = false;
-            shotsLeft--;
-            Debug.Log("finishedattacking");
-            movespeed = initMovespeed;
-            if (shotsLeft <= 0)
+            isAttacking = false;
+            if (!isShooting)
             {
-                myAnim.Play("wizardrun"); 
-                attackTime = Time.time;
-                startedAttack = false;
-                shotsLeft = 3;
+                myAnim.Play("executioneridle");
             }
-            else
+            attackTime = Time.time;
+        }
+
+        void Summon()
+        {
+            myAnim.Play("executionerskill");
+        }
+
+        protected void FinishedSummon(int part)
+        {
+            summonTime = Time.time;
+            if (part == 0)
             {
-                Attack();
+                summons[summonCount] = Instantiate(summon, transform.position+sr.bounds.extents, Quaternion.identity);
+                summonCount++;
+            }
+            if(part == 1)
+            {
+                myAnim.Play("executioneridle");
+            }
+        }
+
+        void Shoot()
+        {
+            if (isShooting)
+            {
+                if (summons[summonCount - 1] != null)
+                {
+
+                    summons[summonCount - 1].GetComponent<Rigidbody2D>().velocity = (targetPos-(Vector2)summons[summonCount-1].transform.position).normalized * new Vector3(movespeed * 2, movespeed * 2);
+                }
+                summonCount--;
+                if (summonCount <= 0)
+                {
+                    isShooting = false;
+                }
             }
         }
 
@@ -147,29 +175,36 @@ namespace Rougelee
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg);
-            if (angle < 90 && angle > -90 && facingLeft)
-            {
-                myScale = transform.localScale;
-                myScale.x *= -1;
-                transform.localScale = myScale;
-                facingLeft = false;
-            }
-            else if ((angle > 90 || angle < -90) && !facingLeft)
+            if (angle < 90 && angle > -90 && !facingLeft)
             {
                 myScale = transform.localScale;
                 myScale.x *= -1;
                 transform.localScale = myScale;
                 facingLeft = true;
             }
+            else if ((angle > 90 || angle < -90) && facingLeft)
+            {
+                myScale = transform.localScale;
+                myScale.x *= -1;
+                transform.localScale = myScale;
+                facingLeft = false;
+            }
             angle = 0;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 10000f);
         }
 
-        public override void Dead(float deathTimer = .8f, string deathAnim = "wizarddeath")
+        public override void Dead(float deathTimer = .8f, string deathAnim = "executionerdeath")
         {
+            foreach(GameObject GO in summons)
+            {
+                if(GO != null)
+                {
+                    Destroy(GO);
+                }
+            }
             base.Dead(deathTimer, deathAnim);
-            myAnim.Play("wizarddeath");
+            myAnim.Play("executionerdeath");
             if (!bossKilled)
             {
                 Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);

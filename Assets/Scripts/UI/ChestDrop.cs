@@ -35,7 +35,7 @@ namespace Rougelee
         private void PopulateUpgradeList()
         {
             //upgrades.Add(new Upgrade("Increase Projectile Count by 2!", ()=> player.mods.bulletMultiplier += 2));
-            upgrades.Add(new Upgrade("Increase Weapon Damage by 50%!", () => player.mods.damageMod *= 1.5f));
+            upgrades.Add(new Upgrade("Increase Weapon Damage by 10%!", () => player.mods.damageMod *= 1.1f));
             foreach(Upgrade upgrade in sps[0].GetUpgrades())
             {
                 if (upgrade != null)

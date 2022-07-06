@@ -45,6 +45,8 @@ namespace Rougelee
             canMove = true;
             initMovespeed = movespeed;
 
+            // TODO: MAKE THIS GOOD
+            hp = hp + hp * 2*UIManager.minutes;
         }
 
         // Update is called once per frame

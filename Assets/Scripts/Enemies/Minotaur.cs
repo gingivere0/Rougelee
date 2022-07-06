@@ -10,6 +10,11 @@ namespace Rougelee
         bool facingLeft = true;
         Vector2 myScale;
         protected Vector2 portalPos;
+
+        private void Start()
+        {
+            hp *= 10;
+        }
         protected override void FacePlayer()
         {
             Vector3 vectorToTarget = targetPos - (Vector2)transform.position;

@@ -239,12 +239,11 @@ namespace Rougelee
         {
             if (Time.time - timeHit > invulnTime)
             {
-                hp -= 1;
-                DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
-                healthUI.SetHP(hp);
-                if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyProjectile"))
+                if (col != null && col.gameObject != null && (col.gameObject.tag == "Enemy"|| col.gameObject.tag == "Boss"))
                 {
-                    Destroy(col.gameObject, 0f);
+                    hp -= 1;
+                    DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
+                    healthUI.SetHP(hp);
                 }
                 timeHit = Time.time;
             }
@@ -254,11 +253,12 @@ namespace Rougelee
         {
             if (Time.time - timeHit > invulnTime)
             {
-                hp -= 1;
-                DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
-                healthUI.SetHP(hp);
                 if (col != null && col.gameObject != null && col.gameObject.tag == "EnemyProjectile")
                 {
+                    hp -= 1;
+                    DamagePopup.Create(transform.GetComponent<Renderer>().bounds.center, -1);
+                    healthUI.SetHP(hp);
+
                     Destroy(col.gameObject, 0f);
                 }
                 timeHit = Time.time;
