@@ -8,12 +8,13 @@ public class GreenAttack : MonoBehaviour
     GameObject playerObject;
     Rigidbody2D rb;
 
-    float movespeed = 7f;
+    float movespeed = 12f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -24,6 +25,14 @@ public class GreenAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerObject != null)
+        {
+            bool tooFar = Vector3.Distance(playerObject.transform.position, transform.position) > 32;
+            if (tooFar)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     protected void OnTriggerEnter2D(Collider2D col)

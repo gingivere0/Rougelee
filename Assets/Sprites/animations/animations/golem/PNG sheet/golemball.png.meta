@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 456ad585ca7fee749a05ae6fe8c6d067
+guid: f317f695c31f7f5438f9184d43b30381
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arm_projectile_glowing_0
+      name: golemball_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 256
-        width: 35
-        height: 14
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7afc42a578991a248bb8e9e4c8becb73
-      internalID: 1043865320
+      spriteID: 8febfeca5fb82de43a15a8541e6b3516
+      internalID: -900761533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arm_projectile_glowing_1
+      name: golemball_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 256
-        width: 35
-        height: 14
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 931b306710050b94e9b1a2ae808b983b
-      internalID: -284964598
+      spriteID: 453cd0ea4a4ac104caa78f60268cbf0d
+      internalID: -1826543042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arm_projectile_glowing_2
+      name: golemball_2
       rect:
         serializedVersion: 2
-        x: 260
-        y: 256
-        width: 35
-        height: 14
+        x: 200
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7806e34f3062d6341887dd317d89f8c0
-      internalID: 1229113842
+      spriteID: a84c93fd7fd4eaf45bc301f047408610
+      internalID: 1666207488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arm_projectile_glowing_3
+      name: golemball_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 156
-        width: 35
-        height: 14
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ba7902e1a7886a48b612f46eb8c49ea
-      internalID: -1495440229
+      spriteID: 0b5790903750e2142bc4056f32f17f63
+      internalID: 1407377714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arm_projectile_glowing_4
+      name: golemball_4
       rect:
         serializedVersion: 2
-        x: 160
-        y: 156
-        width: 35
-        height: 14
+        x: 400
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cd77f701b7fece4093e8734c2db0b6a
-      internalID: -1107096085
+      spriteID: 1302075ea804e6f45860ee368bdf6105
+      internalID: 1308753678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arm_projectile_glowing_5
+      name: golemball_5
       rect:
         serializedVersion: 2
-        x: 260
-        y: 156
-        width: 35
-        height: 14
+        x: 500
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +235,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 013c51844b9af36448ae5cee12a32e64
-      internalID: 1681648753
+      spriteID: 595ce341be3a4d645abf6a8dae0ea853
+      internalID: -1704535999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golemball_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f02f77cc072ca047ae7f9924924a272
+      internalID: -92625865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golemball_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f14737b834806946ac41c55dd95bba6
+      internalID: 965798561
       vertices: []
       indices: 
       edges: []
@@ -252,12 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arm_projectile_glowing_0: 1043865320
-      arm_projectile_glowing_5: 1681648753
-      arm_projectile_glowing_3: -1495440229
-      arm_projectile_glowing_4: -1107096085
-      arm_projectile_glowing_2: 1229113842
-      arm_projectile_glowing_1: -284964598
+      golemball_7: 965798561
+      golemball_3: 1407377714
+      golemball_0: -900761533
+      golemball_6: -92625865
+      golemball_4: 1308753678
+      golemball_2: 1666207488
+      golemball_5: -1704535999
+      golemball_1: -1826543042
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

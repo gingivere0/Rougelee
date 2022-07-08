@@ -137,7 +137,6 @@ namespace Rougelee
 
             if (GetAnimName() != null)
             {
-                Debug.Log(GetName());
                 myAnim.Play(GetAnimName());
             }
         }

@@ -50,7 +50,7 @@ namespace Rougelee
             }
 
             targetPos = playerObject.transform.position;
-            if (Vector3.Distance(playerObject.transform.position, transform.position) < 5 && (Time.time - attackTime > 5 || isShooting) && !isAttacking)
+            if (Vector3.Distance(playerObject.transform.position, transform.position) < 3 && (Time.time - attackTime > 5 || isShooting) && !isAttacking)
             {
                 Attack();
             }
@@ -70,7 +70,7 @@ namespace Rougelee
                 Move();
             }
 
-            if (!isAttacking && Time.time - summonTime > 3f && summonCount<4 && !isShooting)
+            if (!isAttacking && Time.time - summonTime > 1.5f && summonCount<4 && !isShooting)
             {
                 Summon();
             }
@@ -105,7 +105,7 @@ namespace Rougelee
         protected override void Move()
         {
             //approach quickly, then approach slowly once in attacking distance
-            if (!isAttacking && Vector3.Distance(playerObject.transform.position, transform.position) > 5)
+            if (!isAttacking && Vector3.Distance(playerObject.transform.position, transform.position) > 3)
             {
                 movespeed = initMovespeed;
                 rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
@@ -161,7 +161,7 @@ namespace Rougelee
                 if (summons[summonCount - 1] != null)
                 {
 
-                    summons[summonCount - 1].GetComponent<Rigidbody2D>().velocity = (targetPos-(Vector2)summons[summonCount-1].transform.position).normalized * new Vector3(movespeed * 2, movespeed * 2);
+                    summons[summonCount - 1].GetComponent<Rigidbody2D>().velocity = (targetPos-(Vector2)summons[summonCount-1].transform.position).normalized * new Vector3(movespeed * 4, movespeed * 4);
                 }
                 summonCount--;
                 if (summonCount <= 0)

@@ -99,7 +99,6 @@ namespace Rougelee
 
         public override string GetAnimName()
         {
-            Debug.Log("getanimname");
             if (UpgradeTree.manyIce)
             {
                 return "manyIce";

@@ -128,7 +128,6 @@ namespace Rougelee
         {
             isShooting = false;
             shotsLeft--;
-            Debug.Log("finishedattacking");
             movespeed = initMovespeed;
             if (shotsLeft <= 0)
             {
