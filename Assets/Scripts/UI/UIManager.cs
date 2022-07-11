@@ -15,8 +15,8 @@ namespace Rougelee
         public static int minutes = 0;
         public static int seconds = 0;
         public static int kills = 0;
+        bool monsterIncr;
 
-        public static bool spawned = false;
 
         // Start is called before the first frame update
         void Start()
@@ -35,11 +35,24 @@ namespace Rougelee
 
         void CheckForBoss()
         {
-            if (((int)timeValue) % 60 == 0 && !spawned)
+            if (((int)timeValue) % 120 == 0 && !ProceduralGeneration.spawned)
             {
                 ProceduralGeneration.spawnBoss = true;
-                spawned = false;
             }
+            else if (((int)timeValue) % 120 != 0)
+            {
+                ProceduralGeneration.spawned = false;
+            }
+
+            if (((int)timeValue) % 20 == 0 && !monsterIncr)
+            {
+                ProceduralGeneration.maxEnemies+=5;
+                monsterIncr = true;
+            }else if (((int)timeValue)%20 != 0)
+            {
+                monsterIncr = false;
+            }
+
         }
 
         void DisplayKills()

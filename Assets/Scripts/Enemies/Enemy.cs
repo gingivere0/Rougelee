@@ -59,7 +59,11 @@ namespace Rougelee
 
         private void FixedUpdate()
         {
-            bool tooFar = Vector3.Distance(playerObject.transform.position, transform.position) > 32;
+            bool tooFar = false;
+            if (playerObject != null && transform != null)
+            {
+                tooFar = Vector3.Distance(playerObject.transform.position, transform.position) > 32;
+            }
             if (tooFar && gameObject.tag != "Boss")
             {
                 Destroy(gameObject);
@@ -78,7 +82,10 @@ namespace Rougelee
                 invuln = false;
                 gameObject.layer = 6;
             }
-            targetPos = playerObject.transform.position;
+            if (playerObject != null && playerObject.transform !=null && playerObject.transform.position!=null)
+            {
+                targetPos = playerObject.transform.position;
+            }
             if (canMove)
             {
                 FacePlayer();
@@ -101,8 +108,10 @@ namespace Rougelee
 
         protected virtual void Move()
         {
-
-            rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
+            if (rb != null && transform != null)
+            {
+                rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
+            }
         }
 
         //gets the vector towards the target, figures out the angle, rotates towards that angle at a speed of 10000f;

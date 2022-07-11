@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 621287675809470513}
   - component: {fileID: 621287675809470512}
   - component: {fileID: 621287675809470519}
+  - component: {fileID: 621287675809470516}
   - component: {fileID: 621287675809470518}
   - component: {fileID: 621287675809470517}
-  - component: {fileID: 621287675809470516}
   m_Layer: 6
   m_Name: worm
   m_TagString: Enemy
@@ -108,6 +108,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &621287675809470516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621287675809470507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a094c74eb9d3c74799da6a93861b0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 10
+  movespeed: 2
+  myAnim: {fileID: 0}
+  myID: 0
 --- !u!61 &621287675809470518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,19 +171,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &621287675809470516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621287675809470507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a094c74eb9d3c74799da6a93861b0b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
-  movespeed: 3.5
-  myAnim: {fileID: 0}
-  myID: 0

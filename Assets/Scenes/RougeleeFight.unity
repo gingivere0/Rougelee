@@ -2070,9 +2070,9 @@ MonoBehaviour:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
   forestBoss:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
-  - {fileID: 7409344281634793965, guid: 0cf3e58b70fa27c439b4e7134d1f12cb, type: 3}
-  - {fileID: 2926233581664218017, guid: b6dab31ca25cf90438936ff7117c587e, type: 3}
   - {fileID: 6924496506889380043, guid: 6d6820a6ed859214c875af0d55f536fc, type: 3}
+  - {fileID: 2926233581664218017, guid: b6dab31ca25cf90438936ff7117c587e, type: 3}
+  - {fileID: 7409344281634793965, guid: 0cf3e58b70fa27c439b4e7134d1f12cb, type: 3}
   desertBoss:
   - {fileID: 8813594361520465625, guid: 97edb667d0be97f4b8d84359ed62e730, type: 3}
 --- !u!1001 &569871835
@@ -5208,7 +5208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08899f2cb47d6ef46a895e40be0811ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 58
+  timeValue: 1
   timeText: {fileID: 1961670011}
   killsText: {fileID: 1706754148}
 --- !u!1 &1520219698

@@ -21,7 +21,6 @@ namespace Rougelee
         SpriteRenderer sr;
 
 
-
         // Start is called before the first frame update
         void Start()
         {
@@ -81,7 +80,19 @@ namespace Rougelee
             }
 
             MovespeedCalc();
+            SummonSpeedCalc();
 
+        }
+
+        void SummonSpeedCalc()
+        {
+            foreach (GameObject summon in summons)
+            {
+                if (summon != null)
+                {
+                    summon.GetComponent<Rigidbody2D>().velocity *= 1.01f;
+                }
+            }
         }
 
         private void MovespeedCalc()
@@ -161,7 +172,7 @@ namespace Rougelee
                 if (summons[summonCount - 1] != null)
                 {
 
-                    summons[summonCount - 1].GetComponent<Rigidbody2D>().velocity = (targetPos-(Vector2)summons[summonCount-1].transform.position).normalized * new Vector3(movespeed * 4, movespeed * 4);
+                    summons[summonCount - 1].GetComponent<Rigidbody2D>().velocity = ((Vector2)playerObject.transform.position-(Vector2)summons[summonCount-1].transform.position).normalized * new Vector3(movespeed * 4, movespeed * 4);
                 }
                 summonCount--;
                 if (summonCount <= 0)

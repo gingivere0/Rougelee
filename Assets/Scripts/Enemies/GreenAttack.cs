@@ -9,6 +9,7 @@ public class GreenAttack : MonoBehaviour
     Rigidbody2D rb;
 
     float movespeed = 12f;
+    bool shot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class GreenAttack : MonoBehaviour
 
     public void Shoot(Vector2 targetDir)
     {
+        shot = true;
         float lookAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, lookAngle));
         transform.Rotate(0,0,180);

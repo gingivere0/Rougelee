@@ -116,10 +116,8 @@ namespace Rougelee
 
         void FinishedAnimation(int anim)
         {
-            Debug.Log("anim: " + anim);
             if(anim == 0)
             {
-                Debug.Log("triggered");
                 isAttacking = false;
                 attackTime = Time.time;
                 myAnim.Play("golemidle");
@@ -132,7 +130,6 @@ namespace Rougelee
 
         void Shoot()
         {
-            Debug.Log("shoot");
             //create 6 projectiles and shoot them in a circle
 
             for (int i = 0; i < projectiles.Length; i++)

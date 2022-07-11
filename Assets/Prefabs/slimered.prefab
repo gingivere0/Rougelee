@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  movespeed: 2
+  movespeed: 1.5
   myAnim: {fileID: 0}
   myID: 0
 --- !u!50 &6860155476483745353

@@ -11,9 +11,15 @@ namespace Rougelee
         Vector2 myScale;
         protected Vector2 portalPos;
 
-        private void Start()
+        void Start()
         {
+            myID = gameObject.transform.GetInstanceID();
+            playerObject = GameObject.FindGameObjectWithTag("Player");
+            myAnim = GetComponent<Animator>();
+            rb = GetComponent<Rigidbody2D>();
+            canMove = true;
             hp *= 10;
+            initMovespeed = movespeed;
         }
         protected override void FacePlayer()
         {

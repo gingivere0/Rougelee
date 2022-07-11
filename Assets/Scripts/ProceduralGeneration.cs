@@ -28,8 +28,9 @@ namespace Rougelee
         float enemyXSpawn, enemyYSpawn;
 
         public static bool spawnBoss;
-
+        public static bool spawned = false;
         public static bool increaseLevel;
+        public static int maxEnemies = 20;
 
 
 
@@ -64,11 +65,11 @@ namespace Rougelee
         {
             GenerateEnemies();
             MoveWithPlayer();
-            if (spawnBoss)
+            if (spawnBoss && !spawned)
             {
                 SpawnBoss();
                 spawnBoss = false;
-                UIManager.spawned = true;
+                spawned = true;
             }
             if (increaseLevel)
             {
@@ -105,26 +106,24 @@ namespace Rougelee
 
         void SpawnBoss()
         {
+            int bossInd = (UIManager.minutes/2)-1;
             if (level == 0)
             {
-                int bossInd = availableEnemies;
-                if(availableEnemies > biomes.dungeonBoss.Length-1)
+                if(bossInd > biomes.dungeonBoss.Length-1)
                 {
-                    bossInd = biomes.dungeonBoss.Length - 1;
+                    bossInd = 0;
                 }
                 spawnObj(biomes.dungeonBoss[bossInd],(int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
             } else if (level == 1)
             {
-                int bossInd = availableEnemies;
-                if (availableEnemies > biomes.forestBoss.Length-1)
+                if (bossInd > biomes.forestBoss.Length-1)
                 {
                     bossInd = biomes.forestBoss.Length - 1;
                 }
                 spawnObj(biomes.forestBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
             } else if (level == 2)
             {
-                int bossInd = availableEnemies;
-                if (availableEnemies > biomes.desertBoss.Length-1)
+                if (bossInd > biomes.desertBoss.Length-1)
                 {
                     bossInd = biomes.desertBoss.Length - 1;
                 }
@@ -276,7 +275,6 @@ namespace Rougelee
         {
             System.Random rand = new System.Random();
             int quadrant;
-            int maxEnemies = 20;
             targetPos = playerObject.transform.position;
             for (int numEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; numEnemies < maxEnemies; numEnemies++)
             {
