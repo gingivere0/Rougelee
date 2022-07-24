@@ -218,7 +218,7 @@ namespace Rougelee
             myAnim.Play("executionerdeath");
             if (!bossKilled)
             {
-                Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
+                Transform obelisk = Instantiate(GameAssets.i.obelisk, transform.position, Quaternion.identity);
                 portalPos = (targetPos + (new Vector2(0, 3)));
                 Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
                 bossKilled = true;

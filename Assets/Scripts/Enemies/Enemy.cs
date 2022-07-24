@@ -86,10 +86,19 @@ namespace Rougelee
             {
                 targetPos = playerObject.transform.position;
             }
+            FacePlayer();
             if (canMove)
             {
-                FacePlayer();
                 Move();
+            }
+            else
+            {
+                if (rb != null && transform != null)
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.isKinematic = true;
+                }
+
             }
             if (stunTime < 0)
             {
@@ -110,6 +119,7 @@ namespace Rougelee
         {
             if (rb != null && transform != null)
             {
+                rb.isKinematic = false;
                 rb.velocity = (targetPos - (Vector2)transform.position).normalized * new Vector2(movespeed, movespeed);
             }
         }

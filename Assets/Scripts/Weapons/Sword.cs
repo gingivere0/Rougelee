@@ -11,7 +11,7 @@ namespace Rougelee
         void Awake()
         {
             movespeed = 5;
-            damage = 4;
+            damage = 10;
             cooldown = 1;
             if (UpgradeTree.iceSword)
             {
@@ -41,7 +41,7 @@ namespace Rougelee
                 upgrades[1] = new Upgrade("Add persistence to your Sword Attack", PersistentSword);
             }
             //if you have the ice upgrade, don't have ice sword, and your sword is level 15
-            if (!UpgradeTree.iceSword && UpgradeTree.swordLevel >= 10)
+            if (!UpgradeTree.iceSword && UpgradeTree.swordLevel >= 10 && UpgradeTree.manyIce)
             {
                 upgrades[1] = new Upgrade("Freeze your sword, causing crits!", IceBlade);
             }

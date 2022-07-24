@@ -79,3 +79,4 @@ MonoBehaviour:
   pfDamagePopup: {fileID: 1138286345547842635, guid: f07a36d9682aab24cb3545ade0aeab3c, type: 3}
   chest: {fileID: 6963752670477768829, guid: 88d93437e5dc4e64b8425eb890998f99, type: 3}
   portal: {fileID: 8641306375497445574, guid: a7ed81044dadd0348a6b187962705719, type: 3}
+  obelisk: {fileID: 8433085215611267965, guid: 7af7b4cd6028276418b4810a0b0b1206, type: 3}

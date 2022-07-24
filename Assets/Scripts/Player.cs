@@ -249,6 +249,12 @@ namespace Rougelee
             }
         }
 
+        public void SetHP(int hp)
+        {
+            this.hp = hp;
+            healthUI.SetHP(hp);
+        }
+
         void OnTriggerEnter2D(Collider2D col)
         {
             if (Time.time - timeHit > invulnTime)

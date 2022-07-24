@@ -15,7 +15,7 @@ namespace Rougelee
         public static bool persistentSword = false;
         public static bool movingSword = false;
         public static bool spinSword = false;
-        public static bool iceSword = false;
+        public static bool iceSword = true;
 
         public static int swordProj = 36;
 

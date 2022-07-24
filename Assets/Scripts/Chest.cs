@@ -7,6 +7,7 @@ namespace Rougelee
     public class Chest : MonoBehaviour
     {
         public Animator myAnim;
+        public int dropType;
 
         bool opened = false;
 
@@ -24,7 +25,7 @@ namespace Rougelee
             if (opened && !AnimatorIsPlaying())
             {
                 Treasure treasure = (Treasure)GameObject.Find("Canvas").GetComponent(typeof(Treasure));
-                ChestDrop cd = new ChestDrop();
+                ChestDrop cd = new ChestDrop(dropType);
                 treasure.Activate(cd);
                 Destroy(gameObject);
             }

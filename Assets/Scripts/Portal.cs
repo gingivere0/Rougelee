@@ -33,7 +33,10 @@ namespace Rougelee
         {
             if (col.gameObject.tag == "Player")
             {
-                myAnim.SetTrigger("close");
+                if (myAnim != null)
+                {
+                    myAnim.SetTrigger("close");
+                }
                 opened = true;
             }
         }

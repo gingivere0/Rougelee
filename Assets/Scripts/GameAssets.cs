@@ -20,4 +20,6 @@ public class GameAssets : MonoBehaviour
 
     public Transform portal;
 
+    public Transform obelisk;
+
 }
