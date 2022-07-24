@@ -7,7 +7,7 @@ namespace Rougelee
     public class Biomes : MonoBehaviour
     {
         public GameObject[] dungeonFloor;
-        public GameObject[] forestFloor;
+        public GameObject[] oceanForestFloor;
         public GameObject[] desertFloor;
 
         public GameObject[] dungeonEnemy;

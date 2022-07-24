@@ -2042,7 +2042,7 @@ MonoBehaviour:
   dungeonFloor:
   - {fileID: 892382219703576668, guid: 300fdbd45171071498322e032a25d551, type: 3}
   - {fileID: 4982521957340492656, guid: a329f6a7ee29fa64f9b13824b04649bd, type: 3}
-  forestFloor:
+  oceanForestFloor:
   - {fileID: 9171897986998822314, guid: 40610c3af7d2a3341ac5ebca0c57e025, type: 3}
   - {fileID: 274170317216411370, guid: b239638493b3cc64cb88af37a8a6b9b1, type: 3}
   - {fileID: 8321509262527410135, guid: a92879d988bca1540ae751a68ccf0c98, type: 3}
@@ -3979,7 +3979,7 @@ MonoBehaviour:
   width: 60
   height: 40
   biomes: {fileID: 559684458}
-  level: 1
+  level: 2
 --- !u!212 &1179015578
 SpriteRenderer:
   m_ObjectHideFlags: 0

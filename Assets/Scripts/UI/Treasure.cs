@@ -31,7 +31,7 @@ namespace Rougelee
         public void Activate(ChestDrop cd)
         {
             treasureObject.SetActive(true);
-            buttonOne = (UnityEngine.UI.Button)GameObject.Find("firstOption").GetComponent(typeof(UnityEngine.UI.Button));
+            buttonOne = (UnityEngine.UI.Button)treasureObject.transform.GetChild(0).GetComponent(typeof(UnityEngine.UI.Button));
             buttonOne.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = cd.GetText(0);
             buttonOne.Select();
 

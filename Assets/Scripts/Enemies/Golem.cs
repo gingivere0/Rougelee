@@ -6,7 +6,6 @@ namespace Rougelee
 {
     public class Golem : Enemy
     {
-        bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
         protected Vector2 portalPos;
@@ -234,13 +233,6 @@ namespace Rougelee
             base.Dead(deathTimer, deathAnim);
             // TODO: uncomment
             myAnim.Play("golemdeath");
-            if (!bossKilled)
-            {
-                Transform obelisk = Instantiate(GameAssets.i.obelisk, transform.position, Quaternion.identity);
-                portalPos = (targetPos + (new Vector2(0, 3)));
-                Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
-                bossKilled = true;
-            }
         }
     }
 }

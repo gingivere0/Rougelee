@@ -15,7 +15,7 @@ namespace Rougelee
         public static bool persistentSword = false;
         public static bool movingSword = false;
         public static bool spinSword = false;
-        public static bool iceSword = true;
+        public static bool iceSword = false;
 
         public static int swordProj = 36;
 
@@ -64,6 +64,9 @@ namespace Rougelee
 
         public static float nextLevelMult = 1.25f;
 
+        public static int bossesKilled = 0;
+
+        public static bool autoShoot = false;
 
 
     }

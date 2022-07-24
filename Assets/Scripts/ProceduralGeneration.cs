@@ -50,8 +50,17 @@ namespace Rougelee
             }
             else if (level == 1)
             {
+                //TODO add ocean enemies
+                //enemyList = biomes.oceanEnemy;
                 enemyList = biomes.forestEnemy;
-                GenerateForest(0,0);
+                GenerateOcean(0,0);
+            }else if (level == 2)
+            {
+                //TODO add ocean enemies
+                //enemyList = biomes.oceanEnemy;
+                enemyList = biomes.forestEnemy;
+                GenerateForest(0, 0);
+
             }
             else
             {
@@ -75,6 +84,10 @@ namespace Rougelee
             {
                 increaseLevel = false;
                 level++;
+                if (level > 3)
+                {
+                    level = 0;
+                }
                 currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
                 currentTiles = GameObject.FindGameObjectsWithTag("Floor");
                 foreach (GameObject enemy in currentEnemies)
@@ -95,6 +108,13 @@ namespace Rougelee
                     enemyList = biomes.forestEnemy;
                     GenerateForest((int)targetPos.x, (int)targetPos.y);
                 }
+                else if (level == 2)
+                {
+                    //TODO add ocean enemies
+                    //enemyList = biomes.oceanEnemy
+                    enemyList = biomes.forestEnemy;
+                    GenerateOcean((int)targetPos.x, (int)targetPos.y);
+                }
                 else
                 {
                     enemyList = biomes.desertEnemy;
@@ -109,21 +129,32 @@ namespace Rougelee
             int bossInd = (UIManager.minutes/2)-1;
             if (level == 0)
             {
-                if(bossInd > biomes.dungeonBoss.Length-1)
+                if (bossInd > biomes.dungeonBoss.Length - 1)
                 {
                     bossInd = 0;
                 }
-                spawnObj(biomes.dungeonBoss[bossInd],(int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
-            } else if (level == 1)
+                spawnObj(biomes.dungeonBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
+            }
+            else if (level == 1)
             {
-                if (bossInd > biomes.forestBoss.Length-1)
+                if (bossInd > biomes.forestBoss.Length - 1)
                 {
                     bossInd = biomes.forestBoss.Length - 1;
                 }
                 spawnObj(biomes.forestBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
-            } else if (level == 2)
+            }
+            else if (level == 2)
             {
-                if (bossInd > biomes.desertBoss.Length-1)
+                //TODO add forest/ocean bosses
+                if (bossInd > biomes.forestBoss.Length - 1)
+                {
+                    bossInd = biomes.forestBoss.Length - 1;
+                }
+                spawnObj(biomes.forestBoss[bossInd], (int)(playerObject.transform.position.x + enemyXSpawn), (int)playerObject.transform.position.y);
+            }
+            else if (level == 3)
+            {
+                if (bossInd > biomes.desertBoss.Length - 1)
                 {
                     bossInd = biomes.desertBoss.Length - 1;
                 }
@@ -259,7 +290,12 @@ namespace Rougelee
             }
             else if (level == 1)
             {
-                GenerateForestTile(x, y);
+                GenerateOceanTile(x, y);
+            }else if (level == 2)
+            {
+                //TODO add forest tiles
+                //GenerateForestTile(x,y);
+                GenerateOceanTile(x, y);
             }
             else
             {
@@ -353,29 +389,58 @@ namespace Rougelee
 
         }
 
-        // spawns single forest tile at position (x,y)
+        // spawns single ocean tile at position (x,y)
         void GenerateForestTile(int x,int y)
         {
             System.Random rand = new System.Random();
             if ((x % 5 == 0 || y % 5 == 0) && rand.Next(0, 3) == 0)
             {
-                int randomForesttileIndex = rand.Next(1, biomes.forestFloor.Length);
-                spawnObj(biomes.forestFloor[randomForesttileIndex], x, y);
+                spawnObj(biomes.oceanForestFloor[0], x, y);
             }
             else
             {
-                spawnObj(biomes.forestFloor[0], x, y);
+                int randomForesttileIndex = rand.Next(1, biomes.oceanForestFloor.Length);
+                spawnObj(biomes.oceanForestFloor[randomForesttileIndex], x, y);
             }
         }
 
         void GenerateForest(int startx, int starty)
         {
             //starting at the negative half the width and negative half the height from (startx, starty), spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
+            for (int x = (int)(-1 * (width / 2) + startx); x < (int)(width / 2) + startx; x++)
+            {
+                for (int y = (int)(-1 * (height / 2) + starty); y < (int)(height / 2) + starty; y++)
+                {
+                    //TODO get forest tiles instead of ocean
+                    //GenerateForestTile(x, y);
+                    GenerateOceanTile(x, y);
+                }
+            }
+        }
+
+        // spawns single ocean tile at position (x,y)
+        void GenerateOceanTile(int x, int y)
+        {
+            System.Random rand = new System.Random();
+            if ((x % 5 == 0 || y % 5 == 0) && rand.Next(0, 3) == 0)
+            {
+                int randomOceantileIndex = rand.Next(1, biomes.oceanForestFloor.Length);
+                spawnObj(biomes.oceanForestFloor[randomOceantileIndex], x, y);
+            }
+            else
+            {
+                spawnObj(biomes.oceanForestFloor[0], x, y);
+            }
+        }
+
+        void GenerateOcean(int startx, int starty)
+        {
+            //starting at the negative half the width and negative half the height from (startx, starty), spawns width by height size grid of dungeon floors, with dungeon floors2 every 10 blocks
             for (int x = (int)(-1 * (width / 2)+startx); x < (int)(width / 2)+startx; x++)
             {
                 for (int y = (int)(-1 * (height / 2)+starty); y < (int)(height / 2)+starty; y++)
                 {
-                    GenerateForestTile(x,y);
+                    GenerateOceanTile(x,y);
                 }
             }
         }

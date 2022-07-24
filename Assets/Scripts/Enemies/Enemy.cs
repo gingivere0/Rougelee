@@ -33,6 +33,7 @@ namespace Rougelee
 
         protected bool isFrozen = false;
 
+        bool bossKilled = false;
 
         // Start is called before the first frame update
         void Start()
@@ -46,14 +47,14 @@ namespace Rougelee
             initMovespeed = movespeed;
 
             // TODO: MAKE THIS GOOD
-            hp = hp + hp * 2*UIManager.minutes;
+            hp = hp + hp * 2 * UIManager.minutes;
         }
 
         // Update is called once per frame
         void Update()
         {
             //if enemy gets too far away, kill it and spawn another
-            
+
 
         }
 
@@ -67,7 +68,8 @@ namespace Rougelee
             if (tooFar && gameObject.tag != "Boss")
             {
                 Destroy(gameObject);
-            }else if (tooFar && gameObject.tag == "Boss")
+            }
+            else if (tooFar && gameObject.tag == "Boss")
             {
                 Vector2 newPos = playerObject.transform.position;
                 newPos.x += 20;
@@ -82,7 +84,7 @@ namespace Rougelee
                 invuln = false;
                 gameObject.layer = 6;
             }
-            if (playerObject != null && playerObject.transform !=null && playerObject.transform.position!=null)
+            if (playerObject != null && playerObject.transform != null && playerObject.transform.position != null)
             {
                 targetPos = playerObject.transform.position;
             }
@@ -105,10 +107,11 @@ namespace Rougelee
                 canMove = true;
                 stunTime = 2;
             }
-            if(movespeed < initMovespeed)
+            if (movespeed < initMovespeed)
             {
-                movespeed += Time.deltaTime*5;
-            }else if (movespeed > initMovespeed)
+                movespeed += Time.deltaTime * 5;
+            }
+            else if (movespeed > initMovespeed)
             {
                 movespeed = initMovespeed;
             }
@@ -137,9 +140,9 @@ namespace Rougelee
 
         public bool Hit(ShotProjectile projectile)
         {
-            if ( !invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit))))
+            if (!invuln || (lasthit != null && !(projectile.GetType().Name.Equals(lasthit))))
             {
-                if((projectile.GetType().Name == "Sword" && UpgradeTree.iceSword ) || projectile.GetType().Name == "Ice")
+                if ((projectile.GetType().Name == "Sword" && UpgradeTree.iceSword) || projectile.GetType().Name == "Ice")
                 {
                     if (isFrozen)
                     {
@@ -163,7 +166,7 @@ namespace Rougelee
                 movespeed *= -1;
                 return true;
             }
-            
+
             return false;
         }
 
@@ -178,7 +181,28 @@ namespace Rougelee
                     Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
                     //chest.gameObject.animator
                 }
-                playerObject.GetComponent<Player>().xp+=xpdrop;
+                playerObject.GetComponent<Player>().xp += xpdrop;
+                if (!bossKilled && transform.tag == "Boss")
+                {
+                    
+                    Vector2 portalPos = (targetPos + (new Vector2(0, 3)));
+                    Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
+                    bossKilled = true;
+                    UpgradeTree.bossesKilled++;
+
+                    //chance to get autofire after 3 bosses
+                    //otherwise spawn obelisk
+                    int chestRoll = Random.Range(0, 3);
+
+                    if(true || (UpgradeTree.bossesKilled > 3 && chestRoll == 0))
+                    {
+                        Transform autoChest = Instantiate(GameAssets.i.autoChest, transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Transform obelisk = Instantiate(GameAssets.i.obelisk, transform.position, Quaternion.identity);
+                    }
+                }
             }
 
             gameObject.layer = 9;
@@ -194,15 +218,7 @@ namespace Rougelee
             {
                 myAnim.Play(deathAnim);
             }
-            //transform.Rotate(0, 0, 270);
-            if (deathTimer == 0)
-            {
-                Destroy(gameObject, .6f);
-            }
-            else
-            {
-                Destroy(gameObject, deathTimer);
-            }
+            Destroy(gameObject, deathTimer);
         }
     }
 }

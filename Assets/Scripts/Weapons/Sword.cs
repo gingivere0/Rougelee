@@ -11,7 +11,7 @@ namespace Rougelee
         void Awake()
         {
             movespeed = 5;
-            damage = 10;
+            damage = 100;
             cooldown = 1;
             if (UpgradeTree.iceSword)
             {

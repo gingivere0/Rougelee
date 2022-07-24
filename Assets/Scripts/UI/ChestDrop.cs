@@ -34,9 +34,21 @@ namespace Rougelee
             else if(dropType == 1)
             {
                 PopulateWeaponList();
+            }else if (dropType == 2)
+            {
+                upgrades.Add(new Upgrade("Automatically use all equipped weapons!", () =>
+                {
+                    UpgradeTree.autoShoot = true;
+                }));
+                upgrades.Add(new Upgrade("Discard", () =>{}));
             }
             rewardIndices = new int[2];
             GenerateIndices();
+            if(dropType == 2)
+            {
+                rewardIndices[0] = 0;
+                rewardIndices[1] = 1;
+            }
         }
 
         private void PopulateWeaponList()

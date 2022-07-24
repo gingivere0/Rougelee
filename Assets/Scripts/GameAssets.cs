@@ -22,4 +22,6 @@ public class GameAssets : MonoBehaviour
 
     public Transform obelisk;
 
+    public Transform autoChest;
+
 }

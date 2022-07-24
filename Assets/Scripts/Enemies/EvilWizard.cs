@@ -8,10 +8,8 @@ namespace Rougelee
     {
         public GameObject greenAttack;
 
-        bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
-        protected Vector2 portalPos;
         float attackTime;
         public bool startedAttack = false;
         public bool isShooting = false;
@@ -169,13 +167,6 @@ namespace Rougelee
         {
             base.Dead(deathTimer, deathAnim);
             myAnim.Play("wizarddeath");
-            if (!bossKilled)
-            {
-                Transform obelisk = Instantiate(GameAssets.i.obelisk, transform.position, Quaternion.identity);
-                portalPos = (targetPos + (new Vector2(0, 3)));
-                Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
-                bossKilled = true;
-            }
         }
     }
 }

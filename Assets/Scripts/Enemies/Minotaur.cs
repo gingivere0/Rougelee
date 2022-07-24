@@ -6,7 +6,6 @@ namespace Rougelee
 {
     public class Minotaur : Enemy
     {
-        bool bossKilled = false;
         bool facingLeft = true;
         Vector2 myScale;
         protected Vector2 portalPos;
@@ -51,14 +50,6 @@ namespace Rougelee
         public override void Dead(float deathTimer = .6f, string deathAnim = "splatter")
         {
             base.Dead();
-            if (!bossKilled)
-            {
-                //Transform chest = Instantiate(GameAssets.i.chest, transform.position, Quaternion.identity);
-                Transform obelisk = Instantiate(GameAssets.i.obelisk, transform.position, Quaternion.identity);
-                portalPos = (targetPos + (new Vector2(0, 3)));
-                Transform portal = Instantiate(GameAssets.i.portal, portalPos, Quaternion.identity);
-                bossKilled = true;
-            }
         }
     }
 }

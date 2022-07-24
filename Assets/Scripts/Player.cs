@@ -136,21 +136,20 @@ namespace Rougelee
 
         void Shoot()
         {
-            if (shootWeaponOne)
+            if (shootWeaponOne || UpgradeTree.autoShoot)
             {
-                if (character.UseWeapon(0)){
-                }
+                character.UseWeapon(0);
 
             }
-            if (shootWeaponTwo)
+            if (shootWeaponTwo || UpgradeTree.autoShoot)
             {
                 character.UseWeapon(1);
             }
-            if (shootWeaponThree)
+            if (shootWeaponThree || UpgradeTree.autoShoot)
             {
                 character.UseWeapon(2);
             }
-            if (shootWeaponFour)
+            if (shootWeaponFour || UpgradeTree.autoShoot)
             {
                 character.UseWeapon(3);
             }
