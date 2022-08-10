@@ -194,7 +194,7 @@ namespace Rougelee
                     //otherwise spawn obelisk
                     int chestRoll = Random.Range(0, 3);
 
-                    if(true || (UpgradeTree.bossesKilled > 3 && chestRoll == 0))
+                    if(!UpgradeTree.autoShoot && UpgradeTree.bossesKilled > 3 && chestRoll == 0)
                     {
                         Transform autoChest = Instantiate(GameAssets.i.autoChest, transform.position, Quaternion.identity);
                     }
